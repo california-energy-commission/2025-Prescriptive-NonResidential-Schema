@@ -12758,6 +12758,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:element name="responsibleDesigner01_NameNRCC" type="comp:PersonFullName" minOccurs="0"/>
          <xsd:element name="responsibleDesigner02_SignatureNRCC" type="comp:ElectronicSignature" minOccurs="0"/>
          <xsd:element name="responsiblePerson03_Company" type="comp:Company" minOccurs="0"/>
+         <xsd:element name="responsiblePerson03a_Scope" type="comp:Scope" minOccurs="0"/>
          <xsd:element name="responsiblePerson04_DateSigned" type="comp:SignatureDate" minOccurs="0"/>
          <xsd:element name="responsiblePerson06_Address" type="comp:StreetAddress" minOccurs="0"/>
          <xsd:element name="responsiblePerson07_License" type="comp:LicenseNumber" minOccurs="0"/>
@@ -13040,6 +13041,14 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="ReqNo"/>
          <xsd:enumeration value="ReqYes"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Scope">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Responsible Person Scope</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="ScopeIncludeNew">
       <xsd:annotation>
