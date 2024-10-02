@@ -51,7 +51,7 @@ End If</xsd:documentation>
 									<xsd:sequence>
 										<xsd:element name="MM_BeforeNote1" minOccurs="0">
 											<xsd:annotation>
-												<xsd:documentation source="FieldText">[d:b][d:i]2022 Nonresidential Energy Standards Compliance (Title 24, Part 6)[/d:i][/d:b]</xsd:documentation>
+												<xsd:documentation source="FieldText">[d:b][d:i]2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)[/d:i][/d:b]</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 										<xsd:element name="MM_BeginNote1" minOccurs="0">
@@ -1490,10 +1490,7 @@ End If</xsd:documentation>
                                     <xsd:element name="H04_MotionSensorCompliance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Motion Sensor  [d:line1/] [d:t24refnolink/]130.2(c)3 / [d:t24refnolink/]160.5(c)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: 
-MotionSensorCompliant  display term Yes, 
-FacadeGTE24Ft display term NA: Facade, etc. [d:gte/]24 ft, FacadeLTE24Ft display term NA: Facade, etc. [d:lt/] 24ft,
-WallGTE24Ft display term NA: Wall [d:gte/]24 ft, MultifamilyLightingNA display term NA: MF Complying w 160.5(a), NotPermittedNA display term NA: Not permitted by H&amp;LS, TunnelsNA display term NA: Lighting in Tunnels, AthleticNA display term NA: Athletic Fields/Playgrounds Lighting, HistoricBuildingNA display term NA: Historical Building Lighting, IndustrialNA display term NA: Industrial Sites Lighting, LandscapeNA display term NA: Landscape Lighting, LuminaireLT40NA display term NA: Each Luminaire less than or equal to 40 Watts, MonumentNA display term NA: Public Monument Lighting, PublicRoadNA display term NA: Lighting for Public Roadways, RegulatedNA display term NA: Regulated by FAA or Coast Guard, StairsRampNA display term NA: Stairs Wheelchair Lift/Ramp Lighting, ThemeParkNA display term NA: Theme Park Special Effect Lighting, TimeOutNA display term H&amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent, OutdoorTheaterNA display term NA: Outdoor Theater, ParkingLuminaireLT78NA display term NA: Parking Lot each Luminaire less than 48 Watts
+                                          <xsd:documentation source="CalculationsAndRules">User selects from full dropdown list: 
  
 Mandatory Measure Triggers:
 If result == MotionSensorCompliant 
@@ -1522,6 +1519,8 @@ End If</xsd:documentation>
                                              <xsd:enumeration value="ThemeParkNA"/>
                                              <xsd:enumeration value="TimeOutNA"/>
                                              <xsd:enumeration value="TunnelsNA"/>
+                                             <xsd:enumeration value="OrnamentalNA"/>
+                                             <xsd:enumeration value="OutdoorDiningNA"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -1779,7 +1778,7 @@ then result = BlankGrayedOut  stored in I01c_NotApplicableMessage and field is g
                                                       <xsd:element name="I04_HardscapeAllowedLPD" type="comp:HardscapeAllowedLPD" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Allowed Density (W/ft[d:sup]2[/d:sup])</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value in W /ft2  from 2022 Table 140.7-A  
+                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value in W /ft2  from 2025 Table 140.7-A  
 If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 0;  
 Else  If A03_OutdoorLightingZoneType == OutdoorLZ1 result = 0.016; 
 Else  If A03_OutdoorLightingZoneType ==  OutdoorLZ2 result = 0.019
@@ -1803,7 +1802,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="I07_HardscapeAllowedLinearDensity" type="comp:HardscapeAllowedLinearDensity" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Allowed Density (W/lf)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value in W /lf  from 2022 Table 140.7-A  
+                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value in W /lf  from 2025 Table 140.7-A  
 If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 0;
  Else If A03_OutdoorLightingZoneType == OutdoorLZ1 result = 0.13; 
 Else If A03_OutdoorLightingZoneType ==  OutdoorLZ2 result = 0.15
@@ -1835,7 +1834,7 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:b]Initial Wattage Allowance for Entire Site (Watts):[/d:b]</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out; 
-Else calculated Value in W  from 2022 Table 140.7-A 
+Else calculated Value in W  from 2025 Table 140.7-A 
  If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 15;
  Else If A03_OutdoorLightingZoneType ==   OutdoorLZ1 result = 150; 
 Else If A03_OutdoorLightingZoneType ==   OutdoorLZ2
@@ -1938,7 +1937,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="I04mf_HardscapeAllowedLPD" type="comp:HardscapeAllowedLPD" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Allowed Density  (W/ft[d:sup]2[/d:sup])</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value in W /ft2  from 2022 Table 170.2-R   
+                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value in W /ft2  from 2025 Table 170.2-R   
 If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 0.00; 
 Else If A03_OutdoorLightingZoneType == OutdoorLZ1 result = 0.026
 Else If A03_OutdoorLightingZoneType == OutdoorLZ2 result = 0.03;   
@@ -1965,7 +1964,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">[d:b]Initial Wattage Allowance for Entire Site (Watts):[/d:b]</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true 
 result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
-Else calculated Value in W  from 2022 Table 170.2-R   
+Else calculated Value in W  from 2025 Table 170.2-R   
 If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 15 
 Else If A03_OutdoorLightingZoneType == OutdoorLZ1 result = 300
 Else If A03_OutdoorLightingZoneType == OutdoorLZ2 result = 350  
