@@ -45,7 +45,7 @@ End If</xsd:documentation>
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">
                                        <d:b>
-                                          <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
+                                          <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                                        </d:b>
                                     </xsd:documentation>
                                  </xsd:annotation>
@@ -414,16 +414,6 @@ End If</xsd:documentation>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="BEndNote2" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:i><d:sup>2</d:sup>The ENERGY VERIFIED Label compliance method is only applicable if the sign has a permanent, factory-installed, ENERGY VERIFIED label certified by UL or comparable, confirming the sign complies with  
-                              <d:t24refnolink/>140.8/ 
-                              <d:t24refnolink/>170.2(e).    Note that using an ENERGY VERIFIED label is an optional compliance path, not a mandatory requirement.  See the tooltips for this table for more details.</d:i>
-                        </xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="BErrorMessage_SectionErrorMessage" type="comp:SectionErrorMessage" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
@@ -591,39 +581,6 @@ End if</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">OR</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C06_IsMethodEnergyVerifiedLabel" type="comp:IsMethodEnergyVerifiedLabel">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">ENERGY VERIFIED Label 
-                                                <d:line1/> (See Table H)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">For sign defined in C01_LightedSignName: 
-If B05 LightedSignPrescriptiveMethod == EnergyVerifiedLabel 
-result = true and display term is Yes; 
-
-Else If B05 LightedSignPrescriptiveMethod != EnergyVerifiedLabel,  
-result = BlankGrayedOut stored in C06_NotApplicableMessage and the cell is grayed out.
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C06_NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">ENERGY VERIFIED Label 
-                                                <d:line1/> (See Table H)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">For sign defined in C01_LightedSignName: 
-If B05 LightedSignPrescriptiveMethod == EnergyVerifiedLabel 
-result = true and display term is Yes; 
-
-Else If B05 LightedSignPrescriptiveMethod != EnergyVerifiedLabel,  
-result = BlankGrayedOut stored in C06_NotApplicableMessage and the cell is grayed out.
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
                                     <xsd:element name="C07_DoesLightedSignComply" type="comp:DoesLightedSignComply">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">
@@ -631,7 +588,6 @@ End If</xsd:documentation>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If C03_LightedSignAllowedPower GTE  C04_LightedSignDesignedPower 
 Or If C05_IsAlternateLightSourceMethodCompliant == true 
-Or If C06 IsMethodEnergyVerifiedLabel == true then 
 result = true and display term is COMPLIES, 
 
 Else result = false and display term is DOES NOT COMPLY
@@ -641,7 +597,7 @@ End if</xsd:documentation>
                                     <xsd:element name="C07Controls_LightedSignControlsCompliance" type="comp:LightedSignControlsCompliance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">
-                                             <d:b>Controls Compliance (See Table F/G/H for Details)</d:b>
+                                             <d:b>Controls Compliance (See Table F/G for Details)</d:b>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Section F controls:  
 If B05_LightedSignPrescriptiveMethod == MaximumAllowedPower  then 
@@ -715,7 +671,7 @@ Display terms: If result == Compliant display term is COMPLIES; Else If result =
                                     <xsd:element name="D01_SectionTitle" type="comp:SectionTitle">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"/>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled with the section title string + Permit Applicant Notes. For section F result = F. Maximum Allowed Lighting Power and Controls Permit Applicant Notes.  For section G result = G. Light Sources and Controls Permit Applicant Notes For section H result = H. Energy Verified Labeled Signs and Controls Permit Applicant Notes</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled with the section title string + Permit Applicant Notes. For section F result = F. Maximum Allowed Lighting Power and Controls Permit Applicant Notes.  For section G result = G. Light Sources and Controls Permit Applicant Notes</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D02_SectionExceptionalConditionNotes" type="comp:SectionExceptionalConditionNotes" maxOccurs="unbounded">
@@ -1336,7 +1292,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>I. DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
+                  <d:b>H. DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
                </xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
@@ -1368,7 +1324,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_Nrca" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>J. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE </d:b>
+                  <d:b>I. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE </d:b>
                </xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
