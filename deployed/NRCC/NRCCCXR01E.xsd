@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCCCXR01E" version="2022.0.000" xmlns="http://www.lmonte.com/besm/NRCCCXR01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCCCXR01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/NRCCCXR01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/NrPresCompliance.xsd"/>
@@ -148,7 +148,7 @@ End if</xsd:documentation>
             <xsd:element name="Report" type="xsd:base64Binary" minOccurs="0"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTagNR" fixed="NRCCCXRE"/>
       </xsd:complexType>
    </xsd:element>
@@ -288,7 +288,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
                            <d:b>
-                              <d:i>STOP! Healthcare facilities are not required to comply with the Commissioning requirements in Part 6, but must comply with the applicable requirements in Chapter 7 of Title 24 Part 1 (OSHPD).</d:i>
+                              <d:i>STOP! Healthcare facilities are not required to comply with the Commissioning requirements in Part 6, but must comply with the applicable requirements in Chapter 7 of Title 24 Part 1 (HCAI).</d:i>
                            </d:b>
                         </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A02_CommissioningOccupancy == Healthcare 
@@ -1638,31 +1638,43 @@ End If</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G25_TempHumidityDraftControlGoalsOPR" type="comp:TempHumidityDraftControlGoalsOPR">
+                           <xsd:element name="G25_AirsideOperationGuideline36GoalsOPR" type="comp:AirsideOperationGuideline36GoalsOPR">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Will the airside system sequences of operation be specified as ASHRAE Guideline 36?</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="G26_WatersideOperationGuideline36GoalsOPR" type="comp:WatersideOperationGuideline36GoalsOPR">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Will the waterside system sequences of operation be specified as ASHRAE Guideline 36?</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="G27_TempHumidityDraftControlGoalsOPR" type="comp:TempHumidityDraftControlGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Explain the requirements of the HVAC system in regards to temperature, humidity and draft control.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G26_IndoorAirQualityGoalsOPR" type="comp:IndoorAirQualityGoalsOPR">
+                           <xsd:element name="G28_IndoorAirQualityGoalsOPR" type="comp:IndoorAirQualityGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Explain the requirements of the facility in regards to indoor air quality</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G27_HvacAcousticGoalsOPR" type="comp:HvacAcousticGoalsOPR">
+                           <xsd:element name="G29_HvacAcousticGoalsOPR" type="comp:HvacAcousticGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What are the acoustic requirements of the HVAC system within the various spaces of the facility?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G28_HvacOperationsMaintenanceGoalsOPR" type="comp:HvacOperationsMaintenanceGoalsOPR">
+                           <xsd:element name="G30_HvacOperationsMaintenanceGoalsOPR" type="comp:HvacOperationsMaintenanceGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe the maintenance plan and how the HVAC design needs to address operation and maintenance issues.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G29_HvacNotesGoalsOPR" type="comp:HvacNotesGoalsOPR" minOccurs="0">
+                           <xsd:element name="G31_HvacNotesGoalsOPR" type="comp:HvacNotesGoalsOPR" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Additional notes regarding HVAC system efficiency</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If there are any additional notes regarding HVAC OPR goals the user enters them here, Else this field is not required</xsd:documentation>
