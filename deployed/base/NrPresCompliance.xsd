@@ -2573,6 +2573,15 @@
          <xsd:enumeration value="ControlsPreventReheat"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="CondensateDrain">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
    <xsd:simpleType name="CondenserCapTHR">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -2793,16 +2802,31 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ControlledReceptacle50PercentHotelMotel">50 % are controlled receptacle (hotel/motel room)</dtyp:displayterm>
-            <dtyp:displayterm value="SplitWiredReceptacle">Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
+            <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with 
+               <d:gte/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>
+            <dtyp:displayterm value="HealthNA">NA: Healthcare Facility</dtyp:displayterm>
+            <dtyp:displayterm value="DataEquipmentNA">NA: Data Equipment Receptacle</dtyp:displayterm>
+            <dtyp:displayterm value="20AmpCircuitNA">NA: Circuit 
+               <d:gt/> 20 Amperes</dtyp:displayterm>
+            <dtyp:displayterm value="UPS247UsageNA">NA: Uninteruptible Power Supply Receptacle intended for 24/7/365</dtyp:displayterm>
+            <dtyp:displayterm value="ClockReceptacleGT6FtHigh">NA: Clock Receptacle 
+               <d:gte/> 6FT Above Floor</dtyp:displayterm>
+            <dtyp:displayterm value="RefrigeratorWaterDispenserNA">NA: Refrigerator/Water Dispenser Receptacle</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ControlledReceptacle50PercentHotelMotel"/>
-         <xsd:enumeration value="SplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>
+         <xsd:enumeration value="MultipleReceptacleControlledAndUncontrolled"/>
+         <xsd:enumeration value="HealthNA"/>
+         <xsd:enumeration value="DataEquipmentNA"/>
+         <xsd:enumeration value="20AmpCircuitNA"/>
+         <xsd:enumeration value="UPS247UsageNA"/>
+         <xsd:enumeration value="ClockReceptacleGT6FtHigh"/>
+         <xsd:enumeration value="RefrigeratorWaterDispenserNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ControlledReceptacleDemandResponse">
@@ -7054,6 +7078,15 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:documentation>Units: Btu per h</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="HeatPumpWHReady">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="HeatRecoveryExemptions">
       <xsd:annotation>
@@ -11532,6 +11565,15 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="Ready125V">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
    <xsd:simpleType name="Ready240V">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -15574,6 +15616,24 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterIndividualDwellingUnit">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterMultipleDwellingUnit">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterQualificationDistance">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
@@ -15591,6 +15651,15 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterTankReady">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterToBath">
       <xsd:annotation>
@@ -15618,6 +15687,15 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterVentilation">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterWeightedDistance">
       <xsd:annotation>
