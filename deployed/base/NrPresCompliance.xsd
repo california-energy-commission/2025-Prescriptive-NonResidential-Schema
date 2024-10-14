@@ -5771,7 +5771,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ControlNoteMissingInF">Table F. indicates a control requiring a note describing the compliance approach, but no notes have been entered.</dtyp:displayterm>
             <dtyp:displayterm value="ControlNoteMissingInG">Table G. indicates a control requiring a note describing the compliance approach, but no notes have been entered.</dtyp:displayterm>
-            <dtyp:displayterm value="ControlNoteMissingInH">Table H. indicates a control requiring a note describing the compliance approach, but no notes have been entered.</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -9187,8 +9186,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AthleticNA">NA: Athletic Fields/Playgrounds Lighting</dtyp:displayterm>
-            <dtyp:displayterm value="FacadeLTE24Ft">NA: Facade, etc. 
-               <d:lt/>24 ft</dtyp:displayterm>
+            <dtyp:displayterm value="FacadeNA">NA: Facade</dtyp:displayterm>
             <dtyp:displayterm value="GTE24Ft">NA: 
                <d:gte/>24 ft</dtyp:displayterm>
             <dtyp:displayterm value="HistoricBuildingNA">NA: Historical Building Lighting</dtyp:displayterm>
@@ -9218,7 +9216,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AthleticNA"/>
-         <xsd:enumeration value="FacadeLTE24Ft"/>
+         <xsd:enumeration value="FacadeNA"/>
          <xsd:enumeration value="GTE24Ft"/>
          <xsd:enumeration value="HistoricBuildingNA"/>
          <xsd:enumeration value="IndustrialNA"/>
@@ -15266,7 +15264,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    <xsd:simpleType name="UseOrLoseApplicationType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ATM">ATM Machine</dtyp:displayterm>
+            <dtyp:displayterm value="ATM">ATM</dtyp:displayterm>
             <dtyp:displayterm value="DriveupWindow">Drive up Window</dtyp:displayterm>
             <dtyp:displayterm value="EntranceExit">Building Entrance/Exit</dtyp:displayterm>
             <dtyp:displayterm value="FuelDispenser">Uncovered Fuel Dispenser</dtyp:displayterm>

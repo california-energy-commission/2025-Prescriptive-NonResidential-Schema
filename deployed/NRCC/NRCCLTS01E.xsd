@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCCLTS01E" version="2022.0.000" xmlns="http://www.lmonte.com/besm/NRCCLTS01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCCLTS01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/NRCCLTS01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/NrPresCompliance.xsd"/>
@@ -45,7 +45,7 @@ End If</xsd:documentation>
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">
                                        <d:b>
-                                          <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
+                                          <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                                        </d:b>
                                     </xsd:documentation>
                                  </xsd:annotation>
@@ -183,7 +183,7 @@ End if</xsd:documentation>
             <xsd:element name="Report" type="xsd:base64Binary" minOccurs="0"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTagNR" fixed="NRCCLTSE"/>
       </xsd:complexType>
    </xsd:element>
@@ -435,7 +435,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i>Results in this table are automatically calculated from data input and calculations in Tables B through H.  Note: If any cell on this table says "COMPLIES with Exceptional Conditions"  refer to Table D. Exceptional Conditions for guidance or see applicable Table referenced below.</d:i>
+                           <d:i>Results in this table are automatically calculated from data input and calculations in Tables B through G.  Note: If any cell on this table says "COMPLIES with Exceptional Conditions"  refer to Table D. Exceptional Conditions for guidance or see applicable Table referenced below.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -661,7 +661,7 @@ Display terms: If result == Compliant display term is COMPLIES; Else If result =
                   <xsd:element name="TableAllExceptionalConditions" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">This table is required if there are any exceptional conditions in sections F, G or H</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required if there are any exceptional conditions in sections F or G</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -677,7 +677,7 @@ Display terms: If result == Compliant display term is COMPLIES; Else If result =
                                     <xsd:element name="D02_SectionExceptionalConditionNotes" type="comp:SectionExceptionalConditionNotes" maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"/>
-                                          <xsd:documentation source="CalculationsAndRules">This combines all exceptional condition notes for the section defined in D01_SectionTitle.  For section F,  each entry = F_Exception01_LightedSignName + : + F_Exception02_SectionExceptionalConditionNote.  For section G each entry = G_Exception01_LightedSignName + : + G_Exception02_SectionExceptionalConditionNote.  For section H  each entry = H_Exception01_LightedSignName + : + H_Exception02_SectionExceptionalConditionNote.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This combines all exceptional condition notes for the section defined in D01_SectionTitle.  For section F,  each entry = F_Exception01_LightedSignName + : + F_Exception02_SectionExceptionalConditionNote.  For section G each entry = G_Exception01_LightedSignName + : + G_Exception02_SectionExceptionalConditionNote.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -1079,7 +1079,7 @@ result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;</
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliant Light Sources<d:sup>1,2</d:sup>
                                           </xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects one or more light sources from a list of 9 light sources.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects one or more light sources</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G04_Header" minOccurs="0">

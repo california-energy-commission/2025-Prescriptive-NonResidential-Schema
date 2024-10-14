@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCCLTO01E" version="2022.0.000" xmlns="http://www.lmonte.com/besm/NRCCLTO01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCCLTO01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/NRCCLTO01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/NrPresCompliance.xsd"/>
@@ -44,7 +44,7 @@ End If</xsd:documentation>
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">
                                        <d:b>
-                                          <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
+                                          <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                                        </d:b>
                                     </xsd:documentation>
                                  </xsd:annotation>
@@ -561,7 +561,7 @@ End if</xsd:documentation>
             <xsd:element name="Report" type="xsd:base64Binary" minOccurs="0"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTagNR" fixed="NRCCLTOE"/>
       </xsd:complexType>
    </xsd:element>
@@ -1794,32 +1794,6 @@ If result == MotionSensorCompliant
 MM130_2c3_MeasureApplies  = true and text is displayed 
 End If</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:MotionSensorCompliance">
-                                             <xsd:enumeration value="AthleticNA"/>
-                                             <xsd:enumeration value="FacadeLTE24Ft"/>
-                                             <xsd:enumeration value="GTE24Ft"/>
-                                             <xsd:enumeration value="HistoricBuildingNA"/>
-                                             <xsd:enumeration value="IndustrialNA"/>
-                                             <xsd:enumeration value="LandscapeNA"/>
-                                             <xsd:enumeration value="LuminaireLT40NA"/>
-                                             <xsd:enumeration value="MonumentNA"/>
-                                             <xsd:enumeration value="MotionSensorCompliant"/>
-                                             <xsd:enumeration value="MultifamilyLightingNA"/>
-                                             <xsd:enumeration value="NotPermittedNA"/>
-                                             <xsd:enumeration value="OutdoorTheaterNA"/>
-                                             <xsd:enumeration value="PublicRoadNA"/>
-                                             <xsd:enumeration value="RegulatedNA"/>
-                                             <xsd:enumeration value="SignageNA"/>
-                                             <xsd:enumeration value="StairsRampNA"/>
-                                             <xsd:enumeration value="TempLightNA"/>
-                                             <xsd:enumeration value="ThemeParkNA"/>
-                                             <xsd:enumeration value="TimeOutNA"/>
-                                             <xsd:enumeration value="TunnelsNA"/>
-                                             <xsd:enumeration value="OrnamentalNA"/>
-                                             <xsd:enumeration value="OutdoorDiningNA"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="H05_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                                        <xsd:annotation>
@@ -2456,7 +2430,7 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Application per Table 140.7-B<d:sup>1</d:sup>
                                           </xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list of application types: ATM display term ATM Machine, DriveupWindow display term Drive up Window, EntranceExit display term Building Entrance/Exit, FuelDispenser display term Uncovered Fuel Dispenser, PrimaryEntrance display term Primary Entrance (Special)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list of application types</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="J03_UseOrLoseApplicationLocationCount" type="comp:UseOrLoseApplicationLocationCount">
