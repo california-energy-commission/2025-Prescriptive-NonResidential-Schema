@@ -5946,7 +5946,6 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ControlNoteMissingInF"/>
          <xsd:enumeration value="ControlNoteMissingInG"/>
-         <xsd:enumeration value="ControlNoteMissingInH"/>
          <xsd:enumeration value="UserChangedSelectionInCI"/>
       </xsd:restriction>
    </xsd:simpleType>
