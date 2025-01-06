@@ -3427,6 +3427,12 @@ Or If Fframed01_UseInAreaWeightedAveUfactor == false result = BlankGrayedOut sto
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Fframed17_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="FframedFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
