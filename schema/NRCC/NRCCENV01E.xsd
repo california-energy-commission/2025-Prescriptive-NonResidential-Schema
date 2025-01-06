@@ -2437,14 +2437,14 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design [d:sup]2[/d:sup]</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules"> 
 If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
-Or Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof
+Or Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
 user enters R-value number</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fframed12_NotApplicableMessage" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design [d:sup]2[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == ExistingAlteration And  Fframed05_RoofInsulationException  != NoExceptionApplies And Fframed05_RoofInsulationException != MechanicalEquipmentOnRoof result = BlankGrayedOut</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == ExistingAlteration And  Fframed05_RoofInsulationException  != NoExceptionApplies Or MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue result = BlankGrayedOut</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -4195,6 +4195,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Fframed17_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FSIPSFootnote1" minOccurs="0">
                               <xsd:annotation>
