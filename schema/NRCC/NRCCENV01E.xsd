@@ -5533,7 +5533,7 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                                 <xsd:element name="Fmetalb13_InsulationUFactorLimit" type="env:InsulationUFactorLimit" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance [d:sup]3[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == New result = 0.041;  
+                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == New result = 0.038;  
  
 Else If Fmetalb04_Status == ExistingAlteration And Fmetalb12_ConstructionSpecificationMethod == UFactor 
  
