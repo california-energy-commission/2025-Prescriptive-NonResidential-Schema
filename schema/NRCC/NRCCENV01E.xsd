@@ -4196,7 +4196,7 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
-                           <xsd:element name="Fframed17_BuildingPlanName" type="comp:BuildingPlanName">
+                           <xsd:element name="FSIPS17_BuildingPlanName" type="comp:BuildingPlanName">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
@@ -4818,6 +4818,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Fspan16_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FspanFootnote1" minOccurs="0">
                               <xsd:annotation>
