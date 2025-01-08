@@ -5076,8 +5076,8 @@ Else If  Fmetalp08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters
  
 Switch (Fmetalp06_TopLevelOccupancy) 
 case  Nonresidential: 
-If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.034; 
-Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.049; 
+If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.028; 
+Else If A03_ClimateZoneNumber InRange (6, 8) result = 0.047; 
  
 case HotelMotel: 
 If A03_ClimateZoneNumber == 1, 2, 4 Or  InRange (8, 16) result = 0.028; 
@@ -5183,6 +5183,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Fmetalp14_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FmetalpFootnote1" minOccurs="0">
                               <xsd:annotation>
