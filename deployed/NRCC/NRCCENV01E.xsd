@@ -5687,14 +5687,19 @@ R38ci display term R-38,</xsd:documentation>
                                                       </xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fmetalb08_UfactorSpecSource == JA4Tables, this row is grayed out; 
  
-Else If Fmetalb08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters text</xsd:documentation>
+Else If Fmetalb08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or Fmetalb05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters text</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fmetalb11_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == ExistingAlteration And  Fmetalb05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == ExistingAlteration And  Fmetalb05_RoofInsulationException  != NoExceptionApplies 
+Or Fmetalb05_RoofInsulationException != RecoverAboveDeckRvalue Or MechanicalEquipmentOnRoof                               
+   result = BlankGrayedOut
+End If</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -6198,6 +6203,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Fmetalb16_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FmetalbFootnote1" minOccurs="0">
                               <xsd:annotation>
