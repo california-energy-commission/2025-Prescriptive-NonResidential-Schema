@@ -6704,9 +6704,9 @@ End If</xsd:documentation>
                                                 <xsd:element name="FframedMF13_ContinuousInsulationOther" type="com:ContinuousInsulationOther">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If  FframedMF09_UfactorSpecSource == JA4Tables, this row is grayed out; 
- 
-Else If  FframedMF09_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters R-value number</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If  FframedMF09_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or FframedMF06_RoofInsulationException != MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters R-value number</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                              </xsd:choice>
