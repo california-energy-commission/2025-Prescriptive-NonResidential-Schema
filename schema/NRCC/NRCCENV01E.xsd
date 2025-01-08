@@ -3651,9 +3651,10 @@ R8ci display term R-8</xsd:documentation>
                                                 <xsd:element name="FSIPS12_ContinuousInsulationOther" type="com:ContinuousInsulationOther" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS08_UfactorSpecSource == JA4Tables, this row is grayed out; 
-Else If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+                                                      <xsd:documentation source="CalculationsAndRules">
+If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
 Or If FSIPS13_ConstructionSpecificationMethod == RValue
+Or FSIPS05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
 User enters text
 End if</xsd:documentation>
                                                    </xsd:annotation>
@@ -3661,7 +3662,11 @@ End if</xsd:documentation>
                                                 <xsd:element name="FSIPS12_NotApplicableMessage" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies 
+Or FSIPS05_RoofInsulationException !=  MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue 
+   result = BlankGrayedOut stored in NotApplicableMessage
+End if</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
