@@ -4691,8 +4691,8 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
  
 Switch (Fspan06_TopLevelOccupancy) 
 case  Nonresidential: 
-If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.034; 
-Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.049; 
+If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.028; 
+Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.047; 
 End If 
  
 case HotelMotel: 
