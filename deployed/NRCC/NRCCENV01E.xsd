@@ -8188,17 +8188,13 @@ End If</xsd:documentation>
                                     <xsd:element name="G04_TopLevelOccupancy">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Occupancy Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 
-Nonresidential display term Nonresidential/ Relocatable 1 CZ, 
-HotelMotel display erm Hotel/Motel,    
-RelocableSchoolBuildingAllZones display term Relocatable all CZ
-ResidentialMF display term Multifamily - Attic Roof
-OtherOccupancy display term Multifamily - Non-attic Roof</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="Nonresidential">Nonresidential/ Relocatable 1 CZ</dtyp:displayterm>
                                              <dtyp:displayterm value="RelocableSchoolBuildingAllZones">Relocatable all CZ</dtyp:displayterm>
-                                             <dtyp:displayterm value="ResidentialMF">Multifamily - Attic Roof</dtyp:displayterm>
-                                             <dtyp:displayterm value="OtherOccupancy">Multifamily - Non-attic Roof</dtyp:displayterm>
+                                             <dtyp:displayterm value="ResidentialMF">Multifamily - Attic Roof (Option B)</dtyp:displayterm>
+                                             <dtyp:displayterm value="ResidentialNR">Multifamily - Attic Roof (Option C)</dtyp:displayterm>
+                                             <dtyp:displayterm value="OtherOccupancy">Multifamily - Non-attic Roof (Option D)</dtyp:displayterm>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -8208,6 +8204,7 @@ OtherOccupancy display term Multifamily - Non-attic Roof</xsd:documentation>
                                              <xsd:enumeration value="OtherOccupancy"/>
                                              <xsd:enumeration value="RelocableSchoolBuildingAllZones"/>
                                              <xsd:enumeration value="ResidentialMF"/>
+                                             <xsd:enumeration value="ResidentialNR"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -8375,36 +8372,52 @@ case RelocableSchoolBuildingAllZones:
  If G05_RoofSlope == LowSlope result = 0.63; 
 Else If G05_RoofSlope == SteepSlope result = 0.25; 
 End If
+
+case ResidentialMF:  (Option B)
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15 
+         result = 0.63
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 0.63
+      End If
+   Else If G05_RoofSlope == SteepSlope
+      If G03_Status == New And A03_ClimateZoneNumber == 10 Or 11 Or 13 Or 15 
+         result - 0.25
+      If G03_Status == New And A03_ClimateZoneNumber == 12 Or 14
+         result = 0.20
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+         result = 0.20
+      End If
+   End If 
+case ResidentialNR: (Option C)
+   If G05_RoofSlope == LowSlope
+      If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15 
+         result = 0.63
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 0.63
+      End If
+   Else If G05_RoofSlope == SteepSlope
+      If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
+         result = 0.20
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+         result = 0.20
+      End If
+   End If
  
-case ResidentialMF  (display term Multifamily Attic Roof)
-If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
-result = 0.63
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
-result = 0.63
-End If
-Else If G05_RoofSlope == SteepSlope
-If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
-result = 0.20
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
-result = 0.20
-End If
-End If
- 
-case OtherOccupancy  (display term Multifamily Non-Attic Roof)
-If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == 9 Or 10 Or 11 Or 13 Or 14 Or 15
-result = 0.63
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
-result = 0.63
-End If
-Else If G05_RoofSlope == SteepSlope
-If G03_Status == New And A03_ClimateZoneNumber == InRange(2,15)
-result = 0.20
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
-result = 0.20
-End If
-End If
+case OtherOccupancy  (Option D)
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 0.63
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 0.63
+      End If
+   Else If G05_RoofSlope == SteepSlope
+      If G03_Status == New And A03_ClimateZoneNumber == InRange(2,15)
+         result = 0.20
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+         result = 0.20
+      End If
+   End If
  
 End Switch 
  
@@ -8474,19 +8487,19 @@ End If
 End If
  
 case OtherOccupancy  (display term Multifamily Non-Attic Roof)
-If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == InRange (1, 8) Or 12 Or 16
-result = BlankGrayedOut 
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 3, 5 Or 16
-result = BlankGrayedOut
-End If
-Else If G05_RoofSlope == SteepSlope
-If G03_Status == New And A03_ClimateZoneNumber == 1 Or 16
-result = BlankGrayedOut
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 2, 3, 5, 6, 7, Or 16
-result = BlankGrayedOut
-End If
-End If
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == InRange 1 Or 3 Or 5 Or 16
+         result = BlankGrayedOut 
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 3, 5 Or 16
+         result = BlankGrayedOut
+      End If
+   Else If G05_RoofSlope == SteepSlope
+      If G03_Status == New And A03_ClimateZoneNumber == 1 Or 16
+         result = BlankGrayedOut
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 2, 3, 5, 6, 7, Or 16
+         result = BlankGrayedOut
+      End If
+   End If
  
 End Switch
 End If</xsd:documentation>
