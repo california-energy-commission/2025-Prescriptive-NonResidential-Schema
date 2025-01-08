@@ -4636,15 +4636,17 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fspan08_UfactorSpecSource == JA4Tables, this row is grayed out; 
- 
-Else If Fspan08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters text</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fspan08_UfactorSpecSource == JA4Other Or ApprovedSoftware
+Or Fspan05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters text</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fspan11_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText"/>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies
+Or Fspan05_RoofInsulationException != MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+result = BlankGrayedOut</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
