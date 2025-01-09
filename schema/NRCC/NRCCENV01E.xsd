@@ -10881,12 +10881,12 @@ End if</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">Calculated field: Values are for Mass Heavy because Hconcrete10a_HeatCapacityRange ==  GT15 for all cases in Table JA4.3.7  and therefore all assigned results are for  Mass Heavy
  
 If Hconcrete03_TopLevelOccupancy == Nonresidential 
-If A03_ClimateZoneNumber == 1 Or 12 result = 0.253; 
+If A03_ClimateZoneNumber == 1 Or 12 result = 0.211; 
 Else If A03_ClimateZoneNumber == InRange(2, 5) Or 10 result = 0.650; 
 Else If A03_ClimateZoneNumber == 6, 7, 8 Or 9 result = 0.690; 
-Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.184; 
-Else If A03_ClimateZoneNumber == 13 result = 0.211; 
-Else If A03_ClimateZoneNumber == 16 result = 0.160;  
+Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.160; 
+Else If A03_ClimateZoneNumber == 13 result = 0.284; 
+Else If A03_ClimateZoneNumber == 16 result = 0.153;  
 End If
  
 Else If Hconcrete03_TopLevelOccupancy == HotelMotel
@@ -11262,6 +11262,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Hconcrete13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HconcreteFootnote1" minOccurs="0">
                               <xsd:annotation>
