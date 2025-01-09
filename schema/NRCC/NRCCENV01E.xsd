@@ -11557,12 +11557,12 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If HSIPS03b_Status == New 
 Switch (HSIPS03a_TopLevelOccupancy) 
 case  Nonresidential:  
-If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12, 14)  result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.110;  
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102;  
-Else If A03_ClimateZoneNumber == 11 result = 0.045; 
-Else If A03_ClimateZoneNumber == 15 result = 0.042;  
+If A03_ClimateZoneNumber == 1 result = 0.078; 
+Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12, 14)  result = 0.053; 
+Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.102;  
+Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.095;  
+Else If A03_ClimateZoneNumber == 11 result = 0.042; 
+Else If A03_ClimateZoneNumber == 15 result = 0.038;  
 End If
  
 case HotelMotel: 
@@ -11882,6 +11882,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="HSIPS13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HSIPSFootnote1" minOccurs="0">
                               <xsd:annotation>
