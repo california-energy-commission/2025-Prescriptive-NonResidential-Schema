@@ -14922,10 +14922,26 @@ MM120_7c3_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="I01Unheated_FloorTypeApplies" type="comp:FloorTypeApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Unheated Slab-on-grade</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">
+If true And A03_ClimateZoneNumber != 16 Or A04_WholeBuildingOccupancy != HighRiseResidential
+   IFootnote2 is required
+End If
+</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="IFootnote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] FOOTNOTES: Floor types indicated above as "(new only)" do not have Title 24, Part 6 requirements for alterations.  New construction and additions do have requirements and should be clicked above and compliance demonstrated within this table.  [/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="IFootnote2" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup] FOOTNOTES: There are no prescriptive requirements for unheated slab-on-grade floors for nonresidential buildings or for multifamily buildings located outside of climate zone 16, so you do not need to document them. [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Iframed" minOccurs="0">
@@ -15752,6 +15768,12 @@ end If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Iframed13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="IframedFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -16187,6 +16209,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="ISIPS13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="ISIPSFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -16563,6 +16591,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Imass12_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="ImassFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -16721,6 +16755,122 @@ End If</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:element name="Iheated08_BuildingPlanName" type="comp:BuildingPlanName" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Location in Construction Documents</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                          </xsd:sequence>
+                                       </xsd:complexType>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="Iheatedmultifamily" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Multifamily Slab-on-Grade Floors (new floors in Climate Zone 16 only)[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If I01Unheated_FloorTypeApplies == true And A03_ClimateZoneNumber == 16 And A04_WholeBuildingOccupancy == HighRiseResidential</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="TableIheatedmultifamily" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       <xsd:complexType>
+                                          <xsd:sequence>
+                                             <xsd:element name="Iheatedmultifamily01_FloorAssemblyName" type="env:FloorAssemblyName" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Iheatedmultifamily02_FloorDescription" type="env:FloorDescription" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Name/Description</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Iheatedmultifamily03">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Insulation Location</xsd:documentation>
+                                                   <xsd:documentation source="AdditionalRequirements">Slab floor perimeter</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Iheatedmultifamily04_ConstructionSpecificationMethod">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User selects from the valid enumerations</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                   <xsd:restriction base="env:ConstructionSpecificationMethod">
+                                                      <xsd:enumeration value="RValue"/>
+                                                      <xsd:enumeration value="UFactor"/>
+                                                   </xsd:restriction>
+                                                </xsd:simpleType>
+                                             </xsd:element>
+                                             <xsd:choice maxOccurs="1">
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+   If Iheatedmultifamily04_ConstructionSpecificationMethod == UFactor
+      result = 0_58
+   Else 
+      value stored in Iheatedmultifamily04_SlabInsulationRValueRequired</xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationRValueRequired" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+   If Iheatedmultifamily04_ConstructionSpecificationMethod == RValue
+      result = 7
+   Else 
+      value stored in Iheatedmultifamily04_SlabInsulationUFactorRequired</xsd:documentation>
+                                                   </xsd:annotation>
+                                                   <xsd:simpleType>
+                                                      <xsd:restriction base="env:SlabInsulationRValueRequired">
+                                                         <xsd:enumeration value="R7"/>
+                                                      </xsd:restriction>
+                                                   </xsd:simpleType>
+                                                </xsd:element>
+                                             </xsd:choice>
+                                             <xsd:choice maxOccurs="1">
+                                                <xsd:element name="Iheatedmultifamily06_UfactorMandatory" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Thermal Performance per Design</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+If Iheatedmultifamily04_ConstructionSpecificationMethod == Ufactor
+   user input
+Else 
+   value stored in Iheatedmultifamily06_InsulationRValue</xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                                <xsd:element name="Iheatedmultifamily06_InsulationRValue" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Thermal Performance per Design</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+If Iheatedmultifamily04_ConstructionSpecificationMethod == RValue
+   user input
+Else 
+   value stored in Iheatedmultifamily06_UfactorMandatory</xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                             </xsd:choice>
+                                             <xsd:element name="Iheatedmultifamily07">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Insulation Depth</xsd:documentation>
+                                                   <xsd:documentation source="AdditionalRequirements">The minimum depth of concrete slab floor perimeter insulation shall be 16 inches or the depth of the footing of the building, whichever is less.</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Iheatedmultifamily08_BuildingPlanName" type="comp:BuildingPlanName">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Location in Construction Documents</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
