@@ -4022,6 +4022,19 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:enumeration value="R7_5"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="SlabInsulationUFactorRequired">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Required Slab Insulation R Value</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="0_58">0.58</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="0_58"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="SlabType">
       <xsd:annotation>
          <xsd:documentation>The classifications for floors in contact with the ground.</xsd:documentation>
