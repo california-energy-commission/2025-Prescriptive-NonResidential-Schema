@@ -4521,6 +4521,9 @@ For selection of NA-6 properties</xsd:documentation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="VestibuleName">
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
+   </xsd:simpleType>
    <xsd:simpleType name="VT_110Default">
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative">
       </xsd:restriction>
