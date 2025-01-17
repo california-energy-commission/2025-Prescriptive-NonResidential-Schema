@@ -17084,7 +17084,8 @@ MM110_6a2to4_MeasureApplies = true and is displayed</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="TableJdoors" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Exterior Opaque Doors[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -17246,6 +17247,121 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableJVestibules" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Vestibules[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                        <xsd:element name="JVestibules_BeginNote1" minOccurs="0">
+                           <xsd:annotation>
+                              <xsd:documentation source="FieldText"></xsd:documentation>
+                              <xsd:documentation source="AdditionalRequirements">[d:i] Public entrances in newly constructed buildings of occupancy types A, B, E, I, and M shall include an enclosed vestibule meeting the requirements of [d:t24refnolink/]120.7(e)[/d:i]</xsd:documentation>
+                           </xsd:annotation>
+                        </xsd:element>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="J01_VestibuleName" type="env:VestibuleName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User enters text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="J02_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exception to [d:t24refnolink/]120.7(e)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from the valid enumarations</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J03_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J03_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J03_VestibuleShutOffControl</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>  
+                                    </xsd:choice>                          
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J04_VestibuleThermostat" type="comp:VestibuleThermostat">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J04_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J04_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J04_VestibuleThermostat</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>  
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J05_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J05_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J05_VestibuleSelfClosingDevice</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>  
+                                    </xsd:choice> 
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
