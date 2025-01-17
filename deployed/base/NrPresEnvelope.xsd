@@ -4395,14 +4395,14 @@ For selection of NA-6 properties</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="VestibuleName">
-      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
-   </xsd:simpleType>
    <xsd:simpleType name="VT_110Default">
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="VT_NA6">
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="VestibuleName">
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="VisibleReflectance">
       <xsd:annotation>
