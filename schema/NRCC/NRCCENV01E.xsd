@@ -1190,7 +1190,7 @@ If F01Framed_RoofTypeApplies == true,
 If fields beginning with Fframed02, Fframed03, Fframed04, Fframed05, Fframed06, Fframed08, Fframed09, Fframed10, Fframed11, Fframed12, Fframed13, Fframed14, Fframed15 and Fframed16 == BlankGrayedOut or have another value And If Fframed07_RoofAssemblyName has a value result = true; Else result = false. 
 End If 
 If result == true continue evaluation:  
-If Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue And ((Fframed12_ContinuousInsulationNR ==  R0ci Or R2ci Or R4ci Or R6ci Or R7ci Or R8ci) Or (Fframed12_ContinuousInsulationOther < 10) 
+If Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue And ((Fframed12_ContinuousInsulationNR ==  R0ci Or R2ci Or R4ci Or R6ci Or R7ci Or R8ci) Or (Fframed12_ContinuousInsulationOther lt 10) 
    result = false
 End If
 If Fframed01_UseInAreaWeightedAveUfactor == false  Then 
