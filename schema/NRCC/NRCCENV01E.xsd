@@ -16868,10 +16868,14 @@ Else
                                                    </xsd:annotation>
                                                 </xsd:element>
                                              </xsd:choice>
-                                             <xsd:element name="Iheatedmultifamily07">
+                                             <xsd:element name="Iheatedmultifamily07Label" minOccurs="0">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Insulation Depth</xsd:documentation>
-                                                   <xsd:documentation source="AdditionalRequirements">The minimum depth of concrete slab floor perimeter insulation shall be 16 inches or the depth of the footing of the building, whichever is less.</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Iheatedmultifamily07" minOccurs="0">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">The minimum depth of concrete slab floor perimeter insulation shall be 16 inches or the depth of the footing of the building, whichever is less.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:element name="Iheatedmultifamily08_BuildingPlanName" type="comp:BuildingPlanName">
