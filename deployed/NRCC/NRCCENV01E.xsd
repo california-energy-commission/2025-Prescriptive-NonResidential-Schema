@@ -9582,13 +9582,7 @@ End If</xsd:documentation>
             result = R21
 
    End If
-End If
-
-
- --- NEW ---
-      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
-         If Hframed07_FramingSize == 2x4
-            result =</xsd:documentation>
+End If</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:InsulationRValueLimit">
