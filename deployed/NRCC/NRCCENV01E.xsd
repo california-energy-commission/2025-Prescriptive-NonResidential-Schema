@@ -1248,7 +1248,9 @@ If F01Framed_RoofTypeApplies == true,
 If fields beginning with Fframed02, Fframed03, Fframed04, Fframed05, Fframed06, Fframed08, Fframed09, Fframed10, Fframed11, Fframed12, Fframed13, Fframed14, Fframed15 and Fframed16 == BlankGrayedOut or have another value And If Fframed07_RoofAssemblyName has a value result = true; Else result = false. 
 End If 
 If result == true continue evaluation:  
- 
+If Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue And ((Fframed12_ContinuousInsulationNR ==  R0ci Or R2ci Or R4ci Or R6ci Or R7ci Or R8ci) Or (Fframed12_ContinuousInsulationOther lt 10) 
+   result = false
+End If
 If Fframed01_UseInAreaWeightedAveUfactor == false  Then 
 If Fframed13_ConstructionSpecificationMethod has value 
 If Fframed13_ConstructionSpecificationMethod == RValue 
@@ -1796,14 +1798,20 @@ End If</xsd:documentation>
                      <xsd:element name="C05_CompliantSectionJ" type="comp:CompliantSectionJ">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result true display term Yes, or false display term No.  
-If J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 have values And J07_UfactorJA451 LTE J06_UFactorLimit result = true; Else result = false</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B02NewVestibule_ComponentApplies == True And J01_VestibuleName Or J02_VestibuleExemptions Or J03_VestibuleShutOffControl Or J04_VestibuleThermostat Or J05_VestibuleSelfClosingDevice are present but have no value
+Or B02NewDoor_ComponentApplies or B02AddDoor_ComponentApplies == True And J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 Are present but have no value
+Or B02NewDoor_ComponentApplies Or B02AddDoor_ComponentApplies == True And J07_UfactorJA451 GT J06_UFactorLimit 
+   result = false
+Else 
+   result = true</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C05_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies == false result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies == false 
+And B02NewVestibule_ComponentApplies == False
+   result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
