@@ -9351,14 +9351,7 @@ If Hframed04b_Status == ExistingAlteration And Hframed10_ConstructionSpecificati
 
    End If
 End If
-
-
- --- NEW ---
-      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
-         If Hframed07_FramingSize == 2x4
-            result =
-            
-            </xsd:documentation>
+</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:InsulationRValueLimit">
