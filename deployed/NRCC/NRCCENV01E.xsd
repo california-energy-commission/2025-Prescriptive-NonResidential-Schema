@@ -17228,7 +17228,7 @@ End If</xsd:documentation>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired">
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == UFactor
