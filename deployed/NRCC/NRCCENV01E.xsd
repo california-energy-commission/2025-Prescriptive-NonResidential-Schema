@@ -17705,13 +17705,13 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="J01_VestibuleName" type="env:VestibuleName">
+                                    <xsd:element name="JVestibules01_VestibuleName" type="env:VestibuleName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User enters text</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J02_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                    <xsd:element name="JVestibules02_VestibuleExemptions" type="comp:VestibuleExemptions">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exception to 
                                              <d:t24refnolink/>120.7(e)</xsd:documentation>
@@ -17719,7 +17719,7 @@ End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
+                                       <xsd:element name="JVestibules03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
@@ -17728,7 +17728,7 @@ Else
    Value stored in J03_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J03_NotApplicableMessage">
+                                       <xsd:element name="JVestibules03_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
@@ -17744,7 +17744,7 @@ Else
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J04_VestibuleThermostat" type="comp:VestibuleThermostat">
+                                       <xsd:element name="JVestibules04_VestibuleThermostat" type="comp:VestibuleThermostat">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
@@ -17753,7 +17753,7 @@ Else
    Value stored in J04_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J04_NotApplicableMessage">
+                                       <xsd:element name="JVestibules04_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
@@ -17769,7 +17769,7 @@ Else
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
+                                       <xsd:element name="JVestibules05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
@@ -17778,7 +17778,7 @@ Else
    Value stored in J05_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J05_NotApplicableMessage">
+                                       <xsd:element name="JVestibules05_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
