@@ -2577,7 +2577,7 @@ Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv08_PV_MinSizeSARA))</xsd:documentation
                                     <xsd:element name="Bat02_PV_MinSizeSARA" type="comp:PV_MinSizeSARA">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Min Size of PV Applicable To Battery Sizing (kWdc)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = sum of all Pv08_PV_MinSizeSARA where Pv02_ConditionedFloorArea GTE 5000</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Result = Pv08_PV_MinSizeSARA</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Bat03_ChargeDischargeEfficiency" type="hvac:ChargeDischargeEfficiency">
@@ -2645,13 +2645,16 @@ End Switch</xsd:documentation>
                   <xsd:element name="Bat06a_BatteryCapacityMinTotal" type="hvac:BatteryCapacityMinTotal" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total Min Energy (kWh) and Power (kW) Capacity Required</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Pv09_PV_MinimumSize GT 0 this field is required
- 
-Calculated field: 
-If SUM ALL (Bat04_BatteryCapacityMinPerArea) LT 10
-result = 0
+                        <xsd:documentation source="CalculationsAndRules">If Pv09_PV_MinimumSize GT 0 this field is required 
+If SUM ALL (Bat04_BatteryCapacityMinPerArea) LT 10 
+   result = 0
 Else
-result = SUM ALL (Bat04_BatteryCapacityMinPerArea)</xsd:documentation>
+   result = SUM ALL (Bat04_BatteryCapacityMinPerArea where Pv02_ConditionedFloorArea GTE 5000 And If A02_ClimateZone == 1, where Bat01_WholeBuildingOccupancy != OfficeBuilding Or SchoolBuilding Or Warehouse)
+   If one or more Bat04_BatteryCapacityMinPerArea is not included because Pv02_ConditionedFloorArea LT 5000
+      D03_ExceptionalConditionMessageCCSABE += BatteryExempt5000SF
+   If one or more Bat04_BatteryCapacityMinPerArea is not included because A02_ClimateZone == 1 And Bat01_WholeBuildingOccupancy == OfficeBuilding Or SchoolBuilding Or Warehouse
+      D03_ExceptionalConditionMessageCCSABE += BatteryExemptCZ1OfficeSchoolWarehouse
+   End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Bat06b_BatteryPowerMinTotal" type="hvac:BatteryPowerMinTotal" minOccurs="0">
@@ -2663,7 +2666,12 @@ Calculated field:
 If SUM ALL (Bat04_BatteryCapacityMinPerArea) LT 10
 result = 0
 Else
-result = SUM ALL (Bat05_BatteryPowerMinPerArea)</xsd:documentation>
+   result = SUM ALL (Bat05_BatteryPowerMinPerArea where Pv02_ConditionedFloorArea GTE 5000 And If A02_ClimateZone == 1, where Bat01_WholeBuildingOccupancy != OfficeBuilding Or SchoolBuilding Or Warehouse)
+   If one or more Bat04_BatteryCapacityMinPerArea is not included because Pv02_ConditionedFloorArea LT 5000
+      D03_ExceptionalConditionMessageCCSABE += BatteryExempt5000SF
+   If one or more Bat04_BatteryCapacityMinPerArea is not included because A02_ClimateZone == 1 And Bat01_WholeBuildingOccupancy == OfficeBuilding Or SchoolBuilding Or Warehouse
+      D03_ExceptionalConditionMessageCCSABE += BatteryExemptCZ1OfficeSchoolWarehouse
+   End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Bat07a_BatteryCapacity" type="hvac:BatteryCapacity" minOccurs="0">

@@ -6132,6 +6132,8 @@
             <dtyp:displayterm value="CalculatorOutputAttachedForH">Table H column 03 does not indicate the output from CEC's Solar Water Heating Calculator has been attached.  Please attach the output and indicate this in Table H.</dtyp:displayterm>
             <dtyp:displayterm value="SubAreaComplianceInF">Table F indicates a subarea that is not in compliance with the requirements.  Please revisit Table F</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+            <dtyp:displayterm value="BatteryExempt5000SF">One or more tenant spaces within your project has less than 5,000 sf of conditioned space. The space will not be factored into the battery sizing calculation per Exception 3 to Section 140.10(b)</dtyp:displayterm>
+            <dtyp:displayterm value="BatteryExemptCZ1OfficeSchoolWarehouse">Battery storage systems are not required for offices, schools and warehouses in Climate Zone 1. These spaces will not be factored into the minimum battery rated energy and rated power capacities per Exception 4 to 140.10(b)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6139,6 +6141,8 @@
          <xsd:enumeration value="CalculatorOutputAttachedForH"/>
          <xsd:enumeration value="SubAreaComplianceInF"/>
          <xsd:enumeration value="UserChangedSelectionInCI"/>
+         <xsd:enumeration value="BatteryExempt5000SF"/>
+         <xsd:enumeration value="BatteryExemptCZ1OfficeSchoolWarehouse"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ExceptionalConditionMessageCIELCE">
