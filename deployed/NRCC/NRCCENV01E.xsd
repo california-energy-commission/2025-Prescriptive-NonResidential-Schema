@@ -15304,9 +15304,11 @@ End If</xsd:documentation>
                   <xsd:element name="I01Unheated_FloorTypeApplies" type="comp:FloorTypeApplies">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Unheated Slab-on-grade</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If true And A03_ClimateZoneNumber != 16 Or A04_WholeBuildingOccupancy != HighRiseResidential
-   IFootnote2 is required
-End If</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: 
+If checked and A03_ClimateZoneNumber == 16 And A04_WholeBuildingOccupancy == HighRiseResidential
+   result = true;
+Else 
+   result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="IFootnote1" minOccurs="0">
@@ -15315,6 +15317,9 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>1</d:sup> FOOTNOTES: Floor types indicated above as "(new only)" do not have Title 24, Part 6 requirements for alterations.  New construction and additions do have requirements and should be clicked above and compliance demonstrated within this table.  </d:i>
                         </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I01Unheated_FloorTypeApplies == true And A03_ClimateZoneNumber != 16 Or A04_WholeBuildingOccupancy != HighRiseResidential
+   IFootnote2 is required
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="IFootnote2" minOccurs="0">
@@ -17184,7 +17189,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b>Multifamily Slab-on-Grade Floors (new floors in Climate Zone 16 only)</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If I01Unheated_FloorTypeApplies == true And A03_ClimateZoneNumber == 16 And A04_WholeBuildingOccupancy == HighRiseResidential</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If I01Unheated_FloorTypeApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -17228,7 +17233,7 @@ End If</xsd:documentation>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired">
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == UFactor
@@ -17700,13 +17705,13 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="J01_VestibuleName" type="env:VestibuleName">
+                                    <xsd:element name="JVestibules01_VestibuleName" type="env:VestibuleName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User enters text</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J02_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                    <xsd:element name="JVestibules02_VestibuleExemptions" type="comp:VestibuleExemptions">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exception to 
                                              <d:t24refnolink/>120.7(e)</xsd:documentation>
@@ -17714,7 +17719,7 @@ End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
+                                       <xsd:element name="JVestibules03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
@@ -17723,7 +17728,7 @@ Else
    Value stored in J03_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J03_NotApplicableMessage">
+                                       <xsd:element name="JVestibules03_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
@@ -17739,7 +17744,7 @@ Else
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J04_VestibuleThermostat" type="comp:VestibuleThermostat">
+                                       <xsd:element name="JVestibules04_VestibuleThermostat" type="comp:VestibuleThermostat">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
@@ -17748,7 +17753,7 @@ Else
    Value stored in J04_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J04_NotApplicableMessage">
+                                       <xsd:element name="JVestibules04_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
@@ -17764,7 +17769,7 @@ Else
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
+                                       <xsd:element name="JVestibules05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
@@ -17773,7 +17778,7 @@ Else
    Value stored in J05_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J05_NotApplicableMessage">
+                                       <xsd:element name="JVestibules05_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
