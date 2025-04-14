@@ -1468,6 +1468,7 @@ End If</xsd:documentation>
                                     <xsd:enumeration value="AreaCategory"/>
                                     <xsd:enumeration value="CompleteBuilding"/>
                                     <xsd:enumeration value="NotApplicableLightingMethod"/>
+                                    <xsd:enumeration value="OneForOne"/>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
@@ -1488,6 +1489,7 @@ End If</xsd:documentation>
                                     <xsd:enumeration value="AreaCategory"/>
                                     <xsd:enumeration value="CompleteBuilding"/>
                                     <xsd:enumeration value="NotApplicableLightingMethod"/>
+                                    <xsd:enumeration value="OneForOne"/>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
@@ -1615,6 +1617,74 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="BalteredPark01_LightingProjectScopeNR">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Altered Lighting System - Parking Garage</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If user checks Altered Lighting System - Parking Garage result = AlteredGarageLighting  Else result = NotApplicableLightingScope</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:LightingProjectScopeNR">
+                           <xsd:enumeration value="AlteredGarageLighting"/>
+                           <xsd:enumeration value="NotApplicableLightingScope"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="TableAlteredLightingGarage" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">This table is required if LightingProjectScopeNR == AlteredGarageLighting</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="BalteredPark02_LightingPrescriptiveMethodNR">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Altered Lighting System - Parking Garage does not include conditioned space, result = NotApplicableLightingMethod, Else user selects calculation method,</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:LightingPrescriptiveMethodNR">
+                                             <xsd:enumeration value="CompleteBuilding"/>
+                                             <xsd:enumeration value="NotApplicableLightingMethod"/>
+                                             <xsd:enumeration value="OneForOne"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="BalteredPark03_AlteredLightingConditionedFloorArea" type="lit:AlteredLightingConditionedFloorArea" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If BalteredPark02_LightingPrescriptiveMethodNR  == NotApplicableLightingMethod field is blank and not required; Else user inputs value.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="BalteredPark04_LightingPrescriptiveMethodNR">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Altered Lighting System - Parking Garage does not include unconditioned space, result = NotApplicableLightingMethod, Else If BalteredPark02_LightingPrescriptiveMethodNR == CompleteBuilding, only value in list to select is CompleteBuilding, Else 
+ user selects calculation method from dropdown list,</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:LightingPrescriptiveMethodNR">
+                                             <xsd:enumeration value="CompleteBuilding"/>
+                                             <xsd:enumeration value="NotApplicableLightingMethod"/>
+                                             <xsd:enumeration value="OneForOne"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="BalteredPark05_AlteredLightingUnconditionedFloorArea" type="lit:AlteredLightingUnconditionedFloorArea" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>
+                                          </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If  BalteredPark04_LightingPrescriptiveMethodNR == NotApplicableLightingMethod field is blank and not required; Else user inputs value.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
                   <xsd:element name="BTotalsRowLabel" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
@@ -1625,7 +1695,7 @@ End If</xsd:documentation>
                   <xsd:element name="BTotals03_LightingProjectTotalConditionedFloorArea" type="comp:LightingProjectTotalConditionedFloorArea" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew03_NewLightingConditionedFloorArea IsNull And Bpark03_NewLightingConditionedFloorArea IsNull And  All Baltered03_AlteredLightingConditionedFloorArea IsNull result = field blank and not required;  Else for Bnew03, Bpark03 and all Baltered03  values NotNull result =  SUM  ( Bnew03_NewLightingConditionedFloorArea, Bpark03_NewLightingConditionedFloorArea, Baltered03_AlteredLightingConditionedFloorArea)
+                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew03_NewLightingConditionedFloorArea IsNull And Bpark03_NewLightingConditionedFloorArea IsNull And  All Baltered03_AlteredLightingConditionedFloorArea IsNull And BalteredPark03_AlteredLightingConditionedFloorArea IsNull result = field blank and not required;  Else for Bnew03, Bpark03, Baltered03, and all BalteredPark03  values NotNull result =  SUM  ( Bnew03_NewLightingConditionedFloorArea, Bpark03_NewLightingConditionedFloorArea, Baltered03_AlteredLightingConditionedFloorArea, BalteredPark03_AlteredLightingConditionedFloorArea)
  
 If result !=  A04_TotalConditionedFloorArea Then
 D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:documentation>
@@ -1634,7 +1704,7 @@ D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:docu
                   <xsd:element name="BTotals05_LightingProjectTotalUnconditionedFloorArea" type="comp:LightingProjectTotalUnconditionedFloorArea" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew05_NewLightingUnconditionedFloorArea IsNull And Bpark05_NewLightingUnconditionedFloorArea IsNull And  Baltered05_AlteredLightingUnconditionedFloorArea IsNull result = field blank and not required;  Else for Bnew05, Bpark05 and all Baltered05  values NotNull result = SUM ( Bnew05_NewLightingUnconditionedFloorArea, Bpark05_NewLightingUnconditionedFloorArea, Baltered05_AlteredLightingUnconditionedFloorArea)
+                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew05_NewLightingUnconditionedFloorArea IsNull And Bpark05_NewLightingUnconditionedFloorArea IsNull And  Baltered05_AlteredLightingUnconditionedFloorArea IsNull And BalteredPark05_AlteredLightingUnconditionedFloorArea IsNull result = field blank and not required;  Else for Bnew05, Bpark05, Baltered05, and all BalteredPark05  values NotNull result = SUM ( Bnew05_NewLightingUnconditionedFloorArea, Bpark05_NewLightingUnconditionedFloorArea, Baltered05_AlteredLightingUnconditionedFloorArea, BalteredPark05_AlteredLightingUnconditionedFloorArea)
  
 If result !=  A05_TotalUnconditionedFloorArea Then
 D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:documentation>
@@ -1748,13 +1818,13 @@ D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:docu
                      <xsd:element name="C01Row01_BuildingLightingPowerAllowedConditioned" type="comp:BuildingLightingPowerAllowedConditioned">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result = IcTotals05AllowedWatt_LightingPowerAllowanceTotalConditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result = IcTotals05AllowedWatt_LightingPowerAllowanceTotalConditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C01Row01_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result = IcTotals05AllowedWatt_LightingPowerAllowanceTotalConditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result = IcTotals05AllowedWatt_LightingPowerAllowanceTotalConditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -1767,13 +1837,13 @@ D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:docu
                      <xsd:element name="C01Row02_BuildingLightingPowerAllowedUnconditioned" type="comp:BuildingLightingPowerAllowedUnconditioned">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result =  IuTotals05AllowedWatt_LightingPowerAllowanceTotalUnconditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result =  IuTotals05AllowedWatt_LightingPowerAllowanceTotalUnconditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C01Row02_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result =  IuTotals05AllowedWatt_LightingPowerAllowanceTotalUnconditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR ==  CompleteBuilding this field is required and  auto-filled result =  IuTotals05AllowedWatt_LightingPowerAllowanceTotalUnconditioned; Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -2959,7 +3029,7 @@ MM130_1c6_MeasureApplies  = true and is displayed</xsd:documentation>
                                        <xsd:element name="H05_WholeBuildingOccupancy">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  Else If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  Else If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
                                              <xsd:appinfo source="displayterm">
                                                 <dtyp:displayterm value="AllOthersBuildings">All Other Building</dtyp:displayterm>
                                                 <dtyp:displayterm value="AssemblyBuilding">Assembly Building</dtyp:displayterm>
@@ -3007,7 +3077,7 @@ MM130_1c6_MeasureApplies  = true and is displayed</xsd:documentation>
                                        <xsd:element name="H05_SpaceFunction">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="com:SpaceFunction">
@@ -3272,7 +3342,7 @@ End If</xsd:documentation>
                <xsd:documentation source="FieldText">
                   <d:b>I. LIGHTING POWER ALLOWANCE: COMPLETE BUILDING OR AREA CATEGORY METHODS</d:b>
                </xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section applies if in section B at least one value for  Bnew02_LightingPrescriptiveMethodNR, Bnew04_LightingPrescriptiveMethodNR,   Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR == AreaCategory Or CompleteBuilding   Or if at least one value for Bpark02_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR  == CompleteBuilding</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section applies if in section B at least one value for  Bnew02_LightingPrescriptiveMethodNR, Bnew04_LightingPrescriptiveMethodNR,   Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR == AreaCategory Or CompleteBuilding   Or if at least one value for Bpark02_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR  == CompleteBuilding</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -3303,7 +3373,7 @@ End If</xsd:documentation>
                   <xsd:element name="Ic_Conditioned" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Conditioned Spaces</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required if any values for the following fields satisfy any of these conditions: Bnew02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR == AreaCategory Or CompleteBuilding, Or Bpark02_LightingPrescriptiveMethodNR == CompleteBuilding</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if any values for the following fields satisfy any of these conditions: Bnew02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR == AreaCategory Or CompleteBuilding, Or Bpark02_LightingPrescriptiveMethodNR == CompleteBuilding</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -3333,7 +3403,7 @@ End If</xsd:documentation>
                                                 <xsd:element name="Ic02_WholeBuildingOccupancy">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
                                                       <xsd:appinfo source="displayterm">
                                                          <dtyp:displayterm value="AllOthersBuildings">All Other Building</dtyp:displayterm>
                                                          <dtyp:displayterm value="AssemblyBuilding">Assembly Building</dtyp:displayterm>
@@ -3381,7 +3451,7 @@ End If</xsd:documentation>
                                                 <xsd:element name="Ic02_SpaceFunction">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.
+                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.
  
 Mandatory Measure Triggers:
 If result == Office250FtOrLess Or ClassroomLectureTrainingVocationalArea Or LowVisionRestroom Or 
@@ -3583,7 +3653,7 @@ End If</xsd:documentation>
                   <xsd:element name="Iu_Unconditioned" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Unconditioned Spaces</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required if any values for the following fields satisfy any of these conditions: Bnew04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR == AreaCategory Or CompleteBuilding, Or Bpark04_LightingPrescriptiveMethodNR == CompleteBuilding</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if any values for the following fields satisfy any of these conditions: Bnew04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR == AreaCategory Or CompleteBuilding, Or Bpark04_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR == CompleteBuilding</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -3613,7 +3683,7 @@ End If</xsd:documentation>
                                                 <xsd:element name="Iu02_WholeBuildingOccupancy">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew04_LightingPrescriptiveMethodNR Or  Baltered04_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew04_LightingPrescriptiveMethodNR Or  Baltered04_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
                                                       <xsd:appinfo source="displayterm">
                                                          <dtyp:displayterm value="AllOthersBuildings">All Other Building</dtyp:displayterm>
                                                          <dtyp:displayterm value="AssemblyBuilding">Assembly Building</dtyp:displayterm>
@@ -3661,7 +3731,7 @@ End If</xsd:documentation>
                                                 <xsd:element name="Iu02_SpaceFunction">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew04_LightingPrescriptiveMethodNR Or  Baltered04_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.
+                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew04_LightingPrescriptiveMethodNR Or Bpark04_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew04_LightingPrescriptiveMethodNR Or  Baltered04_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.
  
 Mandatory Measure Triggers:
 If result == Office250FtOrLess Or ClassroomLectureTrainingVocationalArea Or LowVisionRestroom Or 
@@ -3778,13 +3848,13 @@ case LibraryReadingArea: case LowVisionStairwell:  case LowVisionDiningArea: Low
  
 case GrocerySalesArea: case LibraryStacks:  case LowVisionReligiousWorshipArea: case LowVisionRestroom:  case ParkingGarageAreaDaylightAdaptationZone:  case PharmacyArea:   result = 1.0; 
  
-case FastfoodDining: case BarLoungeFineDiningArea: case LockerDressingRoom: case Laundry: case StorageMF: case TransportationFunctionTicketing: result = 0.45;  
+case FastfoodDining: case BarLoungeFineDiningArea: case LockerDressingRoom: case Laundry: case TransportationFunctionTicketing: result = 0.45;  
  
 case  HotelFunctionArea: case GeneralCommercialIndustrialWorkAreaPrecision:   case HospitalNurseStation: case LowVisionLobbyMainEntry: case LowVisionMultipurposeRoom:  case PhysicalTherapyMF: result = 0.85
 ;   
 case AudienceSeatingArea: case CopyRoom:  case ExerciseCenterGymnasiumArea: case TheaterMotionPicture: result = 0.50;   
  
-case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace:  result = 0.40;    
+case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF:  result = 0.40;    
  
 case ConventionConferenceMultipurposeMeetingCenterArea: case ConferenceMultipurposeMeetingMF: case HospitalPhysicalTherapy:  case NurseStationMF: case SportsArenaSeatsLimitedClassIV:  case  result = 0.75;
 case GeneralCommercialIndustrialWorkAreaHighBay:  case Office250FtOrLess: case Restroom:  result = 0.65;  
@@ -5570,7 +5640,7 @@ End If</xsd:documentation>
                                        <xsd:element name="R02_WholeBuildingOccupancy">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
                                              <xsd:appinfo source="displayterm">
                                                 <dtyp:displayterm value="AllOthersBuildings">All Other Building</dtyp:displayterm>
                                                 <dtyp:displayterm value="AssemblyBuilding">Assembly Building</dtyp:displayterm>
@@ -5618,7 +5688,7 @@ End If</xsd:documentation>
                                        <xsd:element name="R02_SpaceFunction">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from dropdown list which is loaded as follows:  If  a project has Bnew02_LightingPrescriptiveMethodNR Or Bpark02_LightingPrescriptiveMethodNR Or Baltered02_LightingPrescriptiveMethodNR OR BalteredPark02_LightingPrescriptiveMethodNR ==  CompleteBuilding Then  WholeBuildingOccupancy values are loaded;  If  a project has Bnew02_LightingPrescriptiveMethodNR Or  Baltered02_LightingPrescriptiveMethodNR ==  AreaCategory Or  AreaCategoryTailored Then  SpaceFunction values are loaded.  If both conditions are true, then both  WholeBuildingOccupancy values and SpaceFunction values are loaded.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="com:SpaceFunction">
@@ -5725,9 +5795,9 @@ End Switch
 Else If R02_SpaceFunction NotNull Switch (R02_SpaceFunction) 
 ParkingGarageBuildingParkingArea: result = 0.10;
  
-case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace:  result = 0.40;    
+case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF: result = 0.40;    
  
-case FastfoodDining: case BarLoungeFineDiningArea: case LockerDressingRoom: case Laundry: case StorageMF: case TransportationFunctionTicketing: result = 0.45;
+case FastfoodDining: case BarLoungeFineDiningArea: case LockerDressingRoom: case Laundry: case TransportationFunctionTicketing: result = 0.45;
  
 case AudienceSeatingArea: case CopyRoom:  case ExerciseCenterGymnasiumArea: case TheaterMotionPicture: result = 0.50;   
  

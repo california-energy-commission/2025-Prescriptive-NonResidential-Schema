@@ -8694,6 +8694,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AlteredLightingSystem">Altered Lighting System</dtyp:displayterm>
+            <dtyp:displayterm value="AlteredGarageLighting">Altered Lighting System - Parking Garage</dtyp:displayterm>
             <dtyp:displayterm value="NewLightingSystem">New Lighting System</dtyp:displayterm>
             <dtyp:displayterm value="NewParkingGarageLighting">New Lighting System - Parking Garage</dtyp:displayterm>
             <dtyp:displayterm value="NotApplicableLightingScope">N/A</dtyp:displayterm>
@@ -8701,6 +8702,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AlteredLightingSystem"/>
+         <xsd:enumeration value="AlteredGarageLighting"/>
          <xsd:enumeration value="NewLightingSystem"/>
          <xsd:enumeration value="NewParkingGarageLighting"/>
          <xsd:enumeration value="NotApplicableLightingScope"/>
