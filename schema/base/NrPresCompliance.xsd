@@ -2798,12 +2798,6 @@
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
             <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with [d:gte/] 1 controlled and uncontrolled receptacle</dtyp:displayterm>
-            <dtyp:displayterm value="HealthNA">NA: Healthcare Facility</dtyp:displayterm>
-            <dtyp:displayterm value="DataEquipmentNA">NA: Data Equipment Receptacle</dtyp:displayterm>
-            <dtyp:displayterm value="20AmpCircuitNA">NA: Circuit [d:gt/] 20 Amperes</dtyp:displayterm>
-            <dtyp:displayterm value="UPS247UsageNA">NA: Uninteruptible Power Supply Receptacle intended for 24/7/365</dtyp:displayterm>
-            <dtyp:displayterm value="ClockReceptacleGT6FtHigh">NA: Clock Receptacle [d:gte/] 6FT Above Floor</dtyp:displayterm>
-            <dtyp:displayterm value="RefrigeratorWaterDispenserNA">NA: Refrigerator/Water Dispenser Receptacle</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2811,12 +2805,6 @@
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>
          <xsd:enumeration value="MultipleReceptacleControlledAndUncontrolled"/>
-         <xsd:enumeration value="HealthNA"/>
-         <xsd:enumeration value="DataEquipmentNA"/>
-         <xsd:enumeration value="20AmpCircuitNA"/>
-         <xsd:enumeration value="UPS247UsageNA"/>
-         <xsd:enumeration value="ClockReceptacleGT6FtHigh"/>
-         <xsd:enumeration value="RefrigeratorWaterDispenserNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ControlledReceptacleDemandResponse">
