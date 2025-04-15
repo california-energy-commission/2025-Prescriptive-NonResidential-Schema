@@ -13332,7 +13332,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="PowerReduced65">Power reduced 65%+</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor; illuminated day and night</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
             <dtyp:displayterm value="OneHourNA">NA: Illuminated 
                <d:lt/>1 hour during day</dtyp:displayterm>
@@ -13354,7 +13354,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="AutoTimeSwitchPhotoControl">Automatic Time Switch + Photocontrol (outdoor)</dtyp:displayterm>
             <dtyp:displayterm value="OtherIndoor">Other (indoor)</dtyp:displayterm>
             <dtyp:displayterm value="OtherOutdoor">Other (outdoor)</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor; Covered &amp;amp; on 24/7</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
