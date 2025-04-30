@@ -3218,6 +3218,32 @@
          <xsd:enumeration value="VariableSpeedTemp"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="EvapFanEfficiency">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Table1206">Designed per Table 120.6-A-2.</dtyp:displayterm>
+            <dtyp:displayterm value="QuickChillOnlyNA">NA: Evaporators designed solely for quick chilling/freezing of products.</dtyp:displayterm>
+            <dtyp:displayterm value="VolatileNA">NA: No use of volatile refrigerants</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Table1206"/>
+         <xsd:enumeration value="QuickChillOnlyNA"/>
+         <xsd:enumeration value="VolatileNA"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="EvapStaticDrop">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Table1206">Does not exceed 0.5 in. water</dtyp:displayterm>
+            <dtyp:displayterm value="QuickChillOnlyNA">NA: Evaporators designed solely for quick chilling/freezing of products.</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Table1206"/>
+         <xsd:enumeration value="QuickChillOnlyNA"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="EvaporativeCondenserRatingCondition">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
