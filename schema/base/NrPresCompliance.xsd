@@ -2453,10 +2453,12 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AvgVelocity">Interconnection/ main header piping [d:lte/] 20fps and distribution piping [d:lte/] 30 fps.</dtyp:displayterm>
+            <dtyp:displayterm value="PressureLoss">Frictional pressure loss [d:lt/]5% operating pressure per [d:t24refnolink/]120.6(e)5C.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AvgVelocity"/>
+         <xsd:enumeration value="PressureLoss"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CompressorControls">
@@ -2592,13 +2594,15 @@
    <xsd:simpleType name="ComputerRmEconomizer">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ExistingRoom20Tons">NA: New cooling systems serving a new computer room in an existing building up to a total of 20 tons of new cooling equipment per building</dtyp:displayterm>
-            <dtyp:displayterm value="ExistingRoom50Tons">NA: New cooling systems serving an existing computer room in an existing building up to a total of 50 tons of new cooling equipment per building</dtyp:displayterm>
-            <dtyp:displayterm value="IntegratedAirEconomizer">Integrated air economizer designed to partial cooling and provide 100% of cooling load @ OSA 65deg db and and below 50deg wb and below &amp; includes FDD per  [d:t24refnolink/]120.2(i)</dtyp:displayterm>
-            <dtyp:displayterm value="IntegratedWaterEconomizer">Integrated water economizer designed to partial cooling and provide 100% of cooling load @ OSA 50deg db and 45deg wb and below</dtyp:displayterm>
-            <dtyp:displayterm value="LT5TonsCoolingNA">NA: Computer room ITE design load [d:lt/] 5 tons &amp; building HVAC does not have any economizers</dtyp:displayterm>
+            <dtyp:displayterm value="ExistingRoom20Tons">NA: New cooling systems serving a new computer room in an existing building up to a total of 20 tons of new cooling equipment per building per Exception 3 to 141.1(b)1.</dtyp:displayterm>
+            <dtyp:displayterm value="ExistingRoom50Tons">NA: New cooling systems in existing building with ITE design load [d:lte/]50 tons per Exception 2 to 141.1(b)1</dtyp:displayterm>
+            <dtyp:displayterm value="IntegratedAirEconomizer">NEW CONSTRUCTION: Integrated air economizer designed to partial cooling and provide 100% of cooling load @ OSA 65deg db and and below 50deg wb and below &amp; includes FDD per  [d:t24refnolink/]120.2(i)</dtyp:displayterm>
+            <dtyp:displayterm value="IntegratedWaterEconomizer">NEW CONSTRUCTION: Integrated water economizer designed to partial cooling and provide 100% of cooling load @ OSA 50deg db and 45deg wb and below</dtyp:displayterm>
+            <dtyp:displayterm value="IntegratedAirEconomizerAddAlt">ADDITION/ALTERATION: Integrated air economizer designed to partial cooling and provide 100% of cooling load @ OSA 55deg db and and below 50deg wb and below &amp; includes FDD per  [d:t24refnolink/]120.2(i)</dtyp:displayterm>
+            <dtyp:displayterm value="IntegratedWaterEconomizerAddAlt">ADDITION/ALTERATION: Integrated water economizer designed to partial cooling and provide 100% of cooling load @ OSA 40deg db and 35deg wb and below</dtyp:displayterm>
+            <dtyp:displayterm value="LT5TonsCoolingNA">NA: Computer room w/ITE design load [d:lt/] 5 tons &amp; existing economizers per Exception 1 to 140.9(a)1 or Exception 1 to 141.1(b)1</dtyp:displayterm>
             <dtyp:displayterm value="PowerDensityNA">NA: Room power density [d:lt/] 20W/ft[d:sup]2[/d:sup]</dtyp:displayterm>
-            <dtyp:displayterm value="ServesOtherSpacesNA">NA: A computer room being served by a fan system (not economizer) meeting the requirements of Exception 2 [d:t24ref/]140.9(a)1</dtyp:displayterm>
+            <dtyp:displayterm value="ServesOtherSpacesNA">ITE design load [d:lt/]20 tons and served by economizer meeting Exception 2 to 140.9(a)1</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2658,12 +2662,14 @@
    <xsd:simpleType name="CondenserCapTHR">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ApplianceEfficiencyNA">NA: Condensing Unit that are components of walk-in coolers or freezers within the scope of Appliance Efficiency regulations.</dtyp:displayterm>
             <dtyp:displayterm value="Cap_NA">NA: Transcritical CO[d:sub]2[/d:sub] refrigeration</dtyp:displayterm>
             <dtyp:displayterm value="GTE8000MBH">[d:gte/] 8,000 MBH</dtyp:displayterm>
             <dtyp:displayterm value="LT8000MBH">[d:lt/] 8,000 MBH</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ApplianceEfficiencyNA"/>
          <xsd:enumeration value="Cap_NA"/>
          <xsd:enumeration value="GTE8000MBH"/>
          <xsd:enumeration value="LT8000MBH"/>
@@ -2690,12 +2696,14 @@
    <xsd:simpleType name="CondenserFins">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ApplianceEfficiencyNA">NA: Condensing Unit that are components of walk-in coolers or freezers within the scope of Appliance Efficiency regulations.</dtyp:displayterm>
             <dtyp:displayterm value="ExistCondenserNA">NA: existing condenser being reused</dtyp:displayterm>
             <dtyp:displayterm value="FinsLTE10PerIn">[d:lte/] 10 fins/in</dtyp:displayterm>
             <dtyp:displayterm value="FinsNA">NA: Using microchannel condenser</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ApplianceEfficiencyNA"/>
          <xsd:enumeration value="ExistCondenserNA"/>
          <xsd:enumeration value="FinsLTE10PerIn"/>
          <xsd:enumeration value="FinsNA"/>
@@ -2722,6 +2730,7 @@
    <xsd:simpleType name="CondenserTemps">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ApplianceEfficiencyNA">NA: Condensing Unit that are components of walk-in coolers or freezers within the scope of Appliance Efficiency regulations.</dtyp:displayterm>
             <dtyp:displayterm value="GT20pctQuickChillNA">NA:  [d:gt/] 20% for quick chill/freezing or cooling another refrigerated space</dtyp:displayterm>
             <dtyp:displayterm value="HP_LT100NA">NA: Total HP [d:lt/] 100</dtyp:displayterm>
             <dtyp:displayterm value="TempsAdiabaticComply">Designed per [d:t24ref/]120.6(a)4C</dtyp:displayterm>
@@ -2731,6 +2740,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ApplianceEfficiencyNA"/>
          <xsd:enumeration value="GT20pctQuickChillNA"/>
          <xsd:enumeration value="HP_LT100NA"/>
          <xsd:enumeration value="TempsAdiabaticComply"/>
@@ -2865,12 +2875,6 @@
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
             <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with [d:gte/] 1 controlled and uncontrolled receptacle</dtyp:displayterm>
-            <dtyp:displayterm value="HealthNA">NA: Healthcare Facility</dtyp:displayterm>
-            <dtyp:displayterm value="DataEquipmentNA">NA: Data Equipment Receptacle</dtyp:displayterm>
-            <dtyp:displayterm value="20AmpCircuitNA">NA: Circuit [d:gt/] 20 Amperes</dtyp:displayterm>
-            <dtyp:displayterm value="UPS247UsageNA">NA: Uninteruptible Power Supply Receptacle intended for 24/7/365</dtyp:displayterm>
-            <dtyp:displayterm value="ClockReceptacleGT6FtHigh">NA: Clock Receptacle [d:gte/] 6FT Above Floor</dtyp:displayterm>
-            <dtyp:displayterm value="RefrigeratorWaterDispenserNA">NA: Refrigerator/Water Dispenser Receptacle</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2878,12 +2882,6 @@
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>
          <xsd:enumeration value="MultipleReceptacleControlledAndUncontrolled"/>
-         <xsd:enumeration value="HealthNA"/>
-         <xsd:enumeration value="DataEquipmentNA"/>
-         <xsd:enumeration value="20AmpCircuitNA"/>
-         <xsd:enumeration value="UPS247UsageNA"/>
-         <xsd:enumeration value="ClockReceptacleGT6FtHigh"/>
-         <xsd:enumeration value="RefrigeratorWaterDispenserNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ControlledReceptacleDemandResponse">
@@ -3119,9 +3117,10 @@
    <xsd:simpleType name="DehumidifyCompliance">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="DehumidificationNA">NA: No dehumidification systems or Greenhouse</dtyp:displayterm>
+            <dtyp:displayterm value="DehumidificationNA">NA: No dehumidification systems</dtyp:displayterm>
             <dtyp:displayterm value="DehumidifierMeetsRegs">Dehumidifiers regulated by Federal Appliance Standards</dtyp:displayterm>
             <dtyp:displayterm value="DewpointDessicant">Dessicant dehumidification for dewpoint [d:lte/] 50degF</dtyp:displayterm>
+            <dtyp:displayterm value="GreenhouseNA">NA: No greenhouse</dtyp:displayterm>
             <dtyp:displayterm value="HeatRecoveryCHW">CHW system has onsite heat recovery for [d:gte/]75% of dehumidification reheat</dtyp:displayterm>
             <dtyp:displayterm value="HeatRecoveryHVAC">HVAC has onsite heat recovery for [d:gte/]75% of dehumidification reheat</dtyp:displayterm>
          </xsd:appinfo>
@@ -3130,6 +3129,7 @@
          <xsd:enumeration value="DehumidificationNA"/>
          <xsd:enumeration value="DehumidifierMeetsRegs"/>
          <xsd:enumeration value="DewpointDessicant"/>
+         <xsd:enumeration value="GreenhouseNA"/>
          <xsd:enumeration value="HeatRecoveryCHW"/>
          <xsd:enumeration value="HeatRecoveryHVAC"/>
       </xsd:restriction>
@@ -6509,6 +6509,28 @@
          <xsd:enumeration value="ExceptionSolarRecovered25pctWH"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ExhaustAirRecoveryMethod">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Included">System includes sensible energy recovery (heat [d:gte/]45%/cool [d:gte/]25%); recovered heat [d:gte/]75% w/ability to disable; pressure drop [d:lte/]0.4"w.g.</dtyp:displayterm>
+            <dtyp:displayterm value="LT10000NA">NA: [d:lt/] 10,000 cfm of lab exhaust</dtyp:displayterm>
+            <dtyp:displayterm value="Exception1">NA: Addition/alteration to existing system without exhaust air heat recovery per Exception 1 to 140.9(c)6</dtyp:displayterm>
+            <dtyp:displayterm value="Exception2">NA: Total lab exhaust rate [d:gt/] 20 cfm/ft2 of roof area per Exception 2 to 140.9(c)6</dtyp:displayterm>
+            <dtyp:displayterm value="Exception3">NA: CZ 6 or 7 where gas heating is allowed per Exception 3 to 140.9(c)6</dtyp:displayterm>
+            <dtyp:displayterm value="Exception4">NA: Exhaust air heat recovery and heat recovery chiller with [d:gte/]40% heat recovery per Exception 4 to 140.9(c)6</dtyp:displayterm>
+            <dtyp:displayterm value="Exception5">NA: Exhaust system requiring wash down system per Exception 5 to 140.9(c)6</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Included"/>
+         <xsd:enumeration value="LT10000NA"/>
+         <xsd:enumeration value="Exception1"/>
+         <xsd:enumeration value="Exception2"/>
+         <xsd:enumeration value="Exception3"/>
+         <xsd:enumeration value="Exception4"/>
+         <xsd:enumeration value="Exception5"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ExistingConditionsTotalAllowance">
       <xsd:annotation>
          <xsd:documentation>  Units: W</xsd:documentation>
@@ -6851,6 +6873,34 @@
          <xsd:enumeration value="NotFinished"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="FrameType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="MetalBuilding">Metal Building</dtyp:displayterm>
+            <dtyp:displayterm value="WoodRoof">Wood Framed And Others</dtyp:displayterm>
+            <dtyp:displayterm value="MetalFramed">Metal Framed</dtyp:displayterm>
+            <dtyp:displayterm value="LightMass">Light Mass</dtyp:displayterm>
+            <dtyp:displayterm value="HeavyMass">Heavy Mass</dtyp:displayterm>
+            <dtyp:displayterm value="WoodWall">Wood Framed And Others</dtyp:displayterm>
+            <dtyp:displayterm value="Spandrel">Spandrel and Curtain Wall</dtyp:displayterm>
+            <dtyp:displayterm value="DemisingWall">Demising Wall</dtyp:displayterm>
+            <dtyp:displayterm value="DoublePaneGas">Double-pane with gas fill</dtyp:displayterm>
+            <dtyp:displayterm value="DoublePaneAir">Double-pane with air fill</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="MetalBuilding"/>
+         <xsd:enumeration value="WoodRoof"/>
+         <xsd:enumeration value="MetalFramed"/>
+         <xsd:enumeration value="LightMass"/>
+         <xsd:enumeration value="HeavyMass"/>
+         <xsd:enumeration value="WoodWall"/>
+         <xsd:enumeration value="Spandrel"/>
+         <xsd:enumeration value="DemisingWall"/>
+         <xsd:enumeration value="DoublePaneGas"/>
+         <xsd:enumeration value="DoublePaneAir"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="FunctionalPerformanceTestingActivities">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -7119,6 +7169,20 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="GreenhouseMinUFactor">
+      <xsd:annotation>
+         <xsd:documentation>Required Min U-factor for greenhouse envelopes.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="GreenhouseUFactorDesign">
+      <xsd:annotation>
+         <xsd:documentation>Required Min U-factor for greenhouse envelopes.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="HabitableAreaControlsReq">
@@ -7582,7 +7646,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="LightingGreenhouse">System serves greenhouse horticulture</dtyp:displayterm>
             <dtyp:displayterm value="LightingIndoors">System serves indoor horticulture</dtyp:displayterm>
-            <dtyp:displayterm value="LightingLoadNA">NA: System has [d:lt/] 40kW of aggregate horticulture lighting laod</dtyp:displayterm>
+            <dtyp:displayterm value="LightingLoadNA">NA: System has [d:lt/] 40kW of aggregate horticulture lighting load</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -7614,17 +7678,13 @@
    <xsd:simpleType name="HorticultureEfficacyPPE">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="GreenhouseNonServiceableLum">System PPE ANSI/ASABE S640 rated for wavelengths 400-700 nanometers AND integrated, non-serviceable luminaire PPE [d:gte/] 1.7 micromoles per joule</dtyp:displayterm>
-            <dtyp:displayterm value="GreenhouseServiceableLamp">System PPE ANSI/ASABE S640 rated for wavelengths 400-700 nanometers AND serviceable lamp PPE [d:gte/] 1.7 micromoles per joule</dtyp:displayterm>
-            <dtyp:displayterm value="IndoorNonServiceableLum">System PPE ANSI/ASABE S640 rated for wavelengths 400-700 nanometers AND integrated, non-serviceable luminaire PPE [d:gte/] 1.9 micromoles per joule</dtyp:displayterm>
-            <dtyp:displayterm value="IndoorServiceableLamp">System PPE ANSI/ASABE S640 rated for wavelengths 400-700 nanometers AND serviceable lamp PPE [d:gte/] 1.9 micromoles per joule</dtyp:displayterm>
+            <dtyp:displayterm value="NonServiceableLum">System PPE ANSI/ASABE S640 rated for wavelengths 400-700 nanometers AND integrated, non-serviceable luminaire PPE [d:gte/] 2.3 micromoles per joule</dtyp:displayterm>
+            <dtyp:displayterm value="ServiceableLamp">System PPE ANSI/ASABE S640 rated for wavelengths 400-700 nanometers AND serviceable lamp PPE [d:gte/] 2.3 micromoles per joule</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="GreenhouseNonServiceableLum"/>
-         <xsd:enumeration value="GreenhouseServiceableLamp"/>
-         <xsd:enumeration value="IndoorNonServiceableLum"/>
-         <xsd:enumeration value="IndoorServiceableLamp"/>
+         <xsd:enumeration value="NonServiceableLum"/>
+         <xsd:enumeration value="ServiceableLamp"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="HorticultureMonitoring">
@@ -8557,20 +8617,58 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="KitchenHasGas">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenAllElectric">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenWithinHealthcare">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenERComplies">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="LabAirflowReductMethod">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ConstantVolSysRequiredNA">NA: Constant volume system required by AHJ or Environmental, Health &amp; Safety</dtyp:displayterm>
             <dtyp:displayterm value="NewZoneExistingSysNA">NA: New zones on an existing constant volume system</dtyp:displayterm>
-            <dtyp:displayterm value="ReducedExhaustMakeupAir">Exhaust airflow capable of reducing exhaust and make-up air to min circulation/ pressurization rate</dtyp:displayterm>
-            <dtyp:displayterm value="SysGT10achNA">NA: Systems designed for [d:gt/] 10 ACH</dtyp:displayterm>
+            <dtyp:displayterm value="ReducedExhaustMakeupAir">Exhaust airflow capable of reducing exhaust and make-up air to occupied and unoccupied min exhaust airflow rates per [d:t24ref/]140.9(c)1</dtyp:displayterm>
+            <dtyp:displayterm value="HealthcareNA">NA: Licensed healthcare facility</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="ConstantVolSysRequiredNA"/>
          <xsd:enumeration value="NewZoneExistingSysNA"/>
          <xsd:enumeration value="ReducedExhaustMakeupAir"/>
-         <xsd:enumeration value="SysGT10achNA"/>
+         <xsd:enumeration value="HealthcareNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LabFanPowerMethod">
@@ -8579,9 +8677,9 @@
             <dtyp:displayterm value="AirTreatmentSysRate">Max 0.85 W/cfm for systems with air treatment (filters, etc.)</dtyp:displayterm>
             <dtyp:displayterm value="NewExhaustLTE10000cfmNA">NA: Newly installed exhaust system [d:lte/]10,000 cfm</dtyp:displayterm>
             <dtyp:displayterm value="NoAirTreatmentSysRate">Max 0.65 W/cfm for systems without air treatment</dtyp:displayterm>
-            <dtyp:displayterm value="StackControlAnemometer">Volume flowrate @ stack controlled by anemometer per [d:t24ref/]140.9(c)3C</dtyp:displayterm>
-            <dtyp:displayterm value="StackControlSensor">Volume flowrate @ stack controlled by contaminant sensor per [d:t24ref/]140.9(c)3D</dtyp:displayterm>
-            <dtyp:displayterm value="SysMeetsDischargeReq">System meets discharge requirements in ANSI Z9.5-2012</dtyp:displayterm>
+            <dtyp:displayterm value="StackControlAnemometer">Exhaust system designed per [d:t24ref/]140.9(c)3D</dtyp:displayterm>
+            <dtyp:displayterm value="InputPower">Exhaust fan system electrical input power does not exceed Fan kW budget</dtyp:displayterm>
+            <dtyp:displayterm value="SysMeetsDischargeReq">System meets discharge requirements in ANSI Z9.5-2022 Section 6.4</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8589,7 +8687,7 @@
          <xsd:enumeration value="NewExhaustLTE10000cfmNA"/>
          <xsd:enumeration value="NoAirTreatmentSysRate"/>
          <xsd:enumeration value="StackControlAnemometer"/>
-         <xsd:enumeration value="StackControlSensor"/>
+         <xsd:enumeration value="InputPower"/>
          <xsd:enumeration value="SysMeetsDischargeReq"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -9616,6 +9714,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AreaLT100SqFtNA">NA: Space [d:lt/]100SF</dtyp:displayterm>
             <dtyp:displayterm value="HealthcareNA">NA:  Licensed Healthcare</dtyp:displayterm>
+            <dtyp:displayterm value="HorticultureLT40">NA: System has [d:lt/] 40kW of aggregate horticulture lighting load</dtyp:displayterm>
             <dtyp:displayterm value="DimmerControl">Dimmer</dtyp:displayterm>
             <dtyp:displayterm value="HIDInduction">HID and induction with 1 step between 30 - 70%</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_5WperSqFtNA">NA: General Ltg [d:lte/] 0.5W/SF</dtyp:displayterm>
@@ -9628,6 +9727,7 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AreaLT100SqFtNA"/>
          <xsd:enumeration value="HealthcareNA"/>
+         <xsd:enumeration value="HorticultureLT40"/>
          <xsd:enumeration value="DimmerControl"/>
          <xsd:enumeration value="HIDInduction"/>
          <xsd:enumeration value="LTE0_5WperSqFtNA"/>
@@ -12070,6 +12170,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Ammonia">Ammonia</dtyp:displayterm>
+            <dtyp:displayterm value="ApplianceEfficiencyNA">NA: Condensing Unit that are components of walk-in coolers or freezers within the scope of Appliance Efficiency regulations.</dtyp:displayterm>
             <dtyp:displayterm value="Halocarbon">Halocarbon</dtyp:displayterm>
             <dtyp:displayterm value="RefrigerantNA">NA: Transcritical CO[d:sub]2[/d:sub] refrigeration</dtyp:displayterm>
          </xsd:appinfo>
@@ -12102,6 +12203,26 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ReheatLimitationMethod">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="LT80GT50">Air handler shall not cool air [d:lt/] 80 degrees F nor heat [d:gt/]50 degrees F per [d:t24refnolink/]140.9(c)5</dtyp:displayterm>
+            <dtyp:displayterm value="LT20000NA">NA: [d:lt/] 20,000 cfm of lab exhaust</dtyp:displayterm>
+            <dtyp:displayterm value="MultipleLabNA">NA: Air Handler does not serve multiple laboratory zones</dtyp:displayterm>
+            <dtyp:displayterm value="NoCapacityNA">NA: Add/alt to existing AH serving zones with no heat/cool capacity per Exception 1 to 140.9(c)5</dtyp:displayterm>
+            <dtyp:displayterm value="VivariumNA">NA: Vivarium or space classified as biosafety level 3 or higher per Exception 3 to 140.9(c)5</dtyp:displayterm>
+            <dtyp:displayterm value="DewPointNA">NA: Systems that meet dew point criteria, heat/cool at each zone, and do not cool per Exception 4 to 140.9(c)5</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="LT80GT50"/>
+         <xsd:enumeration value="LT20000NA"/>
+         <xsd:enumeration value="MultipleLabNA"/>
+         <xsd:enumeration value="NoCapacityNA"/>
+         <xsd:enumeration value="VivariumNA"/>
+         <xsd:enumeration value="DewPointNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ReportGeneratedDate">
@@ -13769,7 +13890,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="PowerReduced65">Power reduced 65%+</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor; illuminated day and night</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
             <dtyp:displayterm value="OneHourNA">NA: Illuminated [d:lt/]1 hour during day</dtyp:displayterm>
          </xsd:appinfo>
@@ -13790,7 +13911,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="AutoTimeSwitchPhotoControl">Automatic Time Switch + Photocontrol (outdoor)</dtyp:displayterm>
             <dtyp:displayterm value="OtherIndoor">Other (indoor)</dtyp:displayterm>
             <dtyp:displayterm value="OtherOutdoor">Other (outdoor)</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor; Covered &amp; on 24/7</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>

@@ -1882,15 +1882,6 @@ Else result = false
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B01_ProjectHasPoolSpa" type="comp:ProjectHasPoolSpa" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Pool/Spa (mandatory [d:t24refnolink/]110..4 /[d:t24refnolink/]160.7)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input
-If checked result = true
-Else result = false
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="BEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
@@ -2369,39 +2360,6 @@ End If</xsd:documentation>
                         </xsd:simpleType>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="C13_CompliantSectionR" type="comp:CompliantSectionR" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Multifamily Pool/Spa [d:t24refnolink/]160.7 [d:line1/] (See Table R)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If  B01_ProjectHasPoolSpa == false 
-result = BlankGrayedOut  stored in NotApplicableMessage; 
-Else If  Pool01 - Pool08 have data
-If Pool02_PoolSpaService != SingleTenant 
-result = true display term Yes; 
-Else If Pool02_PoolSpaService == SingleTenant And Pool09- Pool11 And Pool09- Pool11 have data And Pool12 has data or result == BlankGrayedOut
-result = true display term Yes; 
-Else result = false display term No
-EndIf
-Else result = false display term No
-EndIf</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="C13_NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Multifamily Pool/Spa [d:t24refnolink/]160.7 [d:line1/] (See Table R)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If  B01_ProjectHasPoolSpa  == false 
- 
-result = BlankGrayedOut stored in NotApplicableMessage; 
-End If</xsd:documentation>
-                        </xsd:annotation>
-                        <xsd:simpleType>
-                           <xsd:restriction base="comp:NotApplicableMessage">
-                              <xsd:enumeration value="BlankGrayedOut"/>
-                           </xsd:restriction>
-                        </xsd:simpleType>
-                     </xsd:element>
-                  </xsd:choice>
                   <xsd:element name="C14_DoesFormComplyNRCC" type="comp:DoesFormComplyNRCC" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Compliance Results[/d:b]</xsd:documentation>
@@ -2512,7 +2470,7 @@ End If</xsd:documentation>
                   <xsd:element name="F_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] This table includes all refrigerated warehouses [d:gt/] 3,000 ft2 and refrigerated spaces with a sum total of [d:gt/] 3,000 ft2 served by the same refrigeration system.  The inputs within Table F are used to demonstrate compliance with the requirements of [d:t24refnolink/]120.6(a).[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] This table includes all refrigerated warehouses [d:gt/] 3,000 ft2 and refrigerated spaces with a sum total of [d:gt/] 3,000 ft2 served by the same refrigeration system.  The inputs within Table F are used to demonstrate compliance with the requirements of [d:t24refnolink/]120.6(a) and [d:t24refnolink/]120.3.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F01Label">
@@ -2562,6 +2520,12 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="F01PipeInsulation_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pipe Insulation</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="Fins" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Warehouse Exterior Surface Insulation[/d:b]</xsd:documentation>
@@ -2578,7 +2542,7 @@ End If</xsd:documentation>
                            <xsd:element name="FinsTableHeading" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">[d:b]TABLE 120.6-A REFRIGERATED WAREHOUSE/SPACE INSULATION[/d:b]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">FinsCol1Label to FinsCol3Row2bLabel define a  Table 120.6-A with the cells containing data as static text.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">FinsCol1Label to FinsCol3Row2bLabel define a Table 120.6-A-1 with the cells containing data as static text.</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FinsCol1Label" minOccurs="0">
@@ -2728,6 +2692,11 @@ End If</xsd:documentation>
                                  <xsd:documentation source="FieldText">Fan Controls [d:t24refnolink/]120.6(a)3B &amp; [d:t24refnolink/]120.6(a)3C</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
+                           <xsd:element name="Ffan07To08Label" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Evaporator Efficiency [d:t24refnolink/]120.6(a)3D &amp; [d:t24refnolink/]120.6(a)3E</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="TableFfan" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -2825,6 +2794,18 @@ End I</xsd:documentation>
                                                    </xsd:simpleType>
                                                 </xsd:element>
                                              </xsd:choice>
+                                                <xsd:element name="Ffan07_EvapFanEfficiency" type="hvac:EvapFanEfficiency" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Compliance Method</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules"> User selects from list </xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                                <xsd:element name="Ffan08_EvapStaticDrop" type="hvac:EvapStaticDrop" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Applied Static Pressure Drop</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules"> User selects from list </xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
                                           </xsd:sequence>
                                        </xsd:complexType>
                                     </xsd:element>
@@ -2967,8 +2948,8 @@ Multi-field triggers: See Fcon01Air_CondenserTypeApplies  CalculationsAndRules f
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:CondenserTemps">
+                                                      <xsd:enumeration value="ApplianceEfficiencyNA"/>
                                                       <xsd:enumeration value="GT20pctQuickChillNA"/>
-                                                      <xsd:enumeration value="HP_LT100NA"/>
                                                       <xsd:enumeration value="TempsAirComply"/>
                                                       <xsd:enumeration value="TempsNA"/>
                                                    </xsd:restriction>
@@ -3002,7 +2983,23 @@ Multi-field triggers: See Fcon01Air_CondenserTypeApplies  CalculationsAndRules f
                                                 <xsd:element name="Fconair08_CondenserMinEfficiency" type="hvac:CondenserMinEfficiency" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Minimum Efficiency Required (Btuh/W)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fconair03_CondenserLocation == Indoor Or If Fconair07_RefrigerantType == RefrigerantNA  result = BlankGrayedOut stored in NotApplicableMessage; Else calculated field: If Fconair07_RefrigerantType == Ammonia result = 75; Else If  Fconair07_RefrigerantType == Halocarbon result = 65;
+                                                      <xsd:documentation source="CalculationsAndRules">
+If Fconair03_CondenserLocation == Indoor  
+or
+If Fconair07_RefrigerantType == RefrigerantNA or ApplianceEfficiencyNA
+or
+If Fconair06_CondenserTemps == ApplianceEfficiencyNA
+
+result = BlankGrayedOut stored in NotApplicableMessage; 
+
+
+Else calculated field: 
+
+If Fconair07_RefrigerantType == Ammonia 
+   result = 75; 
+   
+Else If  Fconair07_RefrigerantType == Halocarbon 
+   result = 65;
  
 Mandatory Measure Triggers:
 If result GT 0 And Fconair09_CondenserEfficiency GT 0
@@ -3013,7 +3010,15 @@ End If</xsd:documentation>
                                                 <xsd:element name="Fconair08_NotApplicableMessage" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Minimum Efficiency Required (Btuh/W)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fconair03_CondenserLocation == Indoor Or If Fconair07_RefrigerantType == RefrigerantNA  result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+If Fconair03_CondenserLocation == Indoor  
+or
+If Fconair07_RefrigerantType == RefrigerantNA or ApplianceEfficiencyNA
+or
+If Fconair06_CondenserTemps == ApplianceEfficiencyNA
+
+result = BlankGrayedOut stored in NotApplicableMessage; 
+                                                      </xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -3026,7 +3031,17 @@ End If</xsd:documentation>
                                                 <xsd:element name="Fconair09_CondenserEfficiency" type="hvac:CondenserEfficiency" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Efficiency per Design (Btuh/W)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fconair03_CondenserLocation == Indoor Or If Fconair07_RefrigerantType == RefrigerantNA  result = BlankGrayedOut stored in NotApplicableMessage; Else user input
+                                                      <xsd:documentation source="CalculationsAndRules">
+If Fconair03_CondenserLocation == Indoor 
+Or 
+If Fconair07_RefrigerantType == RefrigerantNA or ApplianceEfficiencyNA
+or
+If Fconair06_CondenserTemps == ApplianceEfficiencyNA
+
+result = BlankGrayedOut stored in NotApplicableMessage; 
+
+
+Else user input
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See Fconair08_CondenserMinEfficiency  CalculationsAndRules for trigger values from this field</xsd:documentation>
@@ -3035,7 +3050,14 @@ Multi-field triggers: See Fconair08_CondenserMinEfficiency  CalculationsAndRules
                                                 <xsd:element name="Fconair09_NotApplicableMessage" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Efficiency per Design (Btuh/W)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fconair03_CondenserLocation == Indoor Or If Fconair07_RefrigerantType == RefrigerantNA  result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+If Fconair03_CondenserLocation == Indoor 
+Or 
+If Fconair07_RefrigerantType == RefrigerantNA or ApplianceEfficiencyNA
+or
+If Fconair06_CondenserTemps == ApplianceEfficiencyNA
+
+result = BlankGrayedOut stored in NotApplicableMessage; </xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -3129,6 +3151,7 @@ Multi-field triggers: See Fcon01Evap_CondenserTypeApplies And Fcon01Water_Conden
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:CondenserTemps">
+                                                      <xsd:enumeration value="ApplianceEfficiencyNA"/>
                                                       <xsd:enumeration value="GT20pctQuickChillNA"/>
                                                       <xsd:enumeration value="TempsNA"/>
                                                       <xsd:enumeration value="TempsWaterComply"/>
@@ -3144,7 +3167,7 @@ Multi-field triggers: See Fcon01Evap_CondenserTypeApplies And Fcon01Water_Conden
                                                 <xsd:element name="Fconwater07_CondenserCapTHR" type="comp:CondenserCapTHR" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">THR Capacity</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fconwater03_CondenserLocation == Indoor result = BlankGrayedOut stored in NotApplicableMessage; Else user selects from list: GTE8000MBH display term [d:gte/] 8,000 MBH, LT8000MBH display term [d:lt/] 8,000 MBH, Cap_NA display term NA: Transcritical CO[d:sub]2[/d:sub] refrigeration</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fconwater03_CondenserLocation == Indoor result = BlankGrayedOut stored in NotApplicableMessage; Else user selects from list</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fconwater07_NotApplicableMessage" >
@@ -3266,13 +3289,14 @@ End If</xsd:documentation>
                                              <xsd:element name="Fconadia05_CondenserTemps" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Design Condensing Temperatures [d:t24refnolink/]120.6(a)4B</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User selects from list; TempsAdiabaticComply display term Designed per [d:t24ref/]120.6(a)4C, HPLT100NA display term NA: Total HP [d:lt/] 100, GT20pctQuickChillNA display term NA:  [d:gt/] 20% for quick chill/freezing or cooling another refrigerated space, TempsNA display term NA: Transcritical CO[d:sub]2[/d:sub] refrigeration
+                                                   <xsd:documentation source="CalculationsAndRules">User selects from list; 
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See Fcon01Air_CondenserTypeApplies  CalculationsAndRules for trigger values from this field</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:CondenserTemps">
+                                                      <xsd:enumeration value="ApplianceEfficiencyNA"/>
                                                       <xsd:enumeration value="GT20pctQuickChillNA"/>
                                                       <xsd:enumeration value="TempsAdiabaticComply"/>
                                                       <xsd:enumeration value="TempsNA"/>
@@ -3287,7 +3311,7 @@ Multi-field triggers: See Fcon01Air_CondenserTypeApplies  CalculationsAndRules f
                                              <xsd:element name="Fconadia06_RefrigerantType" type="comp:RefrigerantType" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Refrigerant Type</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User selects from list: Ammonia, Halocarbon, RefrigerantNA display term NA: Transcritical CO[d:sub]2[/d:sub] refrigeration</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:choice maxOccurs="1">
@@ -3691,6 +3715,67 @@ Else result = false display term is No</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="FMandatoryPipeInsulation" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when F01PipeInsulation_ComponentApplies == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                        <xsd:choice maxOccurs="1">   
+                        <xsd:element name="F01_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications is specified to comply with Table 120.3-A1 or or Table 120.3-A2 (see below) per [d:t24refnolink/]120.3:[d:l t="*"][d:list]  - Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list]   - The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list]  - Pipes that are externally heated[/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section F that has F01PipeInsulation_ComponentApplies then user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="F01_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If NO  row in section F has F01PipeInsulation_ComponentApplies 
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="F02_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements"> Per [d:t24refnolink/]120.3(b), pipe and appurtenance insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Protection shall include: [d:l t="*"][d:list]  - Insulation exposed to weather shall be installed with a cover suitable for outdoor service  [/d:list][d:list] - Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve. [/d:list][d:list] - Pipe insulation covering chilled water piping and refrigerant suction piping located outside the conditioned space shall include, or be protected by, a Class I or Class II vapor retarder. All penetrations and joints shall be sealed. [/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section F that has F01PipeInsulation_ComponentApplies then user input;  If checked result = true; else result = false. 
+user input: 
+End If
+ 
+If checked result = true; 
+else result = false.
+End If
+</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="F02_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If no row in section F that has F01PipeInsulation_ComponentApplies 
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -3710,7 +3795,7 @@ End If</xsd:documentation>
                   <xsd:element name="G_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes all refrigeration equipment being utilized for refrigerated display cases or walk-in coolers/ freezers, located in a retail food /beverage store with 8,000 ft[d:sup]2[/d:sup] or more of conditioned floor area.  The inputs within Table G are used to demonstrate compliance with the requirements of [d:t24refnolink/]120.6(b) [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes all refrigeration equipment being utilized for refrigerated display cases or walk-in coolers/ freezers, located in a retail food /beverage store with 8,000 ft[d:sup]2[/d:sup] or more of conditioned floor area.  The inputs within Table G are used to demonstrate compliance with the requirements of [d:t24refnolink/]120.6(b) and [d:t24refnolink/] 120.3[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G01Label" minOccurs="0">
@@ -3745,6 +3830,12 @@ End If</xsd:documentation>
                   <xsd:element name="G01TranscriticalGasCooler_ComponentApplies" type="comp:ComponentApplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Transcritical CO[d:sub]2[/d:sub] Fan Powered Gas Coolers</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01PipeInsulation_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pipe Insulation</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -4241,6 +4332,67 @@ Else result = false display term is No</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="GMandatoryPipeInsulation" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when G01PipeInsulation_ComponentApplies == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                        <xsd:choice maxOccurs="1">   
+                        <xsd:element name="G01_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications is specified to comply with Table 120.3-A1 or or Table 120.3-A2 (see below) per [d:t24refnolink/]120.3:[d:l t="*"][d:list]  - Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list]   - The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list]  - Pipes that are externally heated[/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section F that has G01PipeInsulation_ComponentApplies then user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="G01_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If NO  row in section F has G01PipeInsulation_ComponentApplies 
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="G02_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements"> Per [d:t24refnolink/]120.3(b), pipe and appurtenance insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Protection shall include: [d:l t="*"][d:list]  - Insulation exposed to weather shall be installed with a cover suitable for outdoor service  [/d:list][d:list] - Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve. [/d:list][d:list] - Pipe insulation covering chilled water piping and refrigerant suction piping located outside the conditioned space shall include, or be protected by, a Class I or Class II vapor retarder. All penetrations and joints shall be sealed. [/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section F that has G01PipeInsulation_ComponentApplies then user input;  If checked result = true; else result = false. 
+user input: 
+End If
+ 
+If checked result = true; 
+else result = false.
+End If
+</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="G02_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If no row in section F that has G01PipeInsulation_ComponentApplies 
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -4670,31 +4822,10 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                     <xsd:element name="J06_CompressedAirVelocity" type="comp:CompressedAirVelocity" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Section Average Velocity</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Section Average Velocity or Total Pressure Drop</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="J06_NotApplicableMessage" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
-                                       result = BlankGrayedOut
-                                       End If
-                                       </xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                    </xsd:element>
-                                 </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                    <xsd:element name="J07_CompressedAirPressureDrop" type="comp:CompressedAirPressureDrop" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total Pressure Drop</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="J07_NotApplicableMessage" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
@@ -5554,6 +5685,97 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
+         <xsd:element name="ElectricReadyKitchen" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Electric Ready Commercial Kitchens [d:t24refnolink/]120.6(k)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HospitalBuilding
+this section does not apply
+Else If  B01_ProjectHasCommercialKitchen == true
+this section is required
+End If</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="ElectricReadyKitchen_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes electrical system requirements that must be met when using gas or propane in newly constructed commercial kitchens to demonstrate compliance with [d:t24refnolink/]120.6(k).[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ElectricReadyKitchen" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Newly constructed commercial kitchen[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="ElectricReadyKitchen01_KitchenHasGas" type="comp:KitchenHasGas" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Uses gas or propane fuel</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen01_KitchenAllElectric" type="comp:KitchenAllElectric" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">All-electric kitchen</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen01_KitchenWithinHealthcare" type="comp:KitchenWithinHealthcare" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Is within a healthcare facility</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen_SubHeading02to03" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Mandatory requirements for commercial kitchens</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen02_KitchenERComplies" type="comp:KitchenERComplies" >
+                              <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:[d:l t="*"][d:list] a) The branch circuit conductors shall be rated at 50 amps minimum.[/d:list][d:list] b) The electrical service panel shall have a minimum capacity of 800 connected amps. [/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                              </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="ElectricReadyKitchen02_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:[d:l t="*"][d:list] a) The branch circuit conductors shall be rated at 50 amps minimum.[/d:list][d:list] b) The electrical service panel shall have a minimum capacity of 800 connected amps. [/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="ElectricReadyKitchen03_KitchenERComplies" type="comp:KitchenERComplies" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="ElectricReadyKitchen03_NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
          <xsd:element name="Section_O" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]O. LABORATORY AND FACTORY EXHAUST AND FUME HOODS[/d:b]</xsd:documentation>
@@ -5590,7 +5812,7 @@ End If</xsd:documentation>
                                     <xsd:element name="O02_LabAirflowReductMethod" type="comp:LabAirflowReductMethod" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Airflow Reduction Compliance Method [d:t24refnolink/]140.9(c)1</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: ReducedExhaustMakeupAir display term Exhaust airflow capable of reducing exhaust and make-up air to min circulation/ pressurization rate, ConstantVolSysRequiredNA display term NA: Constant volume system required by AHJ or Environmental, Health &amp; Safety, NewZoneExistingSysNA display term NA: New zones on an existing constant volume system, SysGT10achNA display term NA: Systems designed for [d:gt/] 10 ACH</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O03_LabTransferAirMethod" type="comp:LabTransferAirMethod" >
@@ -5601,7 +5823,7 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="O04a_LabFanPowerMethod" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Fan Power Compliance Method [d:t24refnolink/]140.9(c)3</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Exhaust Fan System Power Compliance Method [d:t24refnolink/]140.9(c)3</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: SysMeetsDischargeReq display term System meets discharge requirements in ANSI Z9.5-2012, NewExhaustLTE10000cfmNA display term NA: Newly installed exhaust system [d:lte/]10,000 cfm</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -5622,7 +5844,7 @@ End If</xsd:documentation>
                                              <xsd:enumeration value="NewExhaustLTE10000cfmNA"/>
                                              <xsd:enumeration value="NoAirTreatmentSysRate"/>
                                              <xsd:enumeration value="StackControlAnemometer"/>
-                                             <xsd:enumeration value="StackControlSensor"/>
+                                             <xsd:enumeration value="InputPower"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -5630,6 +5852,18 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Hood Sash Compliance Method [d:t24refnolink/]140.9(c)4</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: HoodSashMeetsReq display term Hood sash closure system design controlled   per [d:t24ref/]140.9(c)4, NotVAV_HoodNA display term NA: Not VAV hood with vertical sashes in hood intensive lab</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="O06_ReheatLimitationMethod" type="comp:ReheatLimitationMethod" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Reheat Limitation Compliance Method [d:t24refnolink/]140.9(c)5</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="O07_ExhaustAirRecoveryMethod" type="comp:ExhaustAirRecoveryMethod" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exhaust Air Heat Recovery Compliance Method [d:t24refnolink/]140.9(c)6</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -5664,7 +5898,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="H01SpaceConditioning_ComponentApplies" type="comp:ComponentApplies" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Space Conditiong for Plant Production </xsd:documentation>
+                        <xsd:documentation source="FieldText">Space Conditiong for Plant Production [d:t24refnolink/]120.6(h)1 and 4 </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -5702,7 +5936,7 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="Hort03_HorticultureCompliance" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">HVAC System Compliance Method [d:t24refnolink/]120.6(h)5</xsd:documentation>
+                                          <xsd:documentation source="FieldText">HVAC System Compliance Method [d:t24refnolink/]120.6(h)4</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:HorticultureCompliance">
@@ -5720,7 +5954,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="TableHortLtg" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Lighting and Electrical Systems  [d:t24refnolink/]120.6(h)2, 3 and 6[/d:b]</xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Lighting and Electrical Systems [d:t24refnolink/]120.6(h)2 and 5[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This sub-table applies when H01LightingElectrical_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -5743,13 +5977,13 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="HortLtg03_HorticultureEfficacyPPE" type="comp:HorticultureEfficacyPPE" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Photosynthetic Photon Efficacy (PPE) [d:t24refnolink/]120.6(h)2A &amp; 6A</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Photosynthetic Photon Efficacy (PPE) [d:t24refnolink/]120.6(h)5A</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortLtg02_HorticultureBuilding == LightingLoadNA
 result = BlankGrayedOut stored in NotApplicableMessage
-Else
-User selects from customized list as follows:
-If HortLtg02_HorticultureBuilding == LightingIndoors list IndoorServiceableLamp, IndoorNonServiceableLum
-Else If HortLtg02_HorticultureBuilding == LightingGreenhouse list GreenhouseServiceableLamp, GreenhouseNonServiceableLum
+
+Else 
+User selects from list
+
 End If
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -5765,7 +5999,7 @@ End If</xsd:documentation>
                                     </xsd:choice>
                                     <xsd:element name="HortLtg0405ColLabel" minOccurs="0">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Lighting Controls  [d:t24refnolink/]120.6(h)2B &amp; C and 6B &amp;C</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Lighting Controls  [d:t24refnolink/]120.6(h)5B &amp; C</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -5796,7 +6030,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="HortLtg05_MultilevelControls" >
+                                       <xsd:element name="MultilevelControls" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Multilevel</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortLtg02_HorticultureBuilding == LightingLoadNA
@@ -5808,6 +6042,7 @@ End If</xsd:documentation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:MultilevelControls">
                                                 <xsd:enumeration value="DimmerControl"/>
+                                                <xsd:enumeration value="HorticultureLT40"/>
                                                 <xsd:enumeration value="MultilevelSwitch"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
@@ -5824,7 +6059,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="HortLtg06_HorticultureMonitoring" type="comp:HorticultureMonitoring" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Electrical System Monitoring Capability [d:t24refnolink/]120.6(h)3</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Electrical System Monitoring Capability [d:t24refnolink/]120.6(h)2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortLtg02_HorticultureBuilding == LightingLoadNA
 result = BlankGrayedOut
 Else 
@@ -5849,7 +6084,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="TableHortEnv" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Opaque and Non-Opaque Envelopes[/d:b]</xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Greenhouse Envelopes[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This sub-table applies when H01Envelope_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -5878,42 +6113,76 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="HortEnv03_GreenhouseNonOpaqueReq" type="env:GreenhouseNonOpaqueReq" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method [d:t24refnolink/]120.6(h)4B</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method [d:t24refnolink/]120.6(h)3B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Use selects from list GlazingCompliance</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="HortEnv03_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method [d:t24refnolink/]120.6(h)4B</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method [d:t24refnolink/]120.6(h)3B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortEnv02_GreenhouseAssembly == OpaqueRoof Or OpaqueWall
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="HortEnv04_HorticultureCompliance" >
+                                       <xsd:element name="HortEnv04_FrameType" type="comp:FrameType">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Opaque Envelope Compliance Method [d:t24refnolink/]120.6(h)4A</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list PerformanceEnvelope, PrescriotiveEnvelope</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If HortEnv02_GreenhouseAssembly == OpaqueRoof
+   User selects from MetalBuilding, WoodRoof
+Else If HortEnv02_GreenhouseAssembly == OpaqueWall
+   User selects from MetalBuilding, MetalFramed, LightMass, HeavyMass, WoodWall, Spandrel, DemisingWall
+Else If HortEnv02_GreenhouseAssembly == NonOpaqueEnvelope
+   User selects from DoublePaneGas, DoublePaneAir                                          
+</xsd:documentation>
                                           </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:HorticultureCompliance">
-                                                <xsd:enumeration value="PerformanceEnvelope"/>
-                                                <xsd:enumeration value="PrescriptiveEnvelope"/>
-                                                <xsd:enumeration value="Greenhouse"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="HortEnv04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:choice maxOccurs="1">
+                                       <xsd:element name="HortEnv05_GreenhouseMinUFactor" type="comp:GreenhouseMinUFactor">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Opaque Envelope Compliance Method [d:t24refnolink/]120.6(h)4A</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Required Min U-factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If HortEnv02_GreenhouseAssembly == OpaqueRoof
+   If HortEnv04_FrameType == MetalBuilding
+      Result = 0.098
+   Else If HortEnv04_FrameType == WoodRoof
+      Result = 0.075
+Else If HortEnv02_GreenhouseAssembly == OpaqueWall
+   If HortEnv04_FrameType == MetalBuilding
+      Result = 0.113
+   Else If HortEnv04_FrameType == MetalFramed
+      Result = 0.151
+   Else If HortEnv04_FrameType == LightMass
+      Result = 0.440
+   Else If HortEnv04_FrameType == HeavyMass
+      Result = 0.690
+   Else If HortEnv04_FrameType == WoodWall
+      Result = 0.110
+Else If HortEnv02_GreenhouseAssembly == NonOpaqueEnvelope
+   result = BlankGrayedOut                                       
+
+</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="HortEnv05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Required Min U-factor</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortEnv02_GreenhouseAssembly == NonOpaqueEnvelope
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:element name="HortEnv06_GreenhouseUFactorDesign" type="comp:GreenhouseUFactorDesign">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design U-factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+User Input
+</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -5984,281 +6253,6 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_R" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b]R. Pool &amp; SPAs[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If  B01_ProjectHasPoolSpa == true
-this section is required
-End If</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Pool_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] This table documents compliance with mandatory pool/spa requirements in [d:t24refnolink/]110.4 / [d:t24refnolink/]160.7 [/d:i]</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="PoolSpa">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                              <xsd:complexType>
-                                 <xsd:sequence>
-                                    <xsd:element name="Pool01_SystemDescription" type="comp:SystemDescription">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Pool/Spa Description</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Pool02_PoolSpaService" type="comp:PoolSpaService">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 
-            MultipleUsers display term Serves multiple tenants or public
-            SingleTenant display term Serves one tenant</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Pool03_PoolSpaRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Efficiency[d:sup]1[/d:sup]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  EfficiencyStandards display term Equipment subject to State/federal appliance efficiency standards is in the CEC's directory of certified equipment</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:PoolSpaRequirements">
-                                             <xsd:enumeration value="EfficiencyStandards" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Pool04_PoolSpaRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">On/Off Control</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: OnOffSwitchProvided display term Includes on-off switch mounted on outside of heater allowing shutting off heater without adjusting thermostat</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:PoolSpaRequirements">
-                                             <xsd:enumeration value="NotHeatedNA" />
-                                             <xsd:enumeration value="OnOffSwitchProvided" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Pool05_PoolSpaRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CoverProvided display term Heated outdoor pools/spas must include cover and weatherproof instruction for proper care of when cover is used
-            NotHeatedNA display term NA: Pool/spa not heated</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:PoolSpaRequirements">
-                                             <xsd:enumeration value="CoverProvided" />
-                                             <xsd:enumeration value="NotHeatedNA" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Pool06_PoolSpaRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  NoElectResistanceHeat display term No electrical resistance heating used
-            FullyInsulated display term Listed package units with fully insulated enclosures, and with tight-fitting covers that are insulated to at least R-6
-            SolarRecoveredEnergy display term Pools/spas where greater or equal to 60% of annual heating energy is from site solar energy or recovered energy</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:PoolSpaRequirements">
-                                             <xsd:enumeration value="FullyInsulated" />
-                                             <xsd:enumeration value="NoElectResistanceHeat" />
-                                             <xsd:enumeration value="SolarRecoveredEnergy" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Pool07_PoolSpaRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Piping</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  FutureSolarPiping display term greater than or equal to 36 in of pipe installed between filter and heater or dedicated suction and return lines to allow for the future addition of solar heating equipment
-            FutureSolarConnections display term Built-in/built-up connections installed to allow for the future addition of solar heating equipment</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:PoolSpaRequirements">
-                                             <xsd:enumeration value="FutureSolarConnections" />
-                                             <xsd:enumeration value="FutureSolarPiping" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Pool08_PoolSpaRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Pool Directional Inlets &amp; Pump Control</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: PoolInletsPump display term Has directional inlets to mix the pool water &amp; control mechanism to allow pumps to run only during off-peak electric demand period and for min time necessary
-            SpaNA display term NA: Spa</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:PoolSpaRequirements">
-                                             <xsd:enumeration value="PoolInletsPump" />
-                                             <xsd:enumeration value="SpaNA" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="PoolEndNote1" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup]FOOTNOTE: CEC's appliance efficiency database, the Modernized Appliance Efficiency Database System (MAEDBS), is available online a https://cacertappliances.energy.ca.gov/Pages/ApplianceSearch.aspx[/d:i]</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                 </xsd:sequence>
-                              </xsd:complexType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="PoolSingleTenant" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Additional Requirements for Pool/Spa Serving One Tenant [d:t24refnolink/]150.0(p) [/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required 
-If Pool02_PoolSpaService == SingleTenant 
-Else no data is collected and this subsection is not displayed</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="Pool09_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">All pump flow rates shall be calculated using H = C x F[d:sup]2[/d:sup]
-WHERE:
-H is the total system head in feet of water
-F is the flow rate in gallons per minute (gpm)
-C is a coefficient based on the volume of the pool (0.0167 for pools less than or equal to 17,000 gallons and 0.0082 for pools greater than 17,000 gallons)</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
-result = PumpFlowRate
-Else If box is unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                    <xsd:enumeration value="PumpFlowRate" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                           <xsd:element name="Pool10_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Filtration pumps shall be sized, or if programmable, shall be programmed, so that the filtration flow rate is not greater than the rate needed to turn over the pool water volume in 6 hours or 36 gpm, whichever is greater.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
-result = FiltrationPumpSize
-Else If box is unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="FiltrationPumpSize" />
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                           <xsd:element name="Pool11_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Pump motors used for filtration shall meet the applicable federal standard in 10 CFR 431.465.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
-result = FiltrationPumpMotor
-Else If box is unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="FiltrationPumpMotor" />
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                           <xsd:element name="Pool12_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Each auxiliary pool load shall be served by either separate pumps or the system shall be served by a multispeed pump if pump hp [d:gte/] 1.
-- Multispeed pumps shall have controls which default to the filtration flow rate when no auxiliary pool loads are operating; and 
-- For multispeed pumps, the controls shall default to the filtration flow rate setting within 24 hours and shall have an override capability for servicing.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  
-If user checks the Yes box
-result = AuxPoolLoad 
-Else If user checks the Not Applicable box
-result = PoolReqNA
-Else If both Yes box and Not Applicable box are unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="AuxPoolLoad" />
-                                    <xsd:enumeration value="PoolReqNA" />
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                           <xsd:element name="Pool13_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requirements: 
-- A length of straight pipe that is greater than or equal to at least 4 pipe diameters shall be installed before the pump; and
-- Pool piping shall be sized so that the velocity of the water at maximum flow for auxiliary pool loads does not exceed 8 feet per second in the return line and 6 feet per second in the suction line; and 
-- All elbows shall be sweep elbows or of an elbow-type that has a pressure drop of less than the pressure drop of straight pipe with a length of 30 pipe diameters.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
-result = PoolPiping
-Else If box is unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="PoolPiping" />
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                           <xsd:element name="Pool14_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
-result = FilterSize
-Else If box is unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="FilterSize" />
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                           <xsd:element name="Pool15_PoolSpaOneTenantReqs">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
-result = BackwashValves
-Else If box is unchecked
-result = PoolReqNotMet and this section does not comply
-End If</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:simpleType>
-                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                                    <xsd:enumeration value="BackwashValves" />
-                                    <xsd:enumeration value="PoolReqNotMet" />
-                                 </xsd:restriction>
-                              </xsd:simpleType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
          <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]S.  DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION[/d:b]</xsd:documentation>
@@ -6273,7 +6267,7 @@ D03_ExceptionalConditionMessageCCPRCE += UserChangedSelectionInCI</xsd:documenta
                   <xsd:element name="Nrci_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selections have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-4 [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selections have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrci01_RequireNRCIPrc01E" type="comp:RequireNRCIPrc01E" >
@@ -6653,7 +6647,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-14-F Lab Exhaust Ventilation Systems</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false; If  B02e_ProjectHasLabExhaust == true and O04b_LabFanPowerMethod == StackControlAnemometer  Or StackControlSensor  result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false; If  B02e_ProjectHasLabExhaust == true and O04b_LabFanPowerMethod == StackControlAnemometer  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca12_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
