@@ -1813,7 +1813,7 @@ result = BlankGrayedOut</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i><d:sup>1</d:sup> Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 
+                           <d:i><d:sup>2</d:sup> Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 
                               <d:t24refnolink/>130.5(d) </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
