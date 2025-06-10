@@ -3717,7 +3717,7 @@ Else result = false display term is No</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="FMandatoryPipeInsulation" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies </xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required when F01PipeInsulation_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -4334,7 +4334,7 @@ Else result = false display term is No</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="GMandatoryPipeInsulation" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies </xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required when G01PipeInsulation_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
