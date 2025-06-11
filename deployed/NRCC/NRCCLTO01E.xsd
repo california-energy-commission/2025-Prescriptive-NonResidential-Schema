@@ -1584,7 +1584,7 @@ MM130_2c2_MeasureApplies  = true and text is displayed
 End If</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="H04_MotionSensorCompliance">
+                        <xsd:element name="H04_MotionSensorCompliance" type="comp:MotionSensorCompliance">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Motion Sensor  <d:line1/> <d:t24refnolink/>130.2(c)3 / <d:t24refnolink/>160.5(c)</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">User selects from full dropdown list: 
