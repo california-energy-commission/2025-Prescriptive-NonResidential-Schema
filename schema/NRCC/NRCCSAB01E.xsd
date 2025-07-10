@@ -2450,10 +2450,10 @@ If SUM ALL (Pv11_SolarAccessRoofArea)  LT 80 Or LT (0.03 x SUM ALL (Pv02_Conditi
 result = 0
 Else If (Sum All (Pv12_PV_MinSizeSARA)) LT 4
 result = 0 
-Else If Pv04_PV_MinSizeEquation LT Pv12_PV_MinSizeSARA
-result = Pv04_PV_MinSizeEquation
+Else If Sum All (Pv04_PV_MinSizeEquation) LT Sum All (Pv12_PV_MinSizeSARA)
+result = Sum All (Pv04_PV_MinSizeEquation)
 Else
-result = Pv12_PV_MinSizeSARA
+result = Sum All (Pv12_PV_MinSizeSARA)
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

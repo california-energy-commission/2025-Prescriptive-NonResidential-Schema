@@ -1334,7 +1334,7 @@ End If</xsd:documentation>
                     <xsd:element name="MM120_6d3_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements"><d:t24refnolink/>120.6(d)3  NEWLY INSTALLED PROCESS BOILERS:: <d:l t="*"><d:list>INPUT CAPACITY GREATER THAN 5 MMBTU/H (5,000,000 BTU/H) SHALL MAINTAIN EXCESS (STACK-GAS) OXYGEN CONCENTRATIONS AT LESS THAN OR EQUAL TO 3.0 PERCENT BY VOLUME ON A DRY BASIS OVER FIRING RATES OF 20 PERCENT TO 100 PERCENT.</d:list></d:l><d:line1/>IN BOTH CASES, COMBUSTION AIR VOLUME SHALL BE CONTROLLED WITH RESPECT TO FIRING RATE OR MEASURED FLUE GAS OXYGEN CONCENTRATION. USE OF A COMMON GAS AND COMBUSTION AIR CONTROL LINKAGE OR JACK SHAFT IS PROHIBITED.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:t24refnolink/>120.6(d)3  NEWLY INSTALLED PROCESS BOILERS:: <d:l t="*"><d:list>INPUT CAPACITY GREATER THAN 5 MMBTU/H (5,000,000 BTU/H) SHALL MAINTAIN EXCESS (STACK-GAS) OXYGEN CONCENTRATIONS AT LESS THAN OR EQUAL TO 3.0 PERCENT BY VOLUME ON A DRY BASIS OVER FIRING RATES OF 20 PERCENT TO 100 PERCENT.</d:list></d:l>  <d:line1/>IN BOTH CASES, COMBUSTION AIR VOLUME SHALL BE CONTROLLED WITH RESPECT TO FIRING RATE OR MEASURED FLUE GAS OXYGEN CONCENTRATION. USE OF A COMMON GAS AND COMBUSTION AIR CONTROL LINKAGE OR JACK SHAFT IS PROHIBITED.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If I05_BoilerStackControl == true
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -5932,7 +5932,10 @@ End If</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">
+If ElectricReadyKitchen01_KitchenAllElectric == True or ElectricReadyKitchen01_KitchenWithinHealthcare == true
+   result = BlankGrayedOut
+End If</xsd:documentation>
                     </xsd:annotation>
                     <xsd:simpleType>
                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -5944,14 +5947,18 @@ End If</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.
+                           </xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="ElectricReadyKitchen03_NotApplicableMessage">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">
+If ElectricReadyKitchen01_KitchenAllElectric == True or ElectricReadyKitchen01_KitchenWithinHealthcare == true
+   result = BlankGrayedOut
+End If</xsd:documentation>
                     </xsd:annotation>
                     <xsd:simpleType>
                       <xsd:restriction base="comp:NotApplicableMessage">
