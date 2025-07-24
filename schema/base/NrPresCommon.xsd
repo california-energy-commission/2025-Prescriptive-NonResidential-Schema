@@ -2730,9 +2730,19 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AerobicsRoom">Health club/aerobics</dtyp:displayterm>
             <dtyp:displayterm value="AllOthersVent">All others</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalImaging">Animal imaging (MRI/CT/PET)</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalOperating">Animal operating rooms</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalRecovery">Animal postoperative recovery room</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalPreperation">Animal preparation room</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalProcedure">Animal procedure room</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalSurgery">Animal surgery scub</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalNecropsy">Animal necropsy</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalCage">Small-animal-cage room (static cages)</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalCageVentilated">Small-animal-cage room (ventilated cages)</dtyp:displayterm>
+            <dtyp:displayterm value="AnimalHolding">Large animal holding room</dtyp:displayterm>
             <dtyp:displayterm value="ArenasVent">Gym/ sports arena (play area)</dtyp:displayterm>
-            <dtyp:displayterm value="AssemblyLobby">Lobbies</dtyp:displayterm>
-            <dtyp:displayterm value="AudienceSeatingArea">Auditorium seating</dtyp:displayterm>
+            <dtyp:displayterm value="AssemblyLobby">Lobbies/pre function</dtyp:displayterm>
+            <dtyp:displayterm value="AudienceSeatingArea">Auditorium seating area</dtyp:displayterm>
             <dtyp:displayterm value="AutoRepairVent">Auto-repair room</dtyp:displayterm>
             <dtyp:displayterm value="BankLobby">Bank or bank lobby</dtyp:displayterm>
             <dtyp:displayterm value="BankVault">Bank Vault/safe deposit</dtyp:displayterm>
@@ -2744,6 +2754,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="BowlingAlleySeatingVent">Bowling alley (seating)</dtyp:displayterm>
             <dtyp:displayterm value="CellWithToiletVent">Cells with toilet</dtyp:displayterm>
             <dtyp:displayterm value="ClassroomAge5_18">Classroom (ages 5-18)</dtyp:displayterm>
+            <dtyp:displayterm value="ClassroomAge9_18">Classroom (ages 9-18)</dtyp:displayterm>
             <dtyp:displayterm value="ClassroomArt">Art Classroom</dtyp:displayterm>
             <dtyp:displayterm value="ClassroomComputer">Computer Lab</dtyp:displayterm>
             <dtyp:displayterm value="ClassroomPerformance">Music/theater/dance</dtyp:displayterm>
@@ -2761,6 +2772,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="DwellingUnitLaundryRoom">Laundry room (dwelling unit)</dtyp:displayterm>
             <dtyp:displayterm value="FastfoodCafeteriaVent">Cafeteria/ fastfood dining</dtyp:displayterm>
             <dtyp:displayterm value="FoodServiceKitchen">Kitchen (cooking)</dtyp:displayterm>
+            <dtyp:displayterm value="Freezer">Freezer and refrigerated spaces</dtyp:displayterm>
             <dtyp:displayterm value="GamblingArea">Gambling casino</dtyp:displayterm>
             <dtyp:displayterm value="GameArcadesVent">Game arcade</dtyp:displayterm>
             <dtyp:displayterm value="GeneralCoffeeStation">Coffee station</dtyp:displayterm>
@@ -2790,7 +2802,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="OfficeSpaceVent">Office space</dtyp:displayterm>
             <dtyp:displayterm value="ParkingGarageVent">Parking Garage</dtyp:displayterm>
             <dtyp:displayterm value="PetShop">Pet shops (animal area)</dtyp:displayterm>
-            <dtyp:displayterm value="PharmacyPrepArea">Pharmacy prep</dtyp:displayterm>
+            <dtyp:displayterm value="PharmacyPrepArea">Pharmacy prep area</dtyp:displayterm>
             <dtyp:displayterm value="PhotoStudio">Photo studio</dtyp:displayterm>
             <dtyp:displayterm value="ReligiousAssemblyArea">Place of religious worship</dtyp:displayterm>
             <dtyp:displayterm value="RestaurantDining">Restaurant Dining Rooms</dtyp:displayterm>
@@ -2814,6 +2826,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="TelephoneRoom">Telephone closet</dtyp:displayterm>
             <dtyp:displayterm value="TransportWaiting">Transportation waiting</dtyp:displayterm>
             <dtyp:displayterm value="TrashRecyclingRoom">Trash / recycling</dtyp:displayterm>
+            <dtyp:displayterm value="UnoccupiedSpace">Unoccupied Space</dtyp:displayterm>
             <dtyp:displayterm value="WeightRoom">Health club/ weight rooms</dtyp:displayterm>
             <dtyp:displayterm value="WoodMetalShop">Wood/ Metal shop</dtyp:displayterm>
             <dtyp:displayterm value="WorkshopSortingPacking">Sorting, packing, light assembly</dtyp:displayterm>
@@ -2822,6 +2835,16 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AerobicsRoom"/>
          <xsd:enumeration value="AllOthersVent"/>
+         <xsd:enumeration value="AnimalImaging"/>
+         <xsd:enumeration value="AnimalOperating"/>
+         <xsd:enumeration value="AnimalRecovery"/>
+         <xsd:enumeration value="AnimalPreperation"/>
+         <xsd:enumeration value="AnimalProcedure"/>
+         <xsd:enumeration value="AnimalSurgery"/>
+         <xsd:enumeration value="AnimalNecropsy"/>
+         <xsd:enumeration value="AnimalCage"/>
+         <xsd:enumeration value="AnimalCageVentilated"/>
+         <xsd:enumeration value="AnimalHolding"/>
          <xsd:enumeration value="ArenasVent"/>
          <xsd:enumeration value="AssemblyLobby"/>
          <xsd:enumeration value="AudienceSeatingArea"/>
@@ -2836,6 +2859,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="BowlingAlleySeatingVent"/>
          <xsd:enumeration value="CellWithToiletVent"/>
          <xsd:enumeration value="ClassroomAge5_18"/>
+         <xsd:enumeration value="ClassroomAge9_18"/>
          <xsd:enumeration value="ClassroomArt"/>
          <xsd:enumeration value="ClassroomComputer"/>
          <xsd:enumeration value="ClassroomPerformance"/>
@@ -2853,6 +2877,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="DwellingUnitLaundryRoom"/>
          <xsd:enumeration value="FastfoodCafeteriaVent"/>
          <xsd:enumeration value="FoodServiceKitchen"/>
+         <xsd:enumeration value="Freezer"/>
          <xsd:enumeration value="GamblingArea"/>
          <xsd:enumeration value="GameArcadesVent"/>
          <xsd:enumeration value="GeneralCoffeeStation"/>
@@ -2906,6 +2931,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="TelephoneRoom"/>
          <xsd:enumeration value="TransportWaiting"/>
          <xsd:enumeration value="TrashRecyclingRoom"/>
+         <xsd:enumeration value="UnoccupiedSpace"/>    
          <xsd:enumeration value="WeightRoom"/>
          <xsd:enumeration value="WoodMetalShop"/>
          <xsd:enumeration value="WorkshopSortingPacking"/>
