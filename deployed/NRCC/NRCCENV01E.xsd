@@ -1186,6 +1186,7 @@ Or Fframed12_ContinuousInsulationNR IsPresent And == R10ci, R14ci, R17ci, R20ci 
 Or  Fframed12_ContinuousInsulationOther IsPresent And GTE 10
 result = true; Else result = false;  
 End If
+Else If Fframed13_NotApplicableMessage IsPresent result = true; Else result = false
 End If
 End If   
  
@@ -1620,73 +1621,118 @@ End If</xsd:documentation>
                   <xsd:documentation source="FieldText"/>
                   <xsd:documentation source="CalculationsAndRules">Calculated field: Result  true display term Yes, or false display term No.  
 If I01Framed_FloorTypeApplies == true, 
-If fields beginning with Iframed02, Iframed03a, Iframed03b, Iframed04, Iframed05, Iframed06, Iframed07, Iframed08, Iframed09, Iframed10, Iframed11, Iframed12 == BlankGrayedOut or have another value result = true, Else result = false.   
+   If fields beginning with Iframed02, Iframed03a, Iframed03b, Iframed04, Iframed05, Iframed06, Iframed07, Iframed08, Iframed09, Iframed10, Iframed11, Iframed12 == BlankGrayedOut or have another value 
+      result = true, 
+   Else 
+      result = false.   
 End If
 If result == true continue evaluation: 
  
 If Iframed01_UseInAreaWeightedAveUfactor == false 
-If Iframed09_ConstructionSpecificationMethod == RValue 
-If Iframed07_CavityInsulationNR Or Or Iframed07_CavityInsulationOther  GTE Iframed10_ InsulationRValueLimit  result = true; Else result = false; 
-End If 
-Else If Iframed09_ConstructionSpecificationMethod == UFactor 
-If field beginning with Iframed11_UfactorJA4 that IsPresent is LTE Iframed10_InsulationUFactorLimit result = true; Else result = false;  
-End If
-End If
+   If Iframed09_ConstructionSpecificationMethod == RValue 
+      If Iframed07_CavityInsulationNR Or Or Iframed07_CavityInsulationOther  GTE Iframed10_ InsulationRValueLimit  
+         result = true; 
+      Else 
+         result = false; 
+   Else If Iframed09_ConstructionSpecificationMethod == UFactor 
+      If field beginning with Iframed11_UfactorJA4 that IsPresent is LTE Iframed10_InsulationUFactorLimit 
+         result = true; 
+      Else 
+         result = false;  
+   End If
 Else If Iframed01_UseInAreaWeightedAveUfactor == true  
-If ICalc2UF05_DoesAreaWeightAvgComplyUfactor == true result = true; Else result = false; 
-End If
-End If
+   If ICalc2UF05_DoesAreaWeightAvgComplyUfactor == true 
+      result = true; 
+   Else 
+      result = false; 
 End If
 If result == true continue evaluation: 
- 
+
 If I01SIPS_FloorTypeApplies == true, 
-If fields beginning with ISIPS02, ISIPS03, ISIPS04, ISIPS05, ISIPS06, ISIPS06, ISIPS07, ISIPS08, ISIPS09, ISIPS10, ISIPS11, ISIPS12 == BlankGrayedOut or have another value result = true, Else result = false.  
+   If fields beginning with ISIPS02, ISIPS03, ISIPS04, ISIPS05, ISIPS06, ISIPS06, ISIPS07, ISIPS08, ISIPS09, ISIPS10, ISIPS11, ISIPS12 == BlankGrayedOut or have another value 
+      result = true
+   Else 
+      result = false.  
 End If
- If result == true continue evaluation: 
+If result == true continue evaluation: 
+
 If ISIPS01_UseInAreaWeightedAveUfactor == false 
-If field beginning with ISIPS11_UfactorJA4 that IsPresent is LTE ISIPS10_InsulationUFactorLimit result = true; Else result = false;   
-End If
+   If field beginning with ISIPS11_UfactorJA4 that IsPresent is LTE ISIPS10_InsulationUFactorLimit 
+      result = true
+   Else 
+      result = false;   
 Else If ISIPS01_UseInAreaWeightedAveUfactor == true  
-If ICalc2UF05_DoesAreaWeightAvgComplyUfactor == true result = true; Else result = false; 
+   If ICalc2UF05_DoesAreaWeightAvgComplyUfactor == true 
+      result = true
+   Else 
+      result = false; 
 End If
-End If
-End If
- If result == true continue evaluation: 
+If result == true continue evaluation: 
  
 If I01Mass_FloorTypeApplies == true, 
-If fields beginning with Imass02, Imass03, Imass04a, Imass04b, Imass05, Imass06, Imass07, Imass08, Imass09, Imass10, Imass11 == BlankGrayedOut or have another value result = true, Else result = false.   
+   If fields beginning with Imass02, Imass03, Imass04a, Imass04b, Imass05, Imass06, Imass07, Imass08, Imass09, Imass10, Imass11 == BlankGrayedOut or have another value 
+      result = true
+   Else 
+      result = false.   
 End If
 If result == true continue evaluation: 
+
 If Imass01_UseInAreaWeightedAveUfactor == false 
-If Imass08_ConstructionSpecificationMethod == RValue 
-If Imass07_ContinuousInsulationNR Or Imass07_ContinuousInsulationOther GTE Imass09_ InsulationRValueLimit  result = true; Else result = false;   
-End If 
-Else If Imass08_ConstructionSpecificationMethod == UFactor 
-If field beginning with Imass10_UfactorJA4 that IsPresent is LTE Imass09_InsulationUFactorLimit result = true; Else result = false;  
-End If 
-End If 
+   If Imass08_ConstructionSpecificationMethod == RValue 
+      If Imass07_ContinuousInsulationNR Or Imass07_ContinuousInsulationOther GTE Imass09_ InsulationRValueLimit  
+         result = true
+      Else 
+         result = false;    
+   Else If Imass08_ConstructionSpecificationMethod == UFactor 
+      If field beginning with Imass10_UfactorJA4 that IsPresent is LTE Imass09_InsulationUFactorLimit 
+         result = true
+      Else 
+         result = false;  
+   End If 
 Else If Imass01_UseInAreaWeightedAveUfactor == true  
-If ICalc1UF05_DoesAreaWeightAvgComplyUfactor == true result = true; Else result = false;  
-End If
-End If
+   If ICalc1UF05_DoesAreaWeightAvgComplyUfactor == true 
+      result = true
+   Else 
+      result = false;  
 End If
 If result == true continue evaluation:  
  
 If I01Heated_FloorTypeApplies == true, 
-If fields beginning with Iheated01, Iheated02, Iheated03, Iheated05a, Iheated05b, Iheated06a, Iheated06b, Iheated08 == BlankGrayedOut or have another value result = true, Else result = false.   
-End If
+   If fields beginning with Iheated01, Iheated02, Iheated03, Iheated05a, Iheated05b, Iheated06a, Iheated06b, Iheated08 == BlankGrayedOut or have another value 
+      result = true
+   Else 
+      result = false.   
 If result == true continue evaluation: 
-If Iheated06a_ InsulationInteriorRValue GTE Iheated05a_ SlabInsulationRValueRequired result = true; Else result = false;
-End If
- If result == true continue evaluation: 
-If Iheated06b_ InsulationInteriorRValue IsPresent If Iheated06b_ InsulationInteriorRValue GTE Iheated05b_ SlabInsulationRValueRequired result = true; Else result = false;
-End If
-End If
-If result == true 
-final result = true
+
+If Iheated06a_ InsulationInteriorRValue GTE Iheated05a_ SlabInsulationRValueRequired 
+   result = true
 Else 
-result = False
-End If</xsd:documentation>
+   result = false;
+If result == true continue evaluation: 
+
+If Iheated06b_ InsulationInteriorRValue IsPresent If Iheated06b_ InsulationInteriorRValue GTE Iheated05b_ SlabInsulationRValueRequired 
+   result = true
+Else 
+   result = false;
+If result == true continue evaluation:
+
+If I01Unheated_FloorTypeApplies == true
+   If Iheatedmultifamily06_UfactorMandatory IsPresent
+      If Iheatedmultifamily06_UfactorMandatory GTE Iheatedmultifamily05_SlabInsulationUFactorRequired
+         result = true
+      Else 
+         result = false
+   If Iheatedmultifamily06_InsulationRValue
+      If Iheatedmultifamily06_InsulationRValue LTE Iheatedmultifamily05_SlabInsulationRValueRequired
+         result = true
+      Else
+         result = False
+   End If
+If result == true 
+   final result = true
+Else 
+   final result = False
+</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
               <xsd:element name="C04_NotApplicableMessage">
@@ -8456,18 +8502,17 @@ End If
 End If
 
 case ResidentialNR  (display term Multifamily Attic Roof (Option C))
-If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
-result = 0.75
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
-result = 0.75
-End If
-Else If G05_RoofSlope == SteepSlope
-If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
-result = 0.75
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
-result = 0.75
-End If
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
+         result = 0.75
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 0.75
+   Else If G05_RoofSlope == SteepSlope
+      If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
+         result = 0.75
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+         result = 0.75
+   End If
 End If
  
 case OtherOccupancy  (display term Multifamily Non-Attic Roof)
@@ -9279,7 +9324,9 @@ End If</xsd:documentation>
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Cavity Insulation per Design</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Tables, this row is grayed out; 
-Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware user  enters number for R-value
+Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or Hframed05_NotApplicableMessage == BlankGrayedOut
+user  enters number for R-value
 End If</xsd:documentation>
                                   </xsd:annotation>
                                 </xsd:element>
@@ -9341,7 +9388,7 @@ End If</xsd:documentation>
                                   <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">
 
-If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false 
+If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false And Hframed04a_TopLevelOccupancy != ResidentialNR
    list RValue, UFactor 
 Else If Hframed04a_TopLevelOccupancy == ResidentialNR
    result = RValue and cannot be changed by user
