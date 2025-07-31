@@ -6238,7 +6238,7 @@ End If</xsd:documentation>
                           </xsd:element>
                         </xsd:choice>
                         <xsd:choice maxOccurs="1">
-                          <xsd:element name="MultilevelControls">
+                          <xsd:element name="HortLtg05_MultilevelControls">
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Multilevel</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If HortLtg02_HorticultureBuilding == LightingLoadNA
