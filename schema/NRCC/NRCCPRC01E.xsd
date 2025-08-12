@@ -5689,7 +5689,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="ElectricReadyKitchen" minOccurs="0">
+         <xsd:element name="ERCommercialKitchen" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Electric Ready Commercial Kitchens [d:t24refnolink/]120.6(k)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HospitalBuilding
@@ -6144,7 +6144,7 @@ End If</xsd:documentation>
 If HortEnv02_GreenhouseAssembly == OpaqueRoof
    User selects from MetalBuilding, WoodRoof
 Else If HortEnv02_GreenhouseAssembly == OpaqueWall
-   User selects from MetalBuilding, MetalFramed, LightMass, HeavyMass, WoodWall, Spandrel, DemisingWall
+   User selects from MetalBuilding, MetalFramed, LightMass, HeavyMass, WoodWall, Spandrel, DemisingWallWood, DemisingWallMetal
 Else If HortEnv02_GreenhouseAssembly == NonOpaqueEnvelope
    User selects from DoublePaneGas, DoublePaneAir                                          
 </xsd:documentation>
@@ -6171,6 +6171,12 @@ Else If HortEnv02_GreenhouseAssembly == OpaqueWall
       Result = 0.690
    Else If HortEnv04_FrameType == WoodWall
       Result = 0.110
+   Else If HortEnv04_FrameType == Spandrel
+      Result = 0.280
+   Else If HortEnv04_FrameType == DemisingWallWood
+      Result = 0.099
+   Else If HortEnv04_FrameType == DemisingWallMetal
+      Result = 0.151
 Else If HortEnv02_GreenhouseAssembly == NonOpaqueEnvelope
    result = BlankGrayedOut                                       
 

@@ -6968,7 +6968,8 @@
             <dtyp:displayterm value="HeavyMass">Heavy Mass</dtyp:displayterm>
             <dtyp:displayterm value="WoodWall">Wood Framed And Others</dtyp:displayterm>
             <dtyp:displayterm value="Spandrel">Spandrel and Curtain Wall</dtyp:displayterm>
-            <dtyp:displayterm value="DemisingWall">Demising Wall</dtyp:displayterm>
+            <dtyp:displayterm value="DemisingWallWood">Demising Wall(Wood Framed)</dtyp:displayterm>
+            <dtyp:displayterm value="DemisingWallMetal">Demising Wall(Metal Framed)</dtyp:displayterm>
             <dtyp:displayterm value="DoublePaneGas">Double-pane with gas fill</dtyp:displayterm>
             <dtyp:displayterm value="DoublePaneAir">Double-pane with air fill</dtyp:displayterm>
          </xsd:appinfo>
@@ -12375,6 +12376,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Ammonia"/>
+         <xsd:enumeration value="ApplianceEfficiencyNA"/>
          <xsd:enumeration value="Halocarbon"/>
          <xsd:enumeration value="RefrigerantNA"/>
       </xsd:restriction>
