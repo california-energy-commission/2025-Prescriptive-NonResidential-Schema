@@ -2336,59 +2336,421 @@ Else
    result = Sum All ((Pv02_ConditionedFloorArea x FactorA) / 1000)
 
 FactorA  calculated as follows:
-If A02_ClimateZone == 1, 3, 5 Or 16
+If A02_ClimateZone == 1
 Switch (Pv01_WholeBuildingOccupancy)
-case GroceryStoreBuilding:
-FactorA = 2.62
-case HighRiseResidential:
-FactorA = 1.82
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: 
+case EventsExhibits:
+FactorA = 3.48
+case LibraryBuilding:
+FactorA = 0.39
+case HotelMotel:
+FactorA = 1.69
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
 FactorA = 2.59
-case RetailBuilding:
-FactorA = 2.62
+case RestaurantBuilding: 
+FactorA = 8.55
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.14
 case SchoolBuilding:
 FactorA = 1.27
 case Warehouse:
 FactorA = 0.39
-case AuditoriumBuilding: case ConventionCenterBuilding: case HotelMotel: case LibraryBuilding: case MedicalClinicBuilding: case RestaurantBuilding: case TheaterBuilding:
-FactorA = 0.39
+case ReligiousFacilityBuilding:
+FactorA = 4.25
+case SportsRecreation:
+FactorA = 2.47
+case HighRiseResidential:
+FactorA = 1.82
 End Switch
  
-Else If A02_ClimateZone == 2, 4, Or InRange (6, 14)
+Else If A02_ClimateZone == 2
 Switch (Pv01_WholeBuildingOccupancy)
-case GroceryStoreBuilding:
-FactorA = 2.91
-case HighRiseResidential:
-FactorA = 2.21
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: 
+case EventsExhibits:
+FactorA = 4.28
+case LibraryBuilding:
+FactorA = 3.23
+case HotelMotel:
+FactorA = 1.90
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
 FactorA = 3.13
-case RetailBuilding:
-FactorA = 2.91
+case RestaurantBuilding: 
+FactorA = 9.32
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.49
 case SchoolBuilding:
 FactorA = 1.63
 case Warehouse:
 FactorA = 0.44
-case AuditoriumBuilding: case ConventionCenterBuilding: case HotelMotel: case LibraryBuilding: case MedicalClinicBuilding: case RestaurantBuilding: case TheaterBuilding:
-FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 4.65
+case SportsRecreation:
+FactorA = 1.97
+case HighRiseResidential:
+FactorA = 2.21
 End Switch
  
-Else If A02_ClimateZone == 15
-case GroceryStoreBuilding:
-FactorA = 3.53
+Else If A02_ClimateZone == 3
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 3.66
+case LibraryBuilding:
+FactorA = 2.59
+case HotelMotel:
+FactorA = 1.66
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 2.59
+case RestaurantBuilding: 
+FactorA = 8.16
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.01
+case SchoolBuilding:
+FactorA = 1.27
+case Warehouse:
+FactorA = 0.39
+case ReligiousFacilityBuilding:
+FactorA = 3.49
+case SportsRecreation:
+FactorA = 1.54
 case HighRiseResidential:
-FactorA = 2.77
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: 
+FactorA = 1.82
+End Switch
+
+Else If A02_ClimateZone == 4
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.32
+case LibraryBuilding:
+FactorA = 3.25
+case HotelMotel:
+FactorA = 1.97
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 9.65
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.61
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 4.52
+case SportsRecreation:
+FactorA = 2.03
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 5
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 3.77
+case LibraryBuilding:
+FactorA = 2.48
+case HotelMotel:
+FactorA = 1.69
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 2.59
+case RestaurantBuilding: 
+FactorA = 8.21
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.05
+case SchoolBuilding:
+FactorA = 1.27
+case Warehouse:
+FactorA = 0.39
+case ReligiousFacilityBuilding:
+FactorA = 3.72
+case SportsRecreation:
+FactorA = 1.60
+case HighRiseResidential:
+FactorA = 1.82
+End Switch
+
+Else If A02_ClimateZone == 6
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.05
+case LibraryBuilding:
+FactorA = 2.74
+case HotelMotel:
+FactorA = 1.87
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 8.73
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.27
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 4.29
+case SportsRecreation:
+FactorA = 1.84
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 7
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.28
+case LibraryBuilding:
+FactorA = 3.04
+case HotelMotel:
+FactorA = 1.94
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 9.11
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.45
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 4.64
+case SportsRecreation:
+FactorA = 1.98
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 8
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.83
+case LibraryBuilding:
+FactorA = 3.49
+case HotelMotel:
+FactorA = 2.22
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 10.18
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.83
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 5.89
+case SportsRecreation:
+FactorA = 2.63
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 9
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.63
+case LibraryBuilding:
+FactorA = 3.32
+case HotelMotel:
+FactorA = 2.09
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 9.75
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.65
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 5.30
+case SportsRecreation:
+FactorA = 2.47
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 10
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.80
+case LibraryBuilding:
+FactorA = 3.69
+case HotelMotel:
+FactorA = 2.20
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 10.28
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.81
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 5.67
+case SportsRecreation:
+FactorA = 2.60
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 11
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 5.04
+case LibraryBuilding:
+FactorA = 3.79
+case HotelMotel:
+FactorA = 2.30
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 10.85
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 4.09
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 5.89
+case SportsRecreation:
+FactorA = 2.75
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 12
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.44
+case LibraryBuilding:
+FactorA = 3.32
+case HotelMotel:
+FactorA = 2.05
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 9.73
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.64
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 4.99
+case SportsRecreation:
+FactorA = 2.20
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 13
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.95
+case LibraryBuilding:
+FactorA = 3.79
+case HotelMotel:
+FactorA = 2.30
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 10.69
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.99
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 5.78
+case SportsRecreation:
+FactorA = 2.72
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 14
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 4.36
+case LibraryBuilding:
+FactorA = 3.37
+case HotelMotel:
+FactorA = 2.02
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 3.13
+case RestaurantBuilding: 
+FactorA = 9.73
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.71
+case SchoolBuilding:
+FactorA = 1.63
+case Warehouse:
+FactorA = 0.44
+case ReligiousFacilityBuilding:
+FactorA = 4.63
+case SportsRecreation:
+FactorA = 2.15
+case HighRiseResidential:
+FactorA = 2.21
+End Switch
+
+Else If A02_ClimateZone == 15
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 5.48
+case LibraryBuilding:
+FactorA = 4.49
+case HotelMotel:
+FactorA = 2.72
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
 FactorA = 3.80
-case RetailBuilding:
-FactorA = 3.53
+case RestaurantBuilding: 
+FactorA = 12.25
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 4.60
 case SchoolBuilding:
 FactorA = 2.46
 case Warehouse:
 FactorA = 0.58
-case AuditoriumBuilding: case ConventionCenterBuilding: case HotelMotel: case LibraryBuilding: case MedicalClinicBuilding: case RestaurantBuilding: case TheaterBuilding:
-FactorA = 0.58
+case ReligiousFacilityBuilding:
+FactorA = 7.57
+case SportsRecreation:
+FactorA = 4.03
+case HighRiseResidential:
+FactorA = 2.77
 End Switch
 
+Else If A02_ClimateZone == 16
+Switch (Pv01_WholeBuildingOccupancy)
+case EventsExhibits:
+FactorA = 3.38
+case LibraryBuilding:
+FactorA = 2.84
+case HotelMotel:
+FactorA = 1.73
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+FactorA = 2.59
+case RestaurantBuilding: 
+FactorA = 8.47
+case RetailBuilding: case GroceryStoreBuilding:
+FactorA = 3.21
+case SchoolBuilding:
+FactorA = 1.27
+case Warehouse:
+FactorA = 0.39
+case ReligiousFacilityBuilding:
+FactorA = 3.90
+case SportsRecreation:
+FactorA = 1.81
+case HighRiseResidential:
+FactorA = 1.82
+End Switch
 
 End If</xsd:documentation>
                                        </xsd:annotation>
