@@ -3330,7 +3330,7 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Minimum Efficiency Required (Btuh/W)</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fconadia06_RefrigerantType == Ammonia Or RefrigerantNA Or Fconadia05_CondenserTemps == TempsNA or ApplianceEfficiencyNA
+If Fconadia06_RefrigerantType == Ammonia Or RefrigerantNA or ApplianceEfficiencyNA Or Fconadia05_CondenserTemps == TempsNA or ApplianceEfficiencyNA
    result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
@@ -3354,7 +3354,7 @@ Multi-field triggers: See Fconadia07_CondenserMinEfficiency  CalculationsAndRule
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Efficiency per Design (Btuh/W)</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fconadia06_RefrigerantType == Ammonia Or RefrigerantNA Or Fconadia05_CondenserTemps == TempsNA or ApplianceEfficiencyNA
+If Fconadia06_RefrigerantType == Ammonia Or RefrigerantNA or ApplianceEfficiencyNA Or Fconadia05_CondenserTemps == TempsNA or ApplianceEfficiencyNA
    result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>

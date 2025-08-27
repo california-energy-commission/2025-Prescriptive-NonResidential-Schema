@@ -561,30 +561,21 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                      <xsd:simpleType>
                         <xsd:restriction base="com:WholeBuildingOccupancy">
                            <xsd:enumeration value="AllOthersBuildings"/>
-                           <xsd:enumeration value="AuditoriumBuilding"/>
                            <xsd:enumeration value="ClassroomBuilding"/>
-                           <xsd:enumeration value="CommercialIndustrialBuilding"/>
-                           <xsd:enumeration value="ConventionCenterBuilding"/>
-                           <xsd:enumeration value="DataCenterBuilding"/>
                            <xsd:enumeration value="EventsExhibits"/>
                            <xsd:enumeration value="FinancialInstitutionBuilding"/>
                            <xsd:enumeration value="GroceryStoreBuilding"/>
-                           <xsd:enumeration value="GymnasiumBuilding"/>
                            <xsd:enumeration value="HighRiseResidential"/>
                            <xsd:enumeration value="HospitalBuilding"/>
                            <xsd:enumeration value="HotelMotel"/>
                            <xsd:enumeration value="LibraryBuilding"/>
                            <xsd:enumeration value="MedicalClinicBuilding"/>
                            <xsd:enumeration value="OfficeBuilding"/>
-                           <xsd:enumeration value="ParkingGarageBuilding"/>
                            <xsd:enumeration value="ReligiousFacilityBuilding"/>
-                           <xsd:enumeration value="RelocatablePublicSchoolBuilding"/>
                            <xsd:enumeration value="RestaurantBuilding"/>
                            <xsd:enumeration value="RetailBuilding"/>
                            <xsd:enumeration value="SchoolBuilding"/>
                            <xsd:enumeration value="SportsRecreation"/>
-                           <xsd:enumeration value="SupportArea"/>
-                           <xsd:enumeration value="TheaterBuilding"/>
                            <xsd:enumeration value="Warehouse"/>
                            <xsd:enumeration value="UnleasedTenantSpace"/>
                         </xsd:restriction>
