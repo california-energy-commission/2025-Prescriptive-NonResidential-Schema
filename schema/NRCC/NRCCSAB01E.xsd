@@ -648,17 +648,15 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
  
 Conditions when this subsection is required or not required
  
-If A04_WholeBuildingOccupancy == MedicalClinicBuilding
-BSolarReady is NOT REQUIRED
- 
-Else If Bpv Is not required and NotPresent
+If Bpv Is not required and NotPresent
 BSolarReady is REQUIRED
 Else If Bpv Is required and IsPresent And 
 Bpv01b_AccessAreaTooSmall == true OR 
 Bpv01c_RequiredLT4kW == true OR 
 Bpv01d_NoContiguousAccess OR
 Bpv01e_SnowloadException == true Or 
-Bpv0f_MultitenantException == true 
+Bpv0f_MultitenantException == true Or
+Bpv01g_FloorAreaException == true
 BSolarReady is REQUIRED</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -819,10 +817,11 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Compliance with Solar Photovoltaic (PV) and Battery Requirements in [d:t24refnolink/]140.10/ [d:t24refnolink/]170.2(g and h)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required If A04_WholeBuildingOccupancy == HotelMotel, HighRiseResidential, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, ReligiousFacilityBuilding, EventsExhibits, or SportsRecreation
 And A05_RoofConstRangeSolar == NewRoofLTE533ft2 Or NewRoofGT533ft2
+And A04_WholeBuildingOccupancy is NOT AllOthersBuildings
 
 Or 
 If A04_WholeBuildingOccupancy == AllOthersBuildings AND another A04_WholeBuildingOccupancy == HotelMotel, HighRiseResidential, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, ReligiousFacilityBuilding, EventsExhibits, or SportsRecreation
-   And A04a_OtherFloorArea/A03_ConditionedFloorArea LT 0.20
+And A05_RoofConstRangeSolar == NewRoofLTE533ft2 Or NewRoofGT533ft2
 
 If this subsection is required,  one and only one field can be checked with a result == true and it is the only field that is displayed in the final report.    Fields are evaluated in the order they occur in the schema and once a field is evaluated as true and displayed as checked, remaining fields are set to unchecked, result == false and not displayed.</xsd:documentation>
                      </xsd:annotation>
@@ -838,10 +837,6 @@ Bat07a_BatteryCapacity GTE Bat06a_BatteryCapacityMinTotal And
 Bat07b_BatteryPower GTE Bat06a_BatteryPowerMinTotal 
 result = true
 Else result = false
-End If
- 
-If result == false   
-field NOT REPORTED IN PDF 
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -859,8 +854,6 @@ Else result = false
 End If
 If result == true 
 BSolarReady subsection is triggered
-Else If result == false 
-field NOT REPORTED IN PDF 
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -879,8 +872,6 @@ Else result = false
 End If
 If result == true 
 BSolarReady subsection is triggered
-Else If result == false 
-field NOT REPORTED IN PDF 
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -899,8 +890,6 @@ Else result = false
 End If
 If result == true 
 BSolarReady subsection is triggered
-Else If result == false 
-field NOT REPORTED IN PDF 
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -912,8 +901,7 @@ End If</xsd:documentation>
 If result == true 
 BSolarReady subsection is triggered
 Else If result == false 
-Section_J is triggered And 
-field NOT REPORTED IN PDF 
+Section_J is triggered
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -931,8 +919,7 @@ If result == true
    BSolarReady subsection is triggered and
    D03_ExceptionalConditionMessageCCSABE += PVBatteryExemptMF
 Else If result == false 
-   Section_J is triggered And 
-   field NOT REPORTED IN PDF 
+   Section_J is triggered 
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -944,8 +931,7 @@ End If</xsd:documentation>
 If result == true 
 BSolarReady subsection is triggered
 Else If result == false 
-Section_J is triggered And 
-field NOT REPORTED IN PDF 
+Section_J is triggered
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -2335,7 +2321,7 @@ case LibraryBuilding:
 FactorA = 0.39
 case HotelMotel:
 FactorA = 1.69
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 2.59
 case RestaurantBuilding: 
 FactorA = 8.55
@@ -2361,7 +2347,7 @@ case LibraryBuilding:
 FactorA = 3.23
 case HotelMotel:
 FactorA = 1.90
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 9.32
@@ -2387,7 +2373,7 @@ case LibraryBuilding:
 FactorA = 2.59
 case HotelMotel:
 FactorA = 1.66
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 2.59
 case RestaurantBuilding: 
 FactorA = 8.16
@@ -2413,7 +2399,7 @@ case LibraryBuilding:
 FactorA = 3.25
 case HotelMotel:
 FactorA = 1.97
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 9.65
@@ -2439,7 +2425,7 @@ case LibraryBuilding:
 FactorA = 2.48
 case HotelMotel:
 FactorA = 1.69
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 2.59
 case RestaurantBuilding: 
 FactorA = 8.21
@@ -2465,7 +2451,7 @@ case LibraryBuilding:
 FactorA = 2.74
 case HotelMotel:
 FactorA = 1.87
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 8.73
@@ -2491,7 +2477,7 @@ case LibraryBuilding:
 FactorA = 3.04
 case HotelMotel:
 FactorA = 1.94
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 9.11
@@ -2517,7 +2503,7 @@ case LibraryBuilding:
 FactorA = 3.49
 case HotelMotel:
 FactorA = 2.22
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 10.18
@@ -2543,7 +2529,7 @@ case LibraryBuilding:
 FactorA = 3.32
 case HotelMotel:
 FactorA = 2.09
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 9.75
@@ -2569,7 +2555,7 @@ case LibraryBuilding:
 FactorA = 3.69
 case HotelMotel:
 FactorA = 2.20
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 10.28
@@ -2595,7 +2581,7 @@ case LibraryBuilding:
 FactorA = 3.79
 case HotelMotel:
 FactorA = 2.30
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 10.85
@@ -2621,7 +2607,7 @@ case LibraryBuilding:
 FactorA = 3.32
 case HotelMotel:
 FactorA = 2.05
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 9.73
@@ -2647,7 +2633,7 @@ case LibraryBuilding:
 FactorA = 3.79
 case HotelMotel:
 FactorA = 2.30
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 10.69
@@ -2673,7 +2659,7 @@ case LibraryBuilding:
 FactorA = 3.37
 case HotelMotel:
 FactorA = 2.02
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.13
 case RestaurantBuilding: 
 FactorA = 9.73
@@ -2699,7 +2685,7 @@ case LibraryBuilding:
 FactorA = 4.49
 case HotelMotel:
 FactorA = 2.72
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 3.80
 case RestaurantBuilding: 
 FactorA = 12.25
@@ -2725,7 +2711,7 @@ case LibraryBuilding:
 FactorA = 2.84
 case HotelMotel:
 FactorA = 1.73
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding:
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case MedicalClinicBuilding: case TenantSpaceGT2000:
 FactorA = 2.59
 case RestaurantBuilding: 
 FactorA = 8.47
@@ -2862,7 +2848,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Battery Energy Storage System[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This table is required If Pv09_PV_MinimumSize GT 0 And
-Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv12_PV_MinSizeSARA))  
+Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv04_PV_MinSizeEquation))
                         </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -2927,7 +2913,7 @@ case GroceryStoreBuilding:
 FactorB = 1.03
 case HighRiseResidential:
 FactorB = 1.03
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: 
+case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case TenantSpaceGT2000:
 FactorB = 1.68
 case RetailBuilding:
 FactorB = 1.03
