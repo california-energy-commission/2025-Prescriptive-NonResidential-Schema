@@ -2935,7 +2935,11 @@ Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv04_PV_MinSizeEquation))
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Min Size of PV Applicable To Battery Sizing (kWdc)</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules"> 
-Result = Pv12_PV_MinSizeSARA</xsd:documentation>
+Else If Sum All (Pv04_PV_MinSizeEquation) LT Sum All (Pv12_PV_MinSizeSARA)
+result = Pv04_PV_MinSizeEquation
+Else
+result = Pv12_PV_MinSizeSARA
+End If</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="Bat03_ChargeDischargeEfficiency" type="hvac:ChargeDischargeEfficiency">
