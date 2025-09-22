@@ -2270,7 +2270,7 @@ If result == JA4Other Or ApprovedSoftware D03_ExceptionalConditionMessageCCENVE 
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">How Design U-factor was determined</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or If Fframed13_ConstructionSpecificationMethod == RValue
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -2310,7 +2310,7 @@ Else If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Roof Type &amp; Frame Material</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or If Fframed13_ConstructionSpecificationMethod == RValue
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -2388,7 +2388,7 @@ Else If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Frame Spacing  Depth</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or If Fframed13_ConstructionSpecificationMethod == RValue
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                          </xsd:annotation>
@@ -2460,7 +2460,7 @@ Else If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Cavity Insulation per Design [d:sup]2[/d:sup]</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or If Fframed13_ConstructionSpecificationMethod == RValue
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -2513,7 +2513,7 @@ user enters R-value number</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design [d:sup]2[/d:sup]</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -2622,7 +2622,7 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText"></xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or If Fframed13_ConstructionSpecificationMethod == RValue 
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                          </xsd:annotation>
@@ -3380,7 +3380,7 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Net Area [d:sup]4[/d:sup] ft[d:sup]2[/d:sup]</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If Fframed05_RoofInsulationException != NoExceptionApplies
+If Fframed05_RoofInsulationException != NoExceptionApplies Or If Fframed13_ConstructionSpecificationMethod == Rvalue 
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
