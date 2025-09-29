@@ -561,21 +561,31 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                      <xsd:simpleType>
                         <xsd:restriction base="com:WholeBuildingOccupancy">
                            <xsd:enumeration value="AllOthersBuildings"/>
+                           <xsd:enumeration value="AuditoriumBuilding"/>
                            <xsd:enumeration value="ClassroomBuilding"/>
+                           <xsd:enumeration value="CommercialIndustrialBuilding"/>
+                           <xsd:enumeration value="ConventionCenterBuilding"/>
+                           <xsd:enumeration value="DataCenterBuilding"/>
                            <xsd:enumeration value="EventsExhibits"/>
                            <xsd:enumeration value="FinancialInstitutionBuilding"/>
                            <xsd:enumeration value="GroceryStoreBuilding"/>
+                           <xsd:enumeration value="GymnasiumBuilding"/>
                            <xsd:enumeration value="HighRiseResidential"/>
                            <xsd:enumeration value="HospitalBuilding"/>
                            <xsd:enumeration value="HotelMotel"/>
                            <xsd:enumeration value="LibraryBuilding"/>
                            <xsd:enumeration value="MedicalClinicBuilding"/>
                            <xsd:enumeration value="OfficeBuilding"/>
+                           <xsd:enumeration value="ParkingGarageBuilding"/>
                            <xsd:enumeration value="ReligiousFacilityBuilding"/>
+                           <xsd:enumeration value="RelocatablePublicSchoolBuilding"/>
                            <xsd:enumeration value="RestaurantBuilding"/>
                            <xsd:enumeration value="RetailBuilding"/>
                            <xsd:enumeration value="SchoolBuilding"/>
+                           <xsd:enumeration value="SportsArenaBuilding"/>
                            <xsd:enumeration value="SportsRecreation"/>
+                           <xsd:enumeration value="SupportArea"/>
+                           <xsd:enumeration value="TheaterBuilding"/>
                            <xsd:enumeration value="Warehouse"/>
                            <xsd:enumeration value="UnleasedTenantSpace"/>
                         </xsd:restriction>
@@ -2178,7 +2188,14 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]J. PHOTOVOLTAIC (PV) AND BATTERY ENERGY STORAGE SYSTEMS[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false </xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">
+This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false 
+And A04_WholeBuildingOccupancy includes  only one or more of the following EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
+OR sum of square footage of the following occupancies is GTE 80% of total building square footage (as determined by none reported question in Table A) - EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
+
+If sum of square footage LT 80%, 
+D03_ExceptionalConditionMessageCCSABE BuildingOccupancyLT80Pct
+               </xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

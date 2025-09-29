@@ -858,12 +858,7 @@ End If</xsd:documentation>
 result = BlankGrayedOut stored in NotApplicableMessage; 
   
 Else 
-If  In Section_F TableSystems IsPresent then in all rows where these fields are present
-If   F05_IsEfficiencyCapWeightedAvg  == false Then 
-If (F11_ThermalEfficiency GTE F12_ThermalEfficiencyMinimum 
-Or F11_EfficiencyAFUE GTE F12_EfficiencyMinimumValueAFUE  
-Or F11_UniformEnergyFactor GTE F12_MinimumRequiredUEF)
-And  
+If  In Section_F TableSystems IsPresent then in all rows where these fields are present  
 (in rows where  F14_NotApplicableMessage And F15_NotApplicableMessage NotPresent, 
 If F14_StandbyLoss LTE F15_StandbyLossMaxAllowed 
 Or F14_WaterHeaterStandbyLossFraction LTE F15_StandbyLossMaxAllowedFraction )
@@ -872,11 +867,6 @@ Else result = false display term No
 End If
  
 Else If F05_IsEfficiencyCapWeightedAvg == true And F06_EfficiencyCapWeightedAvg GTE 90%
- 
-If (F11_ThermalEfficiency GTE F12_ThermalEfficiencyMinimum 
-Or F11_EfficiencyAFUE GTE F12_EfficiencyMinimumValueAFUE  
-Or F11_UniformEnergyFactor GTE F12_MinimumRequiredUEF)
-And 
 (in rows where  F14_NotApplicableMessage And F15_NotApplicableMessage NotPresent, 
 F14_StandbyLoss LTE F15_StandbyLossMaxAllowed 
 Or F14_WaterHeaterStandbyLossFraction LTE F15_StandbyLossMaxAllowedFraction )
