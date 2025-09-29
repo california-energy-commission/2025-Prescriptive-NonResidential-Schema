@@ -2684,6 +2684,7 @@ Else If Fscs03_SystemZoning == MultiZone
    And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea GTE 150,000
    And A06_AboveGradeStoryCount LTE 5
       List: VariableRefrigerantFlowHeatRecovery, DedicatedOAS, AirWaterHeatPump, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, HeatPumpAC, RoomAC_HP
+      D03_ExceptionalConditionMessageCCMCHE += FanPowerIndexExceedsMaxInH; 
    End If
 Else
    List all values
@@ -3827,7 +3828,11 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Refrigerant Loop Heat Recovery</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == Multizone Option 1
+If Fscs03_SystemZoning == MultiZone
+And Fscs05_WholeBuildingOccupancy ==  OfficeBuilding Or (Fscs05_WholeBuildingOccupancy == SchoolBuilding And A02_ClimateZoneNumber == InRange(1,5) or InRange(8,16)
+And And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea GTE 150,000
+And A06_AboveGradeStoryCount LTE 5
+And F02_HvacSystemType == VariableRefrigerantFlow Or VariableRefrigerantFlowHeatRecovery
    result = true
 Else 
    result = BlankGrayedOut stored in Fa06a_NotApplicableMessage</xsd:documentation>
@@ -3837,7 +3842,7 @@ Else
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Refrigerant Loop Heat Recovery</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == Multizone Option 1
+If Fa06a_HeatRecovery != true
    result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -7740,7 +7745,7 @@ End If</xsd:documentation>
 If F02_HvacSystemType == Multizone Option 1, add a row to represent the DOAS system portion of Multizone option 1. For this row:
    H00d_SystemZoning should be limited to DOASZoneGT1kW or DOASZone
    And H02_NotApplicableMessage, H04_NotApplicableMessage, H05_NotApplicableMessage, H06_NotApplicableMessage, H07_NotApplicableMessage, H08_NotApplicableMessage, H12a_SupplyFanBaseAllowance and H12b_ExhaustFanBaseAllowance = BlankGrayedOut
-   And H12_FanSystemPowerAllowance = H00f_FanSystemFlowCapacity * 0.77
+   And H12_FanSystemPowerAllowance = H00f_FanSystemFlowCapacity * 0.00077
                                  </xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
@@ -7771,7 +7776,9 @@ If F02_HvacSystemType == Multizone Option 1, add a row to represent the DOAS sys
                                     <xsd:element name="H00d_SystemZoning" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Zoning</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list  MultiZoneVAV, DOASZone, AllOtherZoneTypes</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
+If user selects DOASZoneGT1kW or DOASZone, VCA user interface asks UI only question "Is this DOAS system being used to meet the multizone space conditioning requirements of "Section 140.4(a)3Ai or 140.4(a)3Aii"? With options Yes or No
+                                          </xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:SystemZoning">
@@ -7933,15 +7940,16 @@ End If</xsd:documentation>
                                                                   <xsd:element name="H02_FanFunction" type="hvac:FanFunction" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Fan Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning != DOASZone
-User selects from list: Supply, Relief, Return, Exhaust, OtherFanFunction</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If H00d_SystemZoning != DOASZone
+User selects from list</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="H02_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Fan Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning == DOASZone
-result = BlankGrayedOut 
+                                                                        <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning == DOASZone Or (H00d_SystemZoning == DOASZoneGT1kW And UI only question == Yes)
+result = BlankGrayedOut
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -8013,7 +8021,9 @@ Note - each enumeration can only be selected once per TableAllowance Row
                                                                                              <xsd:element name="H04_NotApplicableMessage">
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Component</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice is not present
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice is not present 
+Or If H00d_SystemZoning == DOASZoneGT1kW or DOASZone And UI Only question == Yes
 result = Blank grayed out stored in H04_NotApplicableMessage
 End if</xsd:documentation>
                                                                                                 </xsd:annotation>
@@ -8036,7 +8046,10 @@ End if</xsd:documentation>
                                                                                              <xsd:element name="H05_NotApplicableMessage" >
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Airflow through Component (%)</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice == NoDevice result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice == NoDevice
+Or If H00d_SystemZoning == DOASZoneGT1kW or DOASZone And UI Only question == Yes
+result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
 End if</xsd:documentation>
                                                                                                 </xsd:annotation>
                                                                                                 <xsd:simpleType>
@@ -8060,7 +8073,9 @@ End If</xsd:documentation>
                                                                                              <xsd:element name="H06_NotApplicableMessage" >
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Water Gauge (w.g)</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice == NoDevice Or != FiltersScrubbers, GasPhaseAirCleaner, BiosafetyCabinet, Or EvapCoolerAllowance 
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice == NoDevice Or != FiltersScrubbers, GasPhaseAirCleaner, BiosafetyCabinet, Or EvapCoolerAllowance 
+Or If H00d_SystemZoning == DOASZoneGT1kW or DOASZone And UI Only question == Yes
 result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
  
 Else user enters value
@@ -8918,7 +8933,10 @@ End If</xsd:documentation>
                                                                                              <xsd:element name="H07_NotApplicableMessage" >
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Component Allowance</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice == NoDevice result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice == NoDevice
+Or If H00d_SystemZoning == DOASZoneGT1kW or DOASZone And UI Only question == Yes 
+result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
 Else user enters value
 End if</xsd:documentation>
                                                                                                 </xsd:annotation>
@@ -8953,8 +8971,9 @@ End if</xsd:documentation>
                                                                   <xsd:element name="H08_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Fan Allowance (watt/cfm)[d:sup]3[/d:sup]</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning == DOASZone
-result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If H00d_SystemZoning == DOASZone Or (DOASZoneGT1kW  And UI Only question == Yes)
+   result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
 End if</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -9211,7 +9230,7 @@ End If
                                              <xsd:documentation source="FieldText">Supply Fan Base Allowance (kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
 Or 
-H00d_SystemZoning == DOASZone 
+H00d_SystemZoning == DOASZone Or (DOASZoneGT1kW  And UI Only question == Yes)
 Or 
 H13_FanSystemInputPower  LT 1.0 kW 
 result = BlankGrayedOut stored in NotApplicableMessage
@@ -9261,7 +9280,7 @@ End If
                                              <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
 Or
-H00d_SystemZoning == DOASZone
+H00d_SystemZoning == DOASZone Or (DOASZoneGT1kW  And UI Only question == Yes)
 Or 
 H13_FanSystemInputPower  LT 1.0 kW 
 result = BlankGrayedOut stored in NotApplicableMessage
@@ -9280,21 +9299,23 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Fan System Allowance (kW)[d:sup]3[/d:sup]</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
 If H13_FanSystemInputPower GTE 1.0
-If H00d_SystemZoning != DOAS
-If H00g_Elevation LTE 3,000 ft
-result = ((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
-Else If H00g_Elevation GTE 3,000 ft And LT 4,000
-result = 0.896  x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
-Else If H00g_Elevation GTE 4,000 ft And LT 5,000
-result = 0.864 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)  
-Else If H00g_Elevation GTE 5,000 ft And LT 6,000
-result = 0.832 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
-Else If H00g_Elevation GTE 6,000 ft 
-result = 0.801 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
-End If
-Else If H00d_SystemZoning == DOASZone
-result = H00f_FanSystemFlowCapacity / 1000 
-End If
+   If H00d_SystemZoning != DOASZone Or ( H00d_SystemZoning == DOASZoneGT1kW and UI only question == No)
+      If H00g_Elevation LTE 3,000 ft
+         result = ((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
+      Else If H00g_Elevation GTE 3,000 ft And LT 4,000
+         result = 0.896  x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
+      Else If H00g_Elevation GTE 4,000 ft And LT 5,000
+         result = 0.864 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)  
+      Else If H00g_Elevation GTE 5,000 ft And LT 6,000
+         result = 0.832 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
+      Else If H00g_Elevation GTE 6,000 ft 
+         result = 0.801 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
+      End If
+   Else If H00d_SystemZoning == DOASZone or DOASZoneGT1kW And UI only question == Yes
+      result = H00f_FanSystemFlowCapacity *.00077
+   Else If H00d_SystemZoning == DOASZone
+      result = H00f_FanSystemFlowCapacity / 1000 
+   End If
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -9323,7 +9344,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="H13_NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Fan System Electrical Output (kW)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Fan System Electrical Input Power (kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
 result = BlankGrayedOut
 End If</xsd:documentation>
