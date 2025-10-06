@@ -1636,7 +1636,7 @@ If checked result = true; else result = false.</xsd:documentation>
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
                             <xsd:documentation source="AdditionalRequirements">The primary storage tank temperature setpoint shall be at least 135<d:deg/>F - <d:t24refnolink/>170.2(d)2Aiv.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                            <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1647,7 +1647,7 @@ End If</xsd:documentation>
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
                             <xsd:documentation source="AdditionalRequirements">Minimum heat pump water heater compressor cut-off temperature shall be equal to or lower than 40<d:deg/>F ambient air temperature - <d:t24refnolink/>170.2(d)2Aivi.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                            <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1658,7 +1658,7 @@ End If</xsd:documentation>
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
                             <xsd:documentation source="AdditionalRequirements">Design documentation shall specify the operating conditions at which the primary heat pump water heater can supply hot water at design outlet water temperature without engaging auxiliary heating mechanism - <d:t24refnolink/>170.2(d)2Aivii.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                            <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1669,7 +1669,7 @@ End If</xsd:documentation>
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
                             <xsd:documentation source="AdditionalRequirements">NEEA Advanced Water Heater Specification for commercial heat pump water heater Tier 2 or higher - <d:t24refnolink/>170.2(d)2A.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                            <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1755,7 +1755,7 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">
                   <d:b>Recirculation Loops in Central Systems Serving Dwelling Units, Hotel/Motel Guest Rooms, or Nonresidential Spaces  - <d:t24refnolink/>110.3, <d:t24refnolink/>170.2(d)2</d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or CentralNonresSpaces; Else G01-G09 are not displayed</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If current row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or CentralNonresSpaces; Else G01-G09 are not displayed</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
@@ -1843,7 +1843,7 @@ Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger v
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If F02_WaterHeaterSpaceType == MultipleDwelling and F23HP_EquipmentTypeApplies == true 
+In current row, If F02_WaterHeaterSpaceType == MultipleDwelling and F22HP_EquipmentTypeApplies == true 
 Or 
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
@@ -1857,7 +1857,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aiii.</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If F02_WaterHeaterSpaceType == MultipleDwelling and F23HP_EquipmentTypeApplies == true 
+In current row, If F02_WaterHeaterSpaceType == MultipleDwelling and F22HP_EquipmentTypeApplies == true 
 Or 
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
@@ -1871,7 +1871,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint - <d:t24refnolink/>170.2(d)2Av</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If F02_WaterHeaterSpaceType == MultipleDwelling and F23HP_EquipmentTypeApplies == true 
+In current row, If F02_WaterHeaterSpaceType == MultipleDwelling and F22HP_EquipmentTypeApplies == true 
 Or 
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
@@ -1885,7 +1885,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If F02_WaterHeaterSpaceType == MultipleDwelling and F23HP_EquipmentTypeApplies == true 
+In current row, If F02_WaterHeaterSpaceType == MultipleDwelling and F22HP_EquipmentTypeApplies == true 
 Or 
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
@@ -1899,7 +1899,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If F02_WaterHeaterSpaceType == MultipleDwelling and F23HP_EquipmentTypeApplies == true 
+In current row, If F02_WaterHeaterSpaceType == MultipleDwelling and F22HP_EquipmentTypeApplies == true 
 Or 
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
@@ -1913,7 +1913,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If F02_WaterHeaterSpaceType == MultipleDwelling and F23HP_EquipmentTypeApplies == true 
+In current row, If F02_WaterHeaterSpaceType == MultipleDwelling and F22HP_EquipmentTypeApplies == true 
 Or 
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
