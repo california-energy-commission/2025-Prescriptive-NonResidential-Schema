@@ -591,14 +591,18 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A04a_OtherFloorArea" type="com:ConditionedFloorArea" >
+                  <xsd:element name="A04a_OtherFloorArea" type="comp:ExceptionApplies" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Square footage for "All Other Occupancies"</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">In your mixed-occupancy building, do the building types listed in Table 140.10-A make up more than 80% of the total square footage of your project?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">
-                           If multiple A04_WholeBuildingOccupancy selections are made and one A04_WholeBuildingOccupancy == AllOthersBuildings
-                           User input;</xsd:documentation>
-                     </xsd:annotation>
+If A04_WholeBuildingOccupancyincludes one or more of the following: EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
+And A04_WholeBuildingOccupancyincludes inlcudes one or more of the following: AllOthersBuildings, AuditoriumBuilding, ClassroomBuilding, CommercialIndustrialBuilding, ConventionCenterBuilding, DataCenterBuilding, GymnasiumBuilding, HospitalBuilding, ParkingGarageBuilding, RelocatablePublicSchoolBuilding, SportsArenaBuilding, SupportArea, TheaterBuilding
+   User input
+End If
+</xsd:documentation>
+                     
+                        </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A05_RoofConstRangeSolar" type="env:RoofConstRangeSolar" >
                      <xsd:annotation>
@@ -2191,7 +2195,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                <xsd:documentation source="CalculationsAndRules">
 This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false 
 And A04_WholeBuildingOccupancy includes  only one or more of the following EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
-OR sum of square footage of the following occupancies is GTE 80% of total building square footage (as determined by none reported question in Table A) - EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
+Or If A04a_OtherFloorArea == true
 
 If sum of square footage LT 80%, 
 D03_ExceptionalConditionMessageCCSABE BuildingOccupancyLT80Pct
