@@ -17470,13 +17470,13 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="JVestibules03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
 If J02_VestibuleExemptions == NoException
-   User selects from valid enumerations
+User selects from valid enumerations
 Else 
-   Value stored in J03_NotApplicableMessage</xsd:documentation>
+Value stored in J03_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="JVestibules03_NotApplicableMessage" >
@@ -17487,13 +17487,13 @@ If J02_VestibuleExemptions != NoException
    result = BlankGrayedOut
 Else 
    Value stored in J03_VestibuleShutOffControl</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
+                                    </xsd:annotation>
+                                    <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">
                                                 <xsd:enumeration value="BlankGrayedOut"/>
                                              </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>  
+                                    </xsd:simpleType>
+                                 </xsd:element>
                                     </xsd:choice>                          
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="JVestibules04_VestibuleThermostat" type="comp:VestibuleThermostat">
