@@ -2972,25 +2972,288 @@ End If</xsd:documentation>
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Min Rated Usable Energy Capacity of BESS Required (kWh)</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
-result = (Bat02_PV_MinimumSizeSARA x FactorB) / (Bat03_ChargeDischargeEfficiency ^0.5)
- 
-FactorB value assigned as follows: 
-Switch (Pv01_WholeBuildingOccupancy)
-case GroceryStoreBuilding:
-FactorB = 1.03
-case HighRiseResidential:
-FactorB = 1.03
-case FinancialInstitutionBuilding: case OfficeBuilding: case UnleasedTenantSpace: case TenantSpaceGT2000:
-FactorB = 1.68
-case RetailBuilding:
-FactorB = 1.03
-case SchoolBuilding:
-FactorB = 1.87
-case Warehouse:
-FactorB = 0.93
-case AuditoriumBuilding: case ConventionCenterBuilding: case HotelMotel: case LibraryBuilding: case MedicalClinicBuilding: case RestaurantBuilding: case TheaterBuilding:
-FactorB = 0.93
-End Switch</xsd:documentation>
+If Pv09_PV_MinimumSize = Sum All (Pv04_PV_MinSizeEquation)
+  result = (Pv02_ConditionedFloorArea x FactorB) / (1000 * Bat03_ChargeDischargeEfficiency ^ 0.5)
+Else If Pv09_PV_MinimumSize == Sum All (Pv12_PV_MinSizeSARA)
+  result = (Pv02_ConditionedFloorArea x FactorB) / (1000 * Bat03_ChargeDischargeEfficiency ^ 0.5) * ((Sum All (Pv12_PV_MinSizeSARA)) / (Sum All (Pv04_PV_MinSizeEquation))
+
+  FactorB value assigned as follows: 
+If Pv01_WholeBuildingOccupancy == EventsExhibits
+  If A02_ClimateZone == 1
+    FactorB = 3.48
+  If A02_ClimateZone == 2
+    FactorB = 4.28
+  If A02_ClimateZone == 3
+    FactorB = 3.66
+  If A02_ClimateZone == 4
+    FactorB = 4.32
+  If A02_ClimateZone == 5
+    FactorB = 3.77
+  If A02_ClimateZone == 6
+    FactorB = 4.05
+  If A02_ClimateZone == 7
+    FactorB = 4.28
+  If A02_ClimateZone == 8
+    FactorB = 4.83
+  If A02_ClimateZone == 9
+    FactorB = 4.63
+  If A02_ClimateZone == 10
+    FactorB = 4.80
+  If A02_ClimateZone == 11
+    FactorB = 5.04
+  If A02_ClimateZone == 12
+    FactorB = 4.44
+  If A02_ClimateZone == 13
+    FactorB = 4.95
+  If A02_ClimateZone == 14
+    FactorB = 4.36
+  If A02_ClimateZone == 15
+    FactorB = 5.48
+  If A02_ClimateZone == 16
+    FactorB = 3.38
+Else If Pv01_WholeBuildingOccupancy == LibraryBuilding
+  If A02_ClimateZone == 1
+    FactorB = 0.39
+  If A02_ClimateZone == 2
+    FactorB = 3.32
+  If A02_ClimateZone == 3
+    FactorB = 2.59
+  If A02_ClimateZone == 4
+    FactorB = 3.25
+  If A02_ClimateZone == 5
+    FactorB = 2.48
+  If A02_ClimateZone == 6
+    FactorB = 2.74
+  If A02_ClimateZone == 7
+    FactorB = 3.04
+  If A02_ClimateZone == 8
+    FactorB = 3.49
+  If A02_ClimateZone == 9
+    FactorB = 3.32
+  If A02_ClimateZone == 10
+    FactorB = 3.69
+  If A02_ClimateZone == 11
+    FactorB = 3.79
+  If A02_ClimateZone == 12
+    FactorB = 3.32
+  If A02_ClimateZone == 13
+    FactorB = 3.72
+  If A02_ClimateZone == 14
+    FactorB = 3.37
+  If A02_ClimateZone == 15
+    FactorB = 4.49
+  If A02_ClimateZone == 16
+    FactorB = 2.84
+Else If Pv01_WholeBuildingOccupancy == HotelMotel
+  If A02_ClimateZone == 1
+    FactorB = 1.69
+  If A02_ClimateZone == 2
+    FactorB = 1.90
+  If A02_ClimateZone == 3
+    FactorB = 1.66
+  If A02_ClimateZone == 4
+    FactorB = 1.97
+  If A02_ClimateZone == 5
+    FactorB = 1.69
+  If A02_ClimateZone == 6
+    FactorB = 1.87
+  If A02_ClimateZone == 7
+    FactorB = 1.94
+  If A02_ClimateZone == 8
+    FactorB = 2.22
+  If A02_ClimateZone == 9
+    FactorB = 2.09
+  If A02_ClimateZone == 10
+    FactorB = 2.20
+  If A02_ClimateZone == 11
+    FactorB = 2.30
+  If A02_ClimateZone == 12
+    FactorB = 2.05
+  If A02_ClimateZone == 13
+    FactorB = 2.30
+  If A02_ClimateZone == 14
+    FactorB = 2.02
+  If A02_ClimateZone == 15
+    FactorB = 2.72
+  If A02_ClimateZone == 16
+    FactorB = 1.73
+Else If Pv01_WholeBuildingOccupancy == OfficeBuilding Or FinancialInstitutionBuilding Or UnleasedTenantSpace Or TenantSpaceGT2000 Or MedicalClinicBuilding
+  If A02_ClimateZone == 1 Or 3 Or 5 Or 16
+    FactorB = 2.59
+  If A02_ClimateZone == 2 Or 4 Or InRange (6,14)
+    FactorB = 3.13
+  If A02_ClimateZone == 15
+    FactorB = 3.80
+  If A02_ClimateZone == 16
+    FactorB = 2.59
+Else If Pv01_WholeBuildingOccupancy == RestaurantBuilding
+  If A02_ClimateZone == 1
+    FactorB = 8.55
+  If A02_ClimateZone == 2
+    FactorB = 9.32
+  If A02_ClimateZone == 3
+    FactorB = 8.16
+  If A02_ClimateZone == 4
+    FactorB = 9.65
+  If A02_ClimateZone == 5
+    FactorB = 8.21
+  If A02_ClimateZone == 6
+    FactorB = 8.73
+  If A02_ClimateZone == 7
+    FactorB = 9.11
+  If A02_ClimateZone == 8
+    FactorB = 10.18
+  If A02_ClimateZone == 9
+    FactorB = 9.75
+  If A02_ClimateZone == 10
+    FactorB = 10.28
+  If A02_ClimateZone == 11
+    FactorB = 10.85
+  If A02_ClimateZone == 12
+    FactorB = 9.73
+  If A02_ClimateZone == 13
+    FactorB = 10.69
+  If A02_ClimateZone == 14
+    FactorB = 9.73
+  If A02_ClimateZone == 15
+    FactorB = 12.25
+  If A02_ClimateZone == 16
+    FactorB = 8.47
+Else If Pv01_WholeBuildingOccupancy == RetailBuilding Or GroceryStoreBuilding
+  If A02_ClimateZone == 1
+    FactorB = 3.14
+  If A02_ClimateZone == 2
+    FactorB = 3.49
+  If A02_ClimateZone == 3
+    FactorB = 3.01
+  If A02_ClimateZone == 4
+    FactorB = 3.61
+  If A02_ClimateZone == 5
+    FactorB = 3.05
+  If A02_ClimateZone == 6
+    FactorB = 3.27
+  If A02_ClimateZone == 7
+    FactorB = 3.45
+  If A02_ClimateZone == 8
+    FactorB = 3.83
+  If A02_ClimateZone == 9
+    FactorB = 3.65
+  If A02_ClimateZone == 10
+    FactorB = 3.81
+  If A02_ClimateZone == 11
+    FactorB = 4.09
+  If A02_ClimateZone == 12
+    FactorB = 3.64
+  If A02_ClimateZone == 13
+    FactorB = 3.99
+  If A02_ClimateZone == 14
+    FactorB = 3.71
+  If A02_ClimateZone == 15
+    FactorB = 4.60
+  If A02_ClimateZone == 16
+    FactorB = 3.21
+Else If Pv01_WholeBuildingOccupancy == SchoolBuilding
+  If A02_ClimateZone == 1
+    FactorB = 1.27
+  If A02_ClimateZone == 2
+    FactorB = 1.63
+  If A02_ClimateZone == 3
+    FactorB = 1.27
+  If A02_ClimateZone == 4
+    FactorB = 1.63
+  If A02_ClimateZone == 5
+    FactorB = 1.27 
+  If A02_ClimateZone == InRange (6, 14)
+    FactorB = 1.63
+  If A02_ClimateZone == 15
+    FactorB = 2.46
+  If A02_ClimateZone == 16
+    FactorB = 1.27
+Else If Pv01_WholeBuildingOccupancy == Warehouse
+  If A02_ClimateZone == 1 Or 3 Or 5
+    FactorB = 0.39
+  If A02_ClimateZone == 2 or 4 Or InRange (6, 14)
+    FactorB = 0.44
+  If A02_ClimateZone == 15
+    FactorB = 0.58
+  If A02_ClimateZone == 16
+    FactorB = 0.39
+Else If Pv01_WholeBuildingOccupancy == ReligiousFacilityBuilding
+  If A02_ClimateZone == 1
+    FactorB = 4.25
+  If A02_ClimateZone == 2
+    FactorB = 4.65
+  If A02_ClimateZone == 3
+    FactorB = 3.49
+  If A02_ClimateZone == 4
+    FactorB = 4.52
+  If A02_ClimateZone == 5
+    FactorB = 3.72
+  If A02_ClimateZone == 6
+    FactorB = 4.29
+  If A02_ClimateZone == 7
+    FactorB = 4.64
+  If A02_ClimateZone == 8
+    FactorB = 5.89
+  If A02_ClimateZone == 9
+    FactorB = 5.30
+  If A02_ClimateZone == 10
+    FactorB = 5.67
+  If A02_ClimateZone == 11
+    FactorB = 5.89
+  If A02_ClimateZone == 12
+    FactorB = 4.99
+  If A02_ClimateZone == 13
+    FactorB = 5.78
+  If A02_ClimateZone == 14
+    FactorB = 4.63
+  If A02_ClimateZone == 15
+    FactorB = 7.57
+  If A02_ClimateZone == 16
+    FactorB = 3.90
+Else If Pv01_WholeBuildingOccupancy == SportsRecreation
+  If A02_ClimateZone == 1
+    FactorB = 2.47
+  If A02_ClimateZone == 2
+    FactorB = 1.97
+  If A02_ClimateZone == 3
+    FactorB = 1.54
+  If A02_ClimateZone == 4
+    FactorB = 2.03
+  If A02_ClimateZone == 5
+    FactorB = 1.60
+  If A02_ClimateZone == 6
+    FactorB = 1.84
+  If A02_ClimateZone == 7
+    FactorB = 1.98
+  If A02_ClimateZone == 8
+    FactorB = 2.63
+  If A02_ClimateZone == 9
+    FactorB = 2.47
+  If A02_ClimateZone == 10
+    FactorB = 2.60
+  If A02_ClimateZone == 11
+    FactorB = 2.75
+  If A02_ClimateZone == 12
+    FactorB = 2.20
+  If A02_ClimateZone == 13
+    FactorB = 2.72
+  If A02_ClimateZone == 14
+    FactorB = 2.15
+  If A02_ClimateZone == 15
+    FactorB = 4.03
+  If A02_ClimateZone == 16
+    FactorB = 1.81
+Else If Pv01_WholeBuildingOccupancy == HighRiseResidential
+  If A02_ClimateZone == 1 Or 3 Or 5
+    FactorB = 1.82
+  If A02_ClimateZone == 2 Or 4 Or InRange(6, 14)
+    FactorB = 2.21
+  If A02_ClimateZone == 15
+    FactorB = 2.77
+  If A02_ClimateZone == 16
+    FactorB = 1.82
+</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="Bat05_BatteryPowerMinPerArea" type="hvac:BatteryPowerMinPerArea">
