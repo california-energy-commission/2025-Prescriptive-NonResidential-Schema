@@ -7527,34 +7527,36 @@ Else
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fg06_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">
-If Fg06_HeatRecoveryRequired = true 
-   If Fg04_HeatingCapacity GT 500
-      result = TransferAndPreheat
-   Else
-      result = Transfer
-Else result = BlankGrayedOut stored in Fg06_NotApplicableMessage
-                                          </xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fg06_NotApplicableMessage">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">
-If Fg06_HeatRecoveryRequired = false
-   result = BlankGrayedOut stored in Fg06_NotApplicableMessage
-End If
-                                          </xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
+                                    <xsd:choice>
+                                       <xsd:element name="Fg06_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+   If Fg06_HeatRecoveryRequired = true 
+      If Fg04_HeatingCapacity GT 500
+         result = TransferAndPreheat
+      Else
+         result = Transfer
+   Else result = BlankGrayedOut stored in Fg06_NotApplicableMessage
+                                             </xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fg06_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+   If Fg06_HeatRecoveryRequired = false
+      result = BlankGrayedOut stored in Fg06_NotApplicableMessage
+   End If
+                                             </xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
