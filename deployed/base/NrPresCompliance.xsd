@@ -14066,15 +14066,15 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="AutomaticTimerSwitch">Auto. Time Switch</dtyp:displayterm>
-        <dtyp:displayterm value="BuildingLevelShutOffControl">See Building Level</dtyp:displayterm>
+        <dtyp:displayterm value="BuildingLevelShutOffControl">Building Level (Shut-off control requirements are met at the building level)</dtyp:displayterm>
         <dtyp:displayterm value="CountdownTimerSwitch">Countdown Timer in closet <d:lt/> 70 sq ft or server aisle</dtyp:displayterm>
         <dtyp:displayterm value="ElecEquipRoomNA">NA: Elec. equip. rm</dtyp:displayterm>
         <dtyp:displayterm value="EMCS">EMCS</dtyp:displayterm>
         <dtyp:displayterm value="HealthcareNA">NA: Licensed Healthcare</dtyp:displayterm>
         <dtyp:displayterm value="NA24x7Operation">NA: 24 hour/365 day</dtyp:displayterm>
         <dtyp:displayterm value="OccupancySensor">Occupancy Sensor</dtyp:displayterm>
-        <dtyp:displayterm value="PartialOffShutOffControl">Partial Off</dtyp:displayterm>
-        <dtyp:displayterm value="PartialOnShutOffControl">Partial On</dtyp:displayterm>
+        <dtyp:displayterm value="PartialOffShutOffControl">Partial Off <d:t24refnolink/>130.1(c)/<d:t24refnolink/>160.5(b)4C</dtyp:displayterm>
+        <dtyp:displayterm value="PartialOnShutOffControl">Partial On <d:t24refnolink/>130.1(c)/<d:t24refnolink/>160.5(b)4C</dtyp:displayterm>
         <dtyp:displayterm value="Vacancy">Vacancy Sensor</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
