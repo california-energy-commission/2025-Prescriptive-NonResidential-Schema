@@ -4098,7 +4098,7 @@ End Switch</xsd:documentation>
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == HeatPumpAC use this choice:  
+If F02_HvacSystemType == HeatPumpAC  Or RoomAC_HP use this choice:  
    result1 = FederalMinimum
 End if</xsd:documentation>
                                         </xsd:annotation>
@@ -11467,27 +11467,27 @@ Else If J09_VentilationSpaceFunction == RestroomPrivateContExhaust
 Else If J09_VentilationSpaceFunction == RestroomPublic
    result = J11_ExhaustNumberFixtures * 70
 If J09_VentilationSpaceFunction == AnimalImaging Or PetShop
-   result = 0.9 x J09_VentilationSpaceFunction;
+   result = 0.9 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == AnimalOperating
-   result = 3.0 x J09_VentilationSpaceFunction\
+   result = 3.0 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == AnimalRecovery, AnimalPreperation, AnimalSurgery, AutoRepairVent, StorageOccupiableLiquids, AnimalCageVentilated
-   result = 1.5 x J09_VentilationSpaceFunction
+   result = 1.5 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == AnimalProcedure, AnimalNecropsy, AnimalHolding, AnimalCage
-   result = 2.25 x J09_VentilationSpaceFunction
+   result = 2.25 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == ClassroomArt Or FoodServiceKitchen
-   result = 0.7 x J09_VentilationSpaceFunction
+   result = 0.7 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == BarberShop, CopyPrintRoom, LockerAthleticIndustrial, SportsSpectatorAreaVent, Or WoodMetalShop
-   result = 0.5 x J09_VentilationSpaceFunction
+   result = 0.5 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == BeautyNailSalon
-   result = 0.6 x J09_VentilationSpaceFunction
+   result = 0.6 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == CellWithToiletVent, DarkRoom, JanitorRoom, SoiledLaundryStorage, ScienceLab, TrashRecyclingRoom, Or CollegeLab
-   result = 1.0 x J09_VentilationSpaceFunction
+   result = 1.0 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == KitchenetteVent
-   result = 0.3 x J09_VentilationSpaceFunction
+   result = 0.3 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == LockerAllOthers
-   result = 0.25 x J09_VentilationSpaceFunction
+   result = 0.25 x J10_SpaceFloorArea 
 Else if J09_VentilationSpaceFunction == ParkingGarageVent
-   result = 0.75 x J09_VentilationSpaceFunction
+   result = 0.75 x J10_SpaceFloorArea 
 Else 
    result = BlankGrayedOut 
  
