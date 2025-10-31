@@ -3717,12 +3717,7 @@ Else If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters te
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out; 
 Else If FSIPS08_UfactorSpecSource == JA4Tables And FSIPS13_ConstructionSpecificationMethod != RValue  user selects from list: 
-R0ci display term None, 
-R2ci display term R-2, 
-R4ci display term R-4, 
-R5ci display term R-5, 
-R7ci display term R-7, 
-R8ci display term R-8</xsd:documentation>
+</xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
                                     <xsd:restriction base="env:ContinuousInsulationNR">
@@ -3742,7 +3737,7 @@ R8ci display term R-8</xsd:documentation>
 If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
 Or If FSIPS13_ConstructionSpecificationMethod == RValue
 Or FSIPS05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
-User enters text
+   User enters text
 End if</xsd:documentation>
                                   </xsd:annotation>
                                 </xsd:element>
@@ -3750,8 +3745,7 @@ End if</xsd:documentation>
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">
-If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies 
-Or FSIPS05_RoofInsulationException !=  MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue 
+If FSIPS05_RoofInsulationException == RoofRecoat
    result = BlankGrayedOut stored in NotApplicableMessage
 End if</xsd:documentation>
                                   </xsd:annotation>
@@ -4634,7 +4628,10 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                 <xsd:element name="Fspan12_NotApplicableMessage">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
-                                    <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">
+If FSpan05_RoofInsulationException == RoofRecoat
+   result = BlankGrayedOut
+                                                   </xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
                                     <xsd:restriction base="comp:NotApplicableMessage">
