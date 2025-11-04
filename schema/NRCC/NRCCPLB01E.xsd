@@ -1858,7 +1858,7 @@ Or
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else 
-   result = ReqNA and row is grayed out
+   Row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1872,7 +1872,7 @@ Or
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else 
-   result = ReqNA and row is grayed out
+   Row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1886,7 +1886,7 @@ Or
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else 
-   result = ReqNA and row is grayed out
+   Row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1900,7 +1900,7 @@ Or
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else 
-   result = ReqNA and row is grayed out
+   Row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1914,7 +1914,7 @@ Or
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else 
-   result = ReqNA and row is grayed out
+   Row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1928,7 +1928,7 @@ Or
 B01b_PlumbingProjectScope == AlteredSystem and B02Altered_WaterHeatingSystem == CentralDwellingUnits
    User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else 
-   result = ReqNA and row is grayed out
+   Row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
