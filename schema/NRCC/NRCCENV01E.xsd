@@ -4608,8 +4608,8 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText"></xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-If FSpan05_RoofInsulationException == RoofRecoat
-   result = BlankGrayedOut
+If FSpan05_RoofInsulationException != NoExceptionApplies And Fspan04_Status == ExistingAlteration
+result = BlankGrayedOut
                                                    </xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
@@ -4680,11 +4680,9 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText"></xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration 
-If Fspan05_RoofInsulationException  != NoExceptionApplies Or 
-Fspan06_TopLevelOccupancy == ResidentialMF And A03_ClimateZoneNumber == 3, 5, 6 Or 7
- result = BlankGrayedOut
-End If
-End If</xsd:documentation>
+If FSpan05_RoofInsulationException != NoExceptionApplies And Fspan04_Status == ExistingAlteration
+result = BlankGrayedOut
+                                                   </xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -19003,7 +19001,7 @@ If Kvertperf23_FenestrationPanes == DoublePane result = 0.79;
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided result = 0.84;
 End If
 
-Else If Kvertperf05_FenestrationProductType == FixedWindow Or StoreFront Or DemisingWallFen Or CurtainWall  Then 
+Else If Kvertperf05_FenestrationProductType == FixedWindow Or FixedWindowMF Or StoreFront Or DemisingWallFen Or CurtainWall  Then 
 If Kvertperf23_FenestrationPanes == SinglePane result = 1.19; 
 Else If Kvertperf23_FenestrationPanes == DoublePane result = 0.71; 
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided result = 0.76;
@@ -19019,7 +19017,7 @@ End If
  
 Else If Kvertperf23_FenestrationPanes == DoublePane 
 If Kvertperf05_FenestrationProductType == OperableWindow result = 0.66; 
-Else If Kvertperf05_FenestrationProductType == FixedWindow Or StoreFront Or DemisingWallFen Or CurtainWall result = 0.55;  
+Else If Kvertperf05_FenestrationProductType == FixedWindow Or FixedWindowMF Or StoreFront Or DemisingWallFen Or CurtainWall result = 0.55;  
 End If
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided
 If Kvertperf05_FenestrationProductType == OperableWindow result = 0.71; 
@@ -19041,7 +19039,7 @@ Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided 
 Else If Kvertperf23_FenestrationPanes == GlassBlock result = 0.60; 
 End If
  
-Else If Kvertperf05_FenestrationProductType == FixedWindow Or StoreFront Or DemisingWallFen Or CurtainWall  Then 
+Else If Kvertperf05_FenestrationProductType == FixedWindow Or FixedWindowMF Or StoreFront Or DemisingWallFen Or CurtainWall  Then 
 If Kvertperf23_FenestrationPanes == SinglePane result = 1.04; 
 Else If Kvertperf23_FenestrationPanes == DoublePane result = 0.55;
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided result = 60;
