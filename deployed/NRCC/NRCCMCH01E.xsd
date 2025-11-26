@@ -13413,7 +13413,10 @@ End If</xsd:documentation>
                 <xsd:documentation source="AdditionalRequirements">NRCA-MCH-05-A - Air Economizer, DOAS, HRV, &amp;amp; ERV Controls</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If H00h_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  result = true  display term selected Yes radio button
+If H00h_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  
+Or Hdwell09_EnergyHeatRecoveryVent == ProvidesERV or ProvidesHRV
+Or F02_HvacSystemType == DedicatedOAS
+result = true  display term selected Yes radio button
 End If</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -13856,7 +13859,7 @@ End If</xsd:documentation>
             <xsd:element name="Nrca19_RequireNRCAMch20" type="comp:RequireNRCAMch20">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20a-A  Multi-Family Ventilation</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20a-A  Multi-Family Dwelling Ventilation</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
  
 If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
@@ -13885,6 +13888,114 @@ End If</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="Nrca19a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19b_RequireNRCAMch20" type="comp:RequireNRCAMch20">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20b-A  Multi-Family Dwelling Kitchen Exhaust</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
+ 
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+result = true display term selected Yes radio button
+End If
+ 
+Mandatory Measure Triggers:
+If result == true
+DUMM120_1b2B_MeasureApplies = true and is displayed
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19b_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If Nrca19b_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+load value in J19_SpaceName in TableVentMF
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19b_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If Nrca19b_RequireNRCAMch20 == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca19_SystemFieldVerified</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19ba_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19c_RequireNRCAMch20" type="comp:RequireNRCAMch20">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20c-A  Multi-Family IAQ Ventilation System</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
+ 
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+result = true display term selected Yes radio button
+End If
+ 
+Mandatory Measure Triggers:
+If result == true
+DUMM120_1b2B_MeasureApplies = true and is displayed
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19c_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If Nrca19c_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+load value in J19_SpaceName in TableVentMF
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19c_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If Nrca19c_RequireNRCAMch20 == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca19_SystemFieldVerified</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19ca_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19d_RequireNRCAMch20" type="comp:RequireNRCAMch20">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20d-A Dwelling Ventilation - HRV-ERV</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
+ 
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+result = true display term selected Yes radio button
+End If
+ 
+Mandatory Measure Triggers:
+If result == true
+DUMM120_1b2B_MeasureApplies = true and is displayed
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19d_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If Nrca19d_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+load value in J19_SpaceName in TableVentMF
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19d_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If Nrca19d_RequireNRCAMch20 == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca19_SystemFieldVerified</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Nrca19da_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
               </xsd:annotation>
@@ -14042,7 +14153,7 @@ End If</xsd:documentation>
             <xsd:element name="Nrcv02_RequireNRCVMch24H" type="comp:RequireNRCVMch24H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-24 Enclosure Air Leakage Worksheet  <d:i> NOTE: Must be completed by a HERS Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-24 Enclosure Air Leakage Worksheet  <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
 If J19a_IsVentSystemContinuous == true result = true display term selected Yes radio button
@@ -14073,7 +14184,7 @@ End If</xsd:documentation>
             <xsd:element name="Nrcv03_RequireNRCVMch27H" type="comp:RequireNRCVMch27H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27-H Indoor Air Quality and Mechanical Ventilation <d:i> NOTE: Must be completed by a HERS Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27-H Indoor Air Quality and Mechanical Ventilation <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
  If  J26b_BathroomVentIAQ == true 
@@ -14105,7 +14216,7 @@ End If</xsd:documentation>
             <xsd:element name="Nrcv04_RequireNRCVMch32H" type="comp:RequireNRCVMch32H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-32 Local Mechanical Exhaust  <d:i> NOTE: Must be completed by a HERS Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-32 Local Mechanical Exhaust  <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
  If J26a_BathroomIAQ, J26b_BathroomVentIAQ Or J26c_KitchenHoodRange == true  result = true display term selected Yes radio button
