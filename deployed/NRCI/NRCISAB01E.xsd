@@ -540,12 +540,6 @@ End If</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="Pv_MeetsJA11" type="comp:MeetsJA11">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA11.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="TablePV" minOccurs="0">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
@@ -555,6 +549,12 @@ End If</xsd:documentation>
                         <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                           <xsd:complexType>
                             <xsd:sequence>
+                              <xsd:element name="Pv_MeetsJA11" type="comp:MeetsJA11">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA11.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:element>
                               <xsd:element name="PvRowLabel" minOccurs="0">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">As-built Conditions</xsd:documentation>
@@ -590,20 +590,21 @@ End If</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="PV02cc_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
+                              <xsd:element name="PV02cc_ArrayPowerOutput">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">Installed DC Power Rating (kW)</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
-                                                          If Pv10_PV_DesignSize IsPresent
-                                                          result = Pv10_PV_DesignSize
+                                                          result = NotApplicable
                                                           Else If CC-PRF parent
                                                           result = Pv01_PV_SystemTotalRatedPowerDC
                                                           End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="NRCCSAB1E" usage="copy">Pv10_PV_DesignSize</dtyp:srcSchema>
                                     <dtyp:srcSchema form="CCPRF01E" usage="copy">Pv01_PV_SystemTotalRatedPowerDC</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="hvac:ArrayPowerOutput comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
                               <xsd:element name="PV02_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
                                 <xsd:annotation>
@@ -1033,15 +1034,15 @@ result = ExactMatch</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="Bat_MeetsJA12" type="comp:MeetsJA12">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA12.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                     <xsd:complexType>
                       <xsd:sequence>
+                        <xsd:element name="Bat_MeetsJA12" type="comp:MeetsJA12">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA12.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
                         <xsd:element name="Bat01cc_SeePlansMessage">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
