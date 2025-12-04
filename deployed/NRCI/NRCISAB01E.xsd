@@ -593,17 +593,18 @@ End If</xsd:documentation>
                               <xsd:element name="PV02cc_ArrayPowerOutput">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">Installed DC Power Rating (kW)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
-                                                          result = NotApplicable
-                                                          Else If CC-PRF parent
-                                                          result = Pv01_PV_SystemTotalRatedPowerDC
-                                                          End If</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">
+If CC-SAB parent
+   result = SeePlans
+Else If CC-PRF parent
+   result = Pv01_PV_SystemTotalRatedPowerDC
+End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPRF01E" usage="copy">Pv01_PV_SystemTotalRatedPowerDC</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                                 <xsd:simpleType>
-                                  <xsd:union memberTypes="hvac:ArrayPowerOutput comp:NotApplicableMessage"/>
+                                  <xsd:union memberTypes="hvac:ArrayPowerOutput comp:NotApplicableMessage comp:SeePlansMessage"/>
                                 </xsd:simpleType>
                               </xsd:element>
                               <xsd:element name="PV02_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
@@ -901,7 +902,7 @@ End If</xsd:documentation>
                                                           result = TableIncomplete
                                                           Else If Pv01_ArrayName IsPresent 
                                                           And
-                                                          PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput == PV02cc_ArrayPowerOutput
+                                                          PV02_ArrayPowerOutput IsPresent And (PV02_ArrayPowerOutput == PV02cc_ArrayPowerOutput or PV02cc_ArrayPowerOutput == SeePlans)
                                                           And
                                                           Pv03_ArrayModuleType IsPresent And (Pv03_ArrayModuleType == Pv03cc_ArrayModuleType or Pv03cc_ArrayModuleType == SeePlans)
                                                           And
@@ -927,7 +928,7 @@ End If</xsd:documentation>
                                                           
                                                           Else If Pv01_ArrayName IsPresent 
                                                           And
-                                                          PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput GT PV02cc_ArrayPowerOutput
+                                                          PV02_ArrayPowerOutput IsPresent And (PV02_ArrayPowerOutput GT PV02cc_ArrayPowerOutput or PV02cc_ArrayPowerOutput == SeePlans)
                                                           And
                                                           Pv03_ArrayModuleType IsPresent 
                                                           And
