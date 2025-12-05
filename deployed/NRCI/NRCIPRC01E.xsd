@@ -1052,6 +1052,7 @@ End If</xsd:documentation>
                                         <xsd:restriction base="comp:CondenserTempControls">
                                           <xsd:enumeration value="SetpointLTE70db"/>
                                           <xsd:enumeration value="SetpointTempNA"/>
+                                          <xsd:enumeration value="SetpointLTE70wb"/>
                                         </xsd:restriction>
                                       </xsd:simpleType>
                                     </xsd:element>
@@ -1069,6 +1070,7 @@ End If</xsd:documentation>
                                         <xsd:restriction base="comp:CondenserTempControls">
                                           <xsd:enumeration value="SetpointLTE70db"/>
                                           <xsd:enumeration value="SetpointTempNA"/>
+                                          <xsd:enumeration value="SetpointLTE70wb"/>
                                         </xsd:restriction>
                                       </xsd:simpleType>
                                     </xsd:element>
