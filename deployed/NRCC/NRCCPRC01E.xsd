@@ -4937,7 +4937,7 @@ End If</xsd:documentation>
                           </xsd:element>
                           <xsd:element name="J04_NotApplicableMessage">
                             <xsd:annotation>
-                              <xsd:documentation source="FieldText">Controls <d:t24refnolink/>120.6(e)2</xsd:documentation>
+                              <xsd:documentation source="FieldText">Monitoring <d:t24refnolink/>120.6(e)3</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
                                        result = BlankGrayedOut
                                        End If

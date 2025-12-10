@@ -4216,27 +4216,140 @@ User selects from list
 End If</xsd:documentation>
                                       </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Cair04cc_CompressorControls" type="comp:CompressorControls">
-                                      <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Controls</xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Cair04cc_CompressorControls" type="comp:CompressorControls">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If J03_CompressorControls IsPresent
 result = J03_CompressorControls
 End If</xsd:documentation>
-                                        <xsd:appinfo source="CIsrc">
-                                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J03_CompressorControls</dtyp:srcSchema>
-                                        </xsd:appinfo>
-                                      </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Cair04_CompressorControls" type="comp:CompressorControls">
-                                      <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Controls</xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J03_CompressorControls</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Cair04cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If J03_NotApplicableMessage IsPresent
+result = J03_NotApplicableMessage
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J03_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Cair04_CompressorControls" type="comp:CompressorControls">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true and Cair04cc_CompressorControls IsPresent
 result = Cair04cc_CompressorControls
 Else
 User selects from list
 End If</xsd:documentation>
-                                      </xsd:annotation>
-                                    </xsd:element>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Cair04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true and Cair04cc_NotApplicableMessage IsPresent
+result = Cair04cc_NotApplicableMessage
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Cair05cc_CompressedAirMonitoring" type="comp:CompressedAirMonitoring">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Monitoring</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent and J04_CompressedAirMonitoring IsPresent
+result = J04_CompressedAirMonitoring
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J04_CompressedAirMonitoring</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Cair05cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Monitoring</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent and J04_NotApplicableMessage IsPresent
+result = J04_NotApplicableMessage
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J04_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Cair05_CompressedAirMonitoring" type="comp:CompressedAirMonitoring">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Monitoring</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true
+result = Cair05cc_CompressedAirMonitoring
+Else
+User selects from list
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Cair05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Monitoring</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true and Cair05cc_NotApplicableMessage IsPresent
+result = Cair05cc_NotApplicableMessage
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Cair06cc_CompressedAirLineSize" type="comp:CompressedAirLineSize">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Service Line Size</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent and J05_CompressedAirLineSize IsPresent
+result = J05_CompressedAirLineSize
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J05_CompressedAirLineSize</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Cair06cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Service Line Size</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent and J05_NotApplicableMessage IsPresent
+result = J05_NotApplicableMessage
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">J05_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Cair06_CompressedAirLineSize" type="comp:CompressedAirLineSize">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Service Line Size</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true
+result = Cair06cc_CompressedAirLineSize
+Else
+User selects from list
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Cair06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Service Line Size</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Cair01_InstalledSmeAsCC == true and Cair06cc_NotApplicableMessage IsPresent
+result = Cair06cc_NotApplicableMessage
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                    </xsd:choice>
                                   </xsd:sequence>
                                 </xsd:complexType>
                               </xsd:element>
@@ -5940,98 +6053,106 @@ End If</xsd:documentation>
                       <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen02_KitchenERComplies IsPresent
 result = ElectricReadyKitchen02_KitchenERComplies
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit02cc_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit02cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen02_NotApplicableMessage IsPresent
 result = ElectricReadyKitchen02_NotApplicableMessage
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit02cc_KitchenERComplies
 
 Else user selects from dropdown
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit02cc_NotApplicableMessage
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03cc_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit03cc_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen03_KitchenERComplies IsPresent
 result = ElectricReadyKitchen03_KitchenERComplies
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_KitchenERComplies</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03cc_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_KitchenERComplies</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit03cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen03_NotApplicableMessage IsPresent
 result = ElectricReadyKitchen03_NotApplicableMessage
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_NotApplicableMessage</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_NotApplicableMessage</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit03_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit03cc_KitchenERComplies
 
 Else user selects from dropdown
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit03cc_NotApplicableMessage
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="ElectricKit04_ComplianceResultCI " type="comp:ComplianceResultCI">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText">Electric Kitchen Compliance</xsd:documentation>
@@ -6479,6 +6600,7 @@ End If</xsd:documentation>
                                         <xsd:simpleType>
                                           <xsd:restriction base="comp:MultilevelControls">
                                             <xsd:enumeration value="DimmerControl"/>
+                                            <xsd:enumeration value="HorticultureLT40"/>
                                             <xsd:enumeration value="MultilevelSwitch"/>
                                           </xsd:restriction>
                                         </xsd:simpleType>
