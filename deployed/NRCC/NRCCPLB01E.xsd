@@ -1483,13 +1483,6 @@ End If
  If checked result = true; else result = false. If result == true  F16_DwellingUnitWaterHeater += StorageConsumerReplacement</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="F17_NewUnitGasWaterHeater" type="comp:NewUnitGasWaterHeater">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                            <xsd:documentation source="AdditionalRequirements">For gas or propane water heaters serving individual dwelling units, the follow components are included in the design per <d:t24refnolink/>160.4: (New Construction and Additions only)<d:l t="*"><d:list> Dedicated 125V, 20 amp electrical receptacle that is connected to the panel with a 120/240V 3 conductor, 10 AWG copper branch circuit within 3 ft from the water heater that's accessible and with both ends of the unused conductor labeled with the word "spare" and be electrically isolated.  A single pole circuit breaker space in the panel adjacent to the circuit breaker for the branch circuit is provided labeled with the word "future 240V use"; and </d:list><d:list> Category III or IV vent, or Type B vent with straight pipe between the outside termination and where the water heater is installed; and </d:list><d:list>Condensate drain that is no more than 2 inches higher than the base of the water heater and drains without pump assistance; and [</d:list><d:list>Gas supply line with a capacity of at least 200,000 BTUH</d:list></d:l></xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If B01a_PlumbingProjectScope != NewSystem  result = ReqNA and row is grayed out;  Else user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled.</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -1577,7 +1570,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">
                               <d:b>Air-Source Heat Pump Water Heaters (HPWHs) (<d:t24refnolink/>110.3(c)7)</d:b>
                             </xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType== HeatPumpAirSource, this subsection is required</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If any F08_WaterHeaterType== HeatPumpAirSource, this subsection is required</xsd:documentation>
                           </xsd:annotation>
                           <xsd:complexType>
                             <xsd:sequence>
@@ -2670,6 +2663,7 @@ End If
                             <xsd:restriction base="comp:PoolSpaRequirements">
                               <xsd:enumeration value="CoverNA"/>
                               <xsd:enumeration value="FutureSolarPiping"/>
+                              <xsd:enumeration value="FutureSolarConnections"/>
                             </xsd:restriction>
                           </xsd:simpleType>
                         </xsd:element>
