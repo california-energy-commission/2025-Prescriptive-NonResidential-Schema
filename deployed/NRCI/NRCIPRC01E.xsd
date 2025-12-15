@@ -5503,11 +5503,11 @@ CompUPS03_UpsType == CompUPS03cc_UpsType Or CompUPS03_NotApplicableMessage == Co
 And
 CompUPS04_UpsRatedPower == CompUPS04cc_UpsRatedPower Or CompUPS04_NotApplicableMessage == CompUPS04cc_NotApplicableMessage
 And
-CompUPS05_UpsEfficiency == CompUPS05cc_UpsEfficiency Or CompUPS05cc_UpsEfficiency == CompUPS05cc_UpsEfficiency
+CompUPS05_UpsEfficiency == CompUPS05cc_UpsEfficiency Or CompUPS05_NotApplicableMessage == CompUPS05cc_NotApplicableMessage
 result = ExactMatch
 
 Else If
-CompUPS05_UpsEfficiency LTE CompUPS05cc_UpsEfficiency
+CompUPS05_UpsEfficiency LT CompUPS05cc_UpsEfficiency
 result = MayNotComply
 Else
 result = EqualBetter
