@@ -1094,6 +1094,9 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">[d:i]The following requirements have been included on the permitted Certificate of Compliance to comply with Title 24, Part 6.  Installed equipment shall meet these requirements or the Certificate of Compliance shall be modified to demonstrate compliance.  [/d:i]</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       <xsd:complexType>
+                                          <xsd:sequence>
                                     <xsd:element name="DHW01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Name</xsd:documentation>
@@ -1215,6 +1218,9 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:sequence>
+                                    </xsd:complexType>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1241,6 +1247,9 @@ End If</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
+                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       <xsd:complexType>
+                                          <xsd:sequence>
                                     <xsd:element name="Dist01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Name</xsd:documentation>
@@ -1449,6 +1458,9 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:sequence>
+                                    </xsd:complexType>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1465,6 +1477,9 @@ Else If CC-PRF parent this subsection is NOT displayed or required</xsd:document
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
+                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       <xsd:complexType>
+                                          <xsd:sequence>
                                     <xsd:element name="Dist08a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Name</xsd:documentation>
@@ -1557,6 +1572,9 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:sequence>
+                                    </xsd:complexType>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1566,6 +1584,9 @@ End If</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
+                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       <xsd:complexType>
+                                          <xsd:sequence>
                                     <xsd:element name="Dist11_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
@@ -1673,6 +1694,9 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:sequence>
+                                    </xsd:complexType>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1778,6 +1802,9 @@ End If</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">[d:i]The following requirements have been included on the permitted Certificate of Compliance to comply with Title 24, Part 6.  Installed equipment shall meet these requirements or the Certificate of Compliance shall be modified to demonstrate compliance. [/d:i]</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                              <xsd:sequence>
                            <xsd:element name="Ctrl01cc_TempControlsCertification" type="comp:TempControlsCertification" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -1937,6 +1964,9 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
+                           </xsd:element>
+                           </xsd:sequence>
+                           </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
