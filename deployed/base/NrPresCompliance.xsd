@@ -2611,6 +2611,8 @@
       <xsd:enumeration value="ExistingRoom50Tons"/>
       <xsd:enumeration value="IntegratedAirEconomizer"/>
       <xsd:enumeration value="IntegratedWaterEconomizer"/>
+      <xsd:enumeration value="IntegratedAirEconomizerAddAlt"/>
+      <xsd:enumeration value="IntegratedWaterEconomizerAddAlt"/>
       <xsd:enumeration value="LT5TonsCoolingNA"/>
       <xsd:enumeration value="PowerDensityNA"/>
       <xsd:enumeration value="ServesOtherSpacesNA"/>

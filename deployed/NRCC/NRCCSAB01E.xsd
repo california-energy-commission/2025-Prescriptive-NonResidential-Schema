@@ -851,7 +851,7 @@ End If</xsd:documentation>
 If Bpv01a_SystemIncludesPV == true Or Bpv01b_AccessAreaTooSmall == true
 result = false
 Else (evaluating values from J) 
-If (Sum All (Pv12_PV_MinSizeSARA)) LT 4
+If (Sum All (Pv12_PV_MinSizeSARA)) or (Sum All (Pv04_PV_MinSizeEquation)) LT 4
 And therefore Pv09_PV_MinimumSize  == 0 
 result = true
 Else result = false
@@ -2865,7 +2865,7 @@ Result = ((Pv11_SolarAccessRoofArea x 18)/1000)
                 <xsd:documentation source="CalculationsAndRules">Calculated field:
 If SUM ALL (Pv11_SolarAccessRoofArea)  LT 80 Or LT (0.03 x SUM ALL (Pv02_ConditionedFloorArea))
 result = 0
-Else If (Sum All (Pv12_PV_MinSizeSARA)) LT 4
+Else If (Sum All (Pv12_PV_MinSizeSARA)) or (Sum All (Pv04_PV_MinSizeEquation)) LT 4
 result = 0 
 Else If Sum All (Pv04_PV_MinSizeEquation) LT Sum All (Pv12_PV_MinSizeSARA)
 result = Sum All (Pv04_PV_MinSizeEquation)
