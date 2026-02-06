@@ -1716,6 +1716,7 @@ End If</xsd:documentation>
                                           <xsd:restriction base="hvac:EfficiencyType">
                                             <xsd:enumeration value="COP"/>
                                             <xsd:enumeration value="EER"/>
+                                            <xsd:enumeration value="EER2"/>
                                             <xsd:enumeration value="SCOP"/>
                                             <xsd:enumeration value="SEER"/>
                                             <xsd:enumeration value="SEER2"/>
@@ -10421,13 +10422,13 @@ This subsection only reports data from the prescriptive CC.</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
-For each  L10a_DuctSystems  
+For each  L10b_DuctSystems  
  If L10e_DuctLeakageTestRequired == true
-result += L10a_DuctSystems
+result += L10b_DuctSystems
 End If</xsd:documentation>
                       <xsd:appinfo source="CIsrc">
                         <dtyp:srcSchema form="CCMCH01E" usage="reference">L10e_DuctLeakageTestRequired</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCMCH01E" usage="reference">L10a_DuctSystems</dtyp:srcSchema>
+                        <dtyp:srcSchema form="CCMCH01E" usage="reference">L10b_DuctSystems</dtyp:srcSchema>
                       </xsd:appinfo>
                     </xsd:annotation>
                   </xsd:element>

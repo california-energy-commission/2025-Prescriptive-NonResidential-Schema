@@ -5877,7 +5877,7 @@ End If</xsd:documentation>
           <xsd:documentation source="FieldText">Electric Ready Quick-service and Institutional Commercial Kitchens <d:t24refnolink/>120.6(k)</xsd:documentation>
           <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HospitalBuilding
 this section does not apply
-Else If  B01_ProjectHasCommercialKitchen == true
+Else If  B01_ProjectHasCommercialKitchen == true And A08_ProjectScopeNR == New
 this section is required
 End If</xsd:documentation>
           <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>

@@ -1562,7 +1562,7 @@ End If</xsd:documentation>
                                 <xsd:element name="Dist08bcc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
-                                    <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
+                                    <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a ECC rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 result = G10_HeatPumpDistRequirement
 Else result = ReqHeatPumpDWHR
@@ -1581,7 +1581,7 @@ End If</xsd:documentation>
                               <xsd:element name="Dist09cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
-                                  <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
+                                  <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a ECC Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 result = G11_IndividualSysDistRequirement
 Else result = ReqDWHRCZ16
@@ -2565,7 +2565,7 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>There are no Acceptance Tests or HERS verifications indicated on the permitted NRCC related to the systems or materials documented on this NRCI.</d:i>
+                  <d:i>There are no Acceptance Tests or ECC verifications indicated on the permitted NRCC related to the systems or materials documented on this NRCI.</d:i>
                 </xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If at least one RequireNRCAxxx == true, Or at least one RequireNRCVxxx == true
 the static text in AdditionalRequirements IS NOT DISPLAYED  
@@ -2577,7 +2577,7 @@ the static text in AdditionalRequirements is the only thing displayed after the 
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>The following Acceptance Tests and HERS Verifications related to the systems or materials documented on this Certificate of Installation have been indicated on the permitted Certificate of Compliance as being required to comply with Title 24, Part 6. </d:i>
+                  <d:i>The following Acceptance Tests and ECC Verifications related to the systems or materials documented on this Certificate of Installation have been indicated on the permitted Certificate of Compliance as being required to comply with Title 24, Part 6. </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -2617,14 +2617,14 @@ the static text in AdditionalRequirements is the only thing displayed after the 
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i> HERS verifications must be completed by a HERS Rater and Certificate of Verification forms completed through an approved HERS Provider database.  The Certificate of Verification  forms indicated below will be required by the Authority Having Jurisdiction to demonstrate compliance.  </d:i>
+                  <d:i> ECC verifications must be completed by a ECC Rater and Certificate of Verification forms completed through an approved ECC Provider database.  The Certificate of Verification  forms indicated below will be required by the Authority Having Jurisdiction to demonstrate compliance.  </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="G01_RequireNRCVPlb21H" type="comp:RequireNRCVPlb21H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-PLB-21-H High-rise Residential Central Hot Water Distribution HERS Verification</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-PLB-21-H High-rise Residential Central Hot Water Distribution ECC Verification</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-PRF parent
 result = Nrcv05_RequireNRCVPlb21H
 If result == true 
@@ -2670,7 +2670,7 @@ End If</xsd:documentation>
             <xsd:element name="G02_RequireNRCVPlb22H" type="comp:RequireNRCVPlb22H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-PLB-22-H High-rise Residential Individual Dwelling Unit Hot Water Distribution HERS Verification</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-PLB-22-H High-rise Residential Individual Dwelling Unit Hot Water Distribution ECC Verification</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-PRF parent
 result = Nrcv06_RequireNRCVPlb22H 
 If result == true 
