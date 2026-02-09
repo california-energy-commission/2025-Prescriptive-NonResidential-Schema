@@ -10495,7 +10495,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02_RequireNRCAMch02A
+result = Nrca13_RequireNRCAMch02A
 If result == true 
 only static text for this field is displayed
 Else
@@ -10504,7 +10504,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca01_RequireNRCAMch02A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02_RequireNRCAMch02A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca13_RequireNRCAMch02A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10548,7 +10548,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row2_RequireNRCAMch03A
+result = Nrca14_RequireNRCAMch03A
 If result == true 
 only static text is displayed
 Else
@@ -10557,7 +10557,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca02_RequireNRCAMch03A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row2_RequireNRCAMch03A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca14_RequireNRCAMch03A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10601,7 +10601,8 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row4_RequireNRCAMch04A
+If Nrca15_RequireNRCAMch04H or Nrca16_RequireNRCAMch04A == true
+result = true
 If result == true 
 only static text is displayed
 Else
@@ -10610,7 +10611,8 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca03_RequireNRCAMch04A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row4_RequireNRCAMch04A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca15_RequireNRCAMch04H</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca16_RequireNRCAMch04A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10654,7 +10656,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row5_RequireNRCAMch05A
+result = Nrca17_RequireNRCAMch05A
 If result == true 
 only static text is displayed
 Else
@@ -10663,7 +10665,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca04_RequireNRCAMch05A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row5_RequireNRCAMch05A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca17_RequireNRCAMch05A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10707,7 +10709,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row6_RequireNRCAMch06A
+result = Nrca18_RequireNRCAMch06A
 If result == true 
 only static text is displayed
 Else
@@ -10716,7 +10718,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca05_RequireNRCAMch06A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row6_RequireNRCAMch06A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca18_RequireNRCAMch06A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10760,7 +10762,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row7_RequireNRCAMch07A
+result = Nrca19_RequireNRCAMch07A
 If result == true 
 only static text is displayed
 Else
@@ -10769,7 +10771,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca06_RequireNRCAMch07A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row7_RequireNRCAMch07A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca19_RequireNRCAMch07A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10813,7 +10815,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row8_RequireNRCAMch08A
+result = Nrca20_RequireNRCAMch08A
 If result == true 
 only static text is displayed
 Else
@@ -10822,7 +10824,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca07_RequireNRCAMch08A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row8_RequireNRCAMch08A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca20_RequireNRCAMch08A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10866,7 +10868,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row9_RequireNRCAMch09A
+result = Nrca21_RequireNRCAMch09A
 If result == true 
 only static text is displayed
 Else
@@ -10875,7 +10877,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca08_RequireNRCAMch09A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row9_RequireNRCAMch09A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca21_RequireNRCAMch09A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10919,7 +10921,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row10_RequireNRCAMch10A
+result = Nrca22_RequireNRCAMch10A
 If result == true 
 only static text is displayed
 Else
@@ -10928,7 +10930,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca09_RequireNRCAMch10A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row10_RequireNRCAMch10A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca22_RequireNRCAMch10A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -10972,7 +10974,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row11_RequireNRCAMch11A
+result = Nrca23_RequireNRCAMch11A
 If result == true 
 only static text is displayed
 Else
@@ -10981,7 +10983,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca10_RequireNRCAMch11A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row11_RequireNRCAMch11A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca23_RequireNRCAMch11A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11025,7 +11027,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row12_RequireNRCAMch12A
+result = Nrca24_RequireNRCAMch12A
 If result == true 
 only static text is displayed
 Else
@@ -11034,7 +11036,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca11_RequireNRCAMch12A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row12_RequireNRCAMch12A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca24_RequireNRCAMch12A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11078,7 +11080,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row13_RequireNRCAMch13A
+result = Nrca25_RequireNRCAMch13A
 If result == true 
 only static text is displayed
 Else
@@ -11087,7 +11089,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca12_RequireNRCAMch13A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row13_RequireNRCAMch13A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca25_RequireNRCAMch13A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11131,7 +11133,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row14_RequireNRCAMch14A
+result = Nrca26_RequireNRCAMch14A
 If result == true 
 only static text is displayed
 Else
@@ -11140,7 +11142,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca13_RequireNRCAMch14A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row14_RequireNRCAMch14A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca26_RequireNRCAMch14A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11184,7 +11186,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row15_RequireNRCAMch15A
+result = Nrca27_RequireNRCAMch15A
 If result == true 
 only static text is displayed
 Else
@@ -11193,7 +11195,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca14_RequireNRCAMch15A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row15_RequireNRCAMch15A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca27_RequireNRCAMch15A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11237,7 +11239,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row16_RequireNRCAMch16A
+result = Nrca28_RequireNRCAMch16A
 If result == true 
 only static text is displayed
 Else
@@ -11246,7 +11248,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca15_RequireNRCAMch16A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row16_RequireNRCAMch16A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca28_RequireNRCAMch16A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11290,7 +11292,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row17_RequireNRCAMch17A
+result = Nrca29_RequireNRCAMch17A
 If result == true 
 only static text is displayed
 Else
@@ -11299,7 +11301,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca16_RequireNRCAMch17A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row17_RequireNRCAMch17A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca29_RequireNRCAMch17A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11343,7 +11345,7 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-result = NrcaMch02Row18_RequireNRCAMch18A
+result = Nrca30_RequireNRCAMch18A
 If result == true 
 only static text is displayed
 Else
@@ -11352,7 +11354,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca17_RequireNRCAMch18A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcaMch02Row18_RequireNRCAMch18A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca30_RequireNRCAMch18A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11497,10 +11499,11 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-Nothing is displayed for this NRCA 
+result = Nrca33_RequireNRCAMch21H
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca20_RequireNRCAMch21</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca33_RequireNRCAMch21H</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11545,10 +11548,11 @@ Else
 Nothing is displayed for this NRCA 
 End If
 Else If NRCC-PRF parent
-Nothing is displayed for this NRCA 
+result = Nrca34_RequireNRCAMch22A
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca21_RequireNRCAMch22A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca34_RequireNRCAMch22A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11596,7 +11600,8 @@ Else If NRCC-PRF parent
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca22_RequireNRCAMch23A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca22_RequireNRCAMch23A</dtyp:srcSchema>Nrca35_RequireNRCAMch23A
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca35_RequireNRCAMch23A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11652,7 +11657,7 @@ Else
 Nothing is displayed for this NRCV 
 End If
 Else If NRCC-PRF parent
-result = NrcvMch02Row2_RequireNRCVMch24H 
+result = Nrcv02_RequireNRCVMch24H 
 If result == true 
 only static text is displayed
 Else
@@ -11661,7 +11666,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrcv02_RequireNRCVMch24H</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcvMch02Row2_RequireNRCVMch24H</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv02_RequireNRCVMch24H</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11706,7 +11711,7 @@ Else
 Nothing is displayed for this NRCv 
 End If
 Else If NRCC-PRF parent
-result = NrcvMch02Row3_RequireNRCVMch27H 
+result = Nrcv03_RequireNRCVMch27H 
 If result == true 
 only static text is displayed
 Else
@@ -11715,7 +11720,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrcv03_RequireNRCVMch27H</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcvMch02Row3_RequireNRCVMch27H</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv03_RequireNRCVMch27H</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -11759,7 +11764,7 @@ Else
 Nothing is displayed for this NRCV 
 End If
 Else If NRCC-PRF parent
-result = NrcvMch02Row4_RequireNRCVMch32H 
+result = Nrcv04_RequireNRCVMch32H 
 If result == true 
 only static text is displayed
 Else
@@ -11768,7 +11773,7 @@ End If
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrcv04_RequireNRCVMch32H</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">NrcvMch02Row4_RequireNRCVMch32H</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv04_RequireNRCVMch32H</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
