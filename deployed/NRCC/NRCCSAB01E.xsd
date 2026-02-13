@@ -632,7 +632,7 @@ End If
  
 Conditions when this subsection is required or not required
  
-If Bpv Is not required and NotPresent
+If Bpv Is not required and NotPresent and A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
 BSolarReady is REQUIRED
 Else If Bpv Is required and IsPresent And 
 Bpv01b_AccessAreaTooSmall == true OR 
@@ -927,7 +927,7 @@ End If</xsd:documentation>
             <xsd:element name="Bdhw" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Compliance with Solar Thermal Water Heating Requirements in <d:t24refnolink/>170.2(d)2Bii (Multifamiily and hotel/ motel occupancies only)</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This subsection is required if A04_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel And user has indicated in UI a gas/propane central water heating system</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This subsection is required if A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2 And A04_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel And user has indicated in UI a gas/propane central water heating system</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
@@ -1531,7 +1531,7 @@ End If</xsd:documentation>
           <xsd:documentation source="FieldText">
             <d:b>F. ALLOCATED SOLAR ZONE</d:b>
           </xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">Section F is required if B01a_IsProjectAllocatedSolarZone == true</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">Section F is required if B01a_IsProjectAllocatedSolarZone == true And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2</xsd:documentation>
           <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
@@ -2217,7 +2217,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
             <d:b>J. PHOTOVOLTAIC (PV) AND BATTERY ENERGY STORAGE SYSTEMS</d:b>
           </xsd:documentation>
           <xsd:documentation source="CalculationsAndRules">
-This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false 
+This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
 And A04_WholeBuildingOccupancy includes  only one or more of the following EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
 Or If A04a_OtherFloorArea == true
 
