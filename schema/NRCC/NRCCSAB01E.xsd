@@ -955,7 +955,7 @@ End If</xsd:documentation>
                   <xsd:element name="Bdhw" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance with Solar Thermal Water Heating Requirements in [d:t24refnolink/]170.2(d)2Bii (Multifamiily and hotel/ motel occupancies only)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required if A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2 And A04_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel And user has indicated in UI a gas/propane central water heating system</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2 And A04_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
