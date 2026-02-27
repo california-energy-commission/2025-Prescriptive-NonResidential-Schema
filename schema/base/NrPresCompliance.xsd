@@ -6278,6 +6278,7 @@
          <xsd:enumeration value="BatteryExemptCZ1OfficeSchoolWarehouse"/>
          <xsd:enumeration value="PVBatteryExemptMF"/>
          <xsd:enumeration value="PVExempt2000SF"/>
+         <xsd:enumeration value="BuildingOccupancyLT80Pct"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ExceptionalConditionMessageCIELCE">

@@ -2195,7 +2195,8 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                <xsd:documentation source="CalculationsAndRules">
 This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
 And A04_WholeBuildingOccupancy includes  only one or more of the following EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
-Or If A04a_OtherFloorArea == true
+
+Or If A04a_OtherFloorArea == true And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
 
 If sum of square footage LT 80%, 
 D03_ExceptionalConditionMessageCCSABE BuildingOccupancyLT80Pct
