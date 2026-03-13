@@ -683,13 +683,7 @@ End if</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Type [d:sup]1,2[/d:sup]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">In current row If B01a_PlumbingProjectScope == NewSystem, this field is required. 
- User selects from list: CentralNonresSpaces display term Central System (serving nonresidential spaces), IndividualNonresSpaces display term Individual System (serving nonresidential spaces), CentralDwellingUnits display term Central System (serving 2 or more dwelling units), IndividualDwellingUnits display term Individual Dwelling Units System(s),  SolarThermalSystem display term Dwelling Unit Solar Thermal System, CombinedHydronic display term Combined Hydronic System.</xsd:documentation>
-                                          <xsd:appinfo source="displayterm">
-                                             <dtyp:displayterm value="CentralDwellingUnits">Central System (serving 2 or more dwelling units) [d:sup]2, 3[/d:sup]</dtyp:displayterm>
-                                             <dtyp:displayterm value="IndividualDwellingUnits">Individual Dwelling Units System(s) [d:sup]2[/d:sup]</dtyp:displayterm>
-                                             <dtyp:displayterm value="IndividualNonresSpaces">Individual System (serving nonresidential spaces) [d:sup]1[/d:sup]</dtyp:displayterm>
-                                          </xsd:appinfo>
-                                          
+ User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B03aNew_ProjectHasEquipment" type="comp:ProjectHasEquipment"  minOccurs="0">
@@ -740,13 +734,8 @@ End if</xsd:documentation>
                                     <xsd:element name="B02Altered_WaterHeatingSystem" type="hvac:WaterHeatingSystem"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Type [d:sup]1,2[/d:sup]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">In the current row If B01b_PlumbingProjectScope == AlteredSystem, this field is required.  User selects from list: CentralNonresSpaces display term Central System (serving nonresidential spaces), IndividualNonresSpaces display term Individual System (serving nonresidential spaces), CentralDwellingUnits display term Central System (serving 2+dwelling units), IndividualDwellingUnits display term Individual Dwelling Units System(s),  SolarThermalSystem display term Solar Thermal System, CombinedHydronic display term Combined Hydronic System</xsd:documentation>
-                                          <xsd:appinfo source="displayterm">
-                                             <dtyp:displayterm value="CentralDwellingUnits">Central System (serving 2 or more dwelling units) [d:sup]2, 3[/d:sup]</dtyp:displayterm>
-                                             <dtyp:displayterm value="IndividualDwellingUnits">Individual Dwelling Units System(s) [d:sup]2[/d:sup]</dtyp:displayterm>
-                                             <dtyp:displayterm value="IndividualNonresSpaces">Individual System (serving nonresidential spaces) [d:sup]1[/d:sup]</dtyp:displayterm>
-                                          </xsd:appinfo>
-                                          
+                                          <xsd:documentation source="CalculationsAndRules">In the current row If B01b_PlumbingProjectScope == AlteredSystem, this field is required.  
+User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B03aAltered_ProjectHasEquipment" type="comp:ProjectHasEquipment"  minOccurs="0">
@@ -2052,7 +2041,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
                            <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications is specified to comply with Table 120.3-A1 or Table 120.3-A2 (see below) per [d:t24refnolink/]120.3: [d:l t="*"][d:list] Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list] The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list] Pipes that are externally heated [/d:list][/d:l]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces 
+                           <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces
 user input: 
 End If
  
@@ -2069,7 +2058,7 @@ End If</xsd:documentation>
                      <xsd:element name="G14_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If no row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces 
+                           <xsd:documentation source="CalculationsAndRules">If no row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                         </xsd:annotation>
