@@ -1096,7 +1096,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="DHWreq02cc_StorageTankInsulation" type="comp:StorageTankInsulation" >
+                                    <xsd:element name="DHWreq02cc_StorageTankInsulation">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Unfired storage tank insulation shall have Internal + External [d:gte/]R-16 OR External [d:gte/]R-12. Label required per [d:t24refnolink/]110.3(c)3</xsd:documentation>
@@ -1104,8 +1104,9 @@ End If</xsd:documentation>
 If F18_StorageTankInsulation IsPresent
 result = F18_StorageTankInsulation
 End If
+
 Else If CC-PRF parent
-result = ReqYes
+result = SeePlans
 End If
  
 End If
@@ -1118,8 +1119,11 @@ End If</xsd:documentation>
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">F18_StorageTankInsulation</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="comp:StorageTankInsulation comp:SeePlansMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="DHWreq04cc_InstantaneousIsolationValves" type="comp:InstantaneousIsolationValves" >
+                                    <xsd:element name="DHWreq04cc_InstantaneousIsolationValves">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating [d:gt/]6.8 kBTUH or 2 kW has been specified per [d:t24refnolink/]110.3(c)6</xsd:documentation>
@@ -1128,8 +1132,9 @@ If F20_InstantaneousIsolationValves
 IsPresent
 result = F20_InstantaneousIsolationValves
 End If
+
 Else If CC-PRF parent
-result = ReqYes
+result = SeePlans
  
 End If
 If result == ReqYes 
@@ -1141,6 +1146,9 @@ End If</xsd:documentation>
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">F20_InstantaneousIsolationValves</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="comp:InstantaneousIsolationValves comp:SeePlansMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="DHWreq05cc_HeatPumpApplies">
                                        <xsd:annotation>
@@ -1323,6 +1331,10 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
+End If
+
+Else If CC-PRF parent
+result = SeePlans 
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">G04_IsolationValves</dtyp:srcSchema>
@@ -1330,7 +1342,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:union memberTypes="comp:IsolationValves comp:NotApplicableMessage"/>
+                                          <xsd:union memberTypes="comp:IsolationValves comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Dist05cc_TankDrainPort">
@@ -1386,6 +1398,10 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
+End If
+
+Else If CC-PRF parent
+result = SeePlans 
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">G08_RecircLoopHP</dtyp:srcSchema>
@@ -1393,7 +1409,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:union memberTypes="comp:RecircLoopHP comp:NotApplicableMessage"/>
+                                          <xsd:union memberTypes="comp:RecircLoopHP comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Dist07bcc_RecircFuelHP">
@@ -1407,6 +1423,10 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
+End If
+
+Else If CC-PRF parent
+result = SeePlans 
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">G09_RecircFuelHP</dtyp:srcSchema>
@@ -1414,7 +1434,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:union memberTypes="comp:RecircFuelHP comp:NotApplicableMessage"/>
+                                          <xsd:union memberTypes="comp:RecircFuelHP comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Dist08bcc_RecircTemp">
@@ -1428,6 +1448,10 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
+End If
+
+Else If CC-PRF parent
+result = SeePlans 
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">G09_RecircTemp</dtyp:srcSchema>
@@ -1435,7 +1459,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:union memberTypes="comp:RecircTemp comp:NotApplicableMessage"/>
+                                          <xsd:union memberTypes="comp:RecircTemp comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Dist09bcc_PipingSize">
@@ -1449,6 +1473,10 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
+End If
+
+Else If CC-PRF parent
+result = SeePlans 
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">G10_PipingSize</dtyp:srcSchema>
@@ -1456,7 +1484,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:union memberTypes="comp:PipingSize comp:NotApplicableMessage"/>
+                                          <xsd:union memberTypes="comp:PipingSize comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Dist10bcc_RecircThermostat">
@@ -1470,6 +1498,10 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
+End If
+
+Else If CC-PRF parent
+result = SeePlans 
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCPLB01E"  usage="copy">G11_RecircThermostat</dtyp:srcSchema>
@@ -1477,7 +1509,7 @@ End If</xsd:documentation>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:union memberTypes="comp:RecircThermostat comp:NotApplicableMessage"/>
+                                          <xsd:union memberTypes="comp:RecircThermostat comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     </xsd:sequence>
