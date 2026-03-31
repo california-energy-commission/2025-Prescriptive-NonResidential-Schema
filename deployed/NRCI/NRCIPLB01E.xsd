@@ -1086,6 +1086,7 @@ End If</xsd:documentation>
                       <xsd:documentation source="FieldText">
                         <d:b>Domestic Hot Water Equipment Additional Requirements</d:b>
                       </xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">This subsection is required and displayed If CC-PLB parent And any row in this subsection has result == ReqYes  Else If CC-PRF parent this subsection is NOT displayed or required</xsd:documentation>
                     </xsd:annotation>
                     <xsd:complexType>
                       <xsd:sequence>
@@ -1103,9 +1104,12 @@ End If</xsd:documentation>
                               <xsd:element name="DHW01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+result = F03_WaterHeatingSystemName
+End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
@@ -1116,10 +1120,6 @@ End If</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F18_StorageTankInsulation IsPresent
 result = F18_StorageTankInsulation
-End If
-
-Else If CC-PRF parent
-result = SeePlans
 End If
  
 End If
@@ -1141,15 +1141,10 @@ End If</xsd:documentation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating <d:gt/>6.8 kBTUH or 2 kW has been specified per <d:t24refnolink/>110.3(c)6</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F20_InstantaneousIsolationValves
-IsPresent
+If F20_InstantaneousIsolationValves IsPresent
 result = F20_InstantaneousIsolationValves
 End If
 
-Else If CC-PRF parent
-result = SeePlans
- 
-End If
 If result == ReqYes 
 Display static text in AdditionalRequirements
 Else
@@ -1172,10 +1167,6 @@ If F22a_HeatPumpApplies IsPresent
 result = F22a_HeatPumpApplies
 Else
 result = BlankGrayedOut
-End If
-
-Else If CC-PRF parent
-result = ReqYes 
 End If
 
 If result == ReqYes 
@@ -1279,9 +1270,10 @@ End If</xsd:documentation>
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-result = F03_WaterHeatingSystemName</xsd:documentation>
+result = F03_WaterHeatingSystemName
+</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
@@ -1350,10 +1342,6 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
-End If
-
-Else If CC-PRF parent
-result = SeePlans 
 End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">G04_IsolationValves</dtyp:srcSchema>
@@ -1417,10 +1405,6 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
-End If
-
-Else If CC-PRF parent
-result = SeePlans 
 End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">G08_RecircLoopHP</dtyp:srcSchema>
@@ -1467,10 +1451,6 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
-End If
-
-Else If CC-PRF parent
-result = SeePlans 
 End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">G09_RecircTemp</dtyp:srcSchema>
@@ -1492,10 +1472,6 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
-End If
-
-Else If CC-PRF parent
-result = SeePlans 
 End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">G10_PipingSize</dtyp:srcSchema>
@@ -1517,10 +1493,6 @@ If  result == ReqYes,
 Display static text in AdditionalRequirements 
 Else 
 Nothing is displayed for this field
-End If
-
-Else If CC-PRF parent
-result = SeePlans 
 End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">G11_RecircThermostat</dtyp:srcSchema>
@@ -1559,9 +1531,18 @@ Else If CC-PRF parent this subsection is NOT displayed or required</xsd:document
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-result = F03_WaterHeatingSystemName</xsd:documentation>
+result = F03_WaterHeatingSystemName
+
+Else If CC-PRF parent
+   If Water01_WaterHeaterName IsPresent
+      result = Water01_WaterHeaterName
+   Else If WaterMF01_WaterHeatingSystemName IsPresent
+      result = WaterMF01_WaterHeatingSystemName
+End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="copy">Water01_WaterHeaterName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="copy">WaterMF01_WaterHeatingSystemName</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
@@ -1692,9 +1673,19 @@ End If</xsd:documentation>
                               <xsd:element name="Dist12a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = F03_WaterHeatingSystemName
+
+Else If CC-PRF parent
+   If Water01_WaterHeaterName IsPresent
+      result = Water01_WaterHeaterName
+   Else If WaterMF01_WaterHeatingSystemName IsPresent
+      result = WaterMF01_WaterHeatingSystemName
+End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="copy">Water01_WaterHeaterName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="copy">WaterMF01_WaterHeatingSystemName</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
