@@ -3375,7 +3375,7 @@ End If</xsd:documentation>
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">PAF</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">
-   If Iu02_SpaceFunction does not include one of the following result = BlankGrayedOut
+   If Iu02_SpaceFunction includes at least one of the following this field is user input
    AudienceSeatingArea
    AuditoriumArea
    AutoRepairArea
@@ -3383,10 +3383,15 @@ End If</xsd:documentation>
    BeautySalonArea
    CivicMeetingPlaceArea
    ClassroomLectureTrainingVocationalArea
+   CommercialIndustrialStorageArea
+   CommercialIndustrialStorageShipping
+   CommercialIndustrialWarehouse
    ConferenceMultipurposeMeetingMF
    ConventionConferenceMultipurposeMeetingCenterArea
+   CopyRoom
    CorridorArea
    ElectricalMechanicalTelephoneRoom
+   ExerciseCenterGymnasiumArea
    ExhibitMuseumArea
    FamilyDiningArea
    FastfoodDining
@@ -3395,16 +3400,23 @@ End If</xsd:documentation>
    GeneralCommercialIndustrialWorkAreaLowBay
    GeneralCommercialIndustrialWorkAreaPrecision
    GrocerySalesArea
+   HospitalExamTreatment
    HospitalImaging
+   HospitalMedicalSupply
    HospitalNursery
    HospitalNurseStation
+   HospitalOperatingRoom
    HospitalPatientRoom
    HospitalPhysicalTherapy
    HospitalRecovery
    HotelFunctionArea
+   KitchenCommercialFoodPreparation
    LaboratoryScientific
+   Laundry
    LibraryReadingArea
+   LibraryStacks
    LobbyMainEntry
+   LockerDressingRoom
    LoungeBreakRoom
    LowVisionCorridorArea
    LowVisionDiningArea
@@ -3419,6 +3431,7 @@ End If</xsd:documentation>
    NurseStationMF
    Office250FtOrLess
    OfficeGreaterThan250Ft
+   ParkingGarageAreaDaylightAdaptationZone
    ParkingGarageBuildingParkingArea
    PharmacyArea
    PhysicalTherapyMF
@@ -3426,9 +3439,15 @@ End If</xsd:documentation>
    Restroom
    RetailFittingRoom
    RetailMerchandiseSalesWholesaleShowroom
+   SportsArenaSeatsGTE5000ClassI
+   SportsArenaSeatsLimitedClassIV
+   SportsArenaSeatsLT2000ClassIII
+   SportsArenaSeatsLT5000ClassII
    Stairwell
+   StorageMF
    TheaterMotionPicture
    TheaterPerformance
+   TransportationFunctionConcourseBaggage
    TransportationFunctionTicketing
    VideoConferencingStudio
             </xsd:documentation>
