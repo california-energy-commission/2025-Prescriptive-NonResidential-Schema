@@ -641,6 +641,7 @@ Bpv01d_NoContiguousAccess OR
 Bpv01e_SnowloadException == true Or 
 Bpv0f_MultitenantException == true Or
 Bpv01g_FloorAreaException == true
+Bpv0h_PerfTradeOffException == true
 BSolarReady is REQUIRED</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
@@ -918,6 +919,17 @@ If A04a_OtherFloorArea == false
    result == true and BSolarReady subsection is triggered
 Else
    result == false 
+End If</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Bpv0h_PerfTradeOffException" type="comp:PerfTradeOffException">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">PV and Battery Storage features are supported within the NRCC/LMCC-PRF-E form provided for this project as not required. Because of this, the NRCC/LMCC-SAB-E is required to support the mandatory solar readiness requirements for the project.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">User input
+If result == true 
+BSolarReady subsection is triggered
+Else If result == false And Bpv0e_SnowLoadException And Bpv0f_MultiTenantException == false 
+Section_J is triggered  
 End If</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
@@ -2217,7 +2229,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
             <d:b>J. PHOTOVOLTAIC (PV) AND BATTERY ENERGY STORAGE SYSTEMS</d:b>
           </xsd:documentation>
           <xsd:documentation source="CalculationsAndRules">
-This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
+This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false And And Bpv0h_PerfTradeOffException == false And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
 And A04_WholeBuildingOccupancy includes  only one or more of the following EventsExhibits, LibraryBuilding, HotelMotel, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, MedicalClinicBuilding, RestaurantBuilding, RetailBuilding, GroceryStoreBuilding, SchoolBuilding, Warehouse, ReligiousFacilityBuilding, SportsRecreation, HighRiseResidential
 
 Or If A04a_OtherFloorArea == true And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
