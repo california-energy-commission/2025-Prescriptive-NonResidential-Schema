@@ -11692,10 +11692,10 @@ End If</xsd:documentation>
             <xsd:element name="G20a_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If G21_RequireNRCAMch22A == false Or NRCC-PRF is parent 
+                <xsd:documentation source="CalculationsAndRules">If G20a_RequireNRCAMch22A == false Or NRCC-PRF is parent 
 this field is not required and nothing is displayed
  
-Else If  G21_RequireNRCAMch22A  == true And NRCC-MCH is parent
+Else If  G20a_RequireNRCAMch22A  == true And NRCC-MCH is parent
 result = NRCC-MCH   Nrca21_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
                 <xsd:appinfo source="CIsrc">
@@ -11706,10 +11706,10 @@ End If</xsd:documentation>
             <xsd:element name="G20a_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If G21_RequireNRCAMch22A == false Or NRCC-PRF is parent 
+                <xsd:documentation source="CalculationsAndRules">If G20a_RequireNRCAMch22A == false Or NRCC-PRF is parent 
 this field is not required and nothing is displayed
  
-Else If G21_RequireNRCAMch22A == true And NRCC-MCH is parent
+Else If G20a_RequireNRCAMch22A == true And NRCC-MCH is parent
 result = NRCC-MCH   Nrca21_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
                 <xsd:appinfo source="CIsrc">
@@ -11784,7 +11784,7 @@ End If</xsd:documentation>
             <xsd:element name="G22_RequireNRCVMch24H" type="comp:RequireNRCVMch24H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-24 Enclosure Air Leakage Worksheet <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-24-H Enclosure Air Leakage Worksheet <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
 result = Nrcv02_RequireNRCVMch24H  
 If result == true 
@@ -11838,7 +11838,7 @@ End If</xsd:documentation>
             <xsd:element name="G23_RequireNRCVMch27H" type="comp:RequireNRCVMch27H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27 High-rise Residential <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27-H High-rise Residential <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
 result = Nrcv03_RequireNRCVMch27H  
 If result == true 
