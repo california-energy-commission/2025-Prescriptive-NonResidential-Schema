@@ -814,14 +814,18 @@ End If</xsd:documentation>
 result = BlankGrayedOut stored in NotApplicableMessage; 
 
 If DwellingUnitEquipment IsPresent then 
-If F17_NewUnitGasWaterHeater == ReqYes or ReqNA; 
-result = true display term Yes; 
-Else result = false display term No
+   If F17_NewUnitGasWaterHeater == ReqYes or ReqNA; 
+      result = true display term Yes; 
+   Else 
+      result = false display term No
 End If
+
 Continue evaluation If result == true,
+
 If F18_StorageTankInsulation  F19_StateBuildingWaterHeatingEnergy And F20_InstantaneousIsolationValves  and F21_SchoolHeatPumpWH == ReqYes or ReqNA Then 
-result = true display term Yes; 
-Else result = false display term No
+   result = true display term Yes; 
+Else 
+   result = false display term No
 End If
 End If</xsd:documentation>
                 </xsd:annotation>
@@ -1246,16 +1250,12 @@ End If</xsd:documentation>
                                       <xsd:element name="F10a_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated">
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == InstantaneousConsumer or StorageResDutyCommercial
-End If</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                         </xsd:annotation>
                                       </xsd:element>
                                       <xsd:element name="F10a_NotApplicableMessage">
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h) or</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules"> If F08_WaterHeaterType == HeatPumpAirSource or HeatPumpWaterHeater or InstantaneousConsumerElectric or StorageConsumer or NEEAIndividualHeatPumpWH or NonNEEAIndividualHeatPumpWH
-result = BlankGrayedOut stored in NotApplicableMessage
-End If</xsd:documentation>
                                         </xsd:annotation>
                                         <xsd:simpleType>
                                           <xsd:restriction base="comp:NotApplicableMessage">
@@ -1289,7 +1289,7 @@ User enters UEF efficiency</xsd:documentation>
                                       <xsd:element name="F11_NotApplicableMessage">
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH Or StorageCommercialElectric
+                                          <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH Or StorageCommercialElectric or HeatPumpAirSource 
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                         </xsd:annotation>

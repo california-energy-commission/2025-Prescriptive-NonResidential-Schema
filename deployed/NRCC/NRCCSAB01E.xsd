@@ -2970,11 +2970,13 @@ Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv04_PV_MinSizeEquation))
                             <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="Bat04_BatteryCapacityMinPerArea" type="hvac:BatteryCapacityMinPerArea">
+                        <xsd:element name="Bat04_BatteryCapacityMinPerArea">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Min Rated Usable Energy Capacity of BESS Required (kWh)</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If Pv09_PV_MinimumSize = Sum All (Pv04_PV_MinSizeEquation)
+If A02_ClimateZone == 1 And Pv01_WholeBuildingOccupancy == OfficeBuilding Or FinancialInstitutionBuilding Or UnleasedTenantSpace Or TenantSpaceGT2000 Or MedicalClinicBuilding Or SchoolBuilding Or Warehouse
+  result = BlankGrayedOut
+Else If Pv09_PV_MinimumSize = Sum All (Pv04_PV_MinSizeEquation)
   result = (Pv02_ConditionedFloorArea x FactorB) / (1000 * Bat03_ChargeDischargeEfficiency ^ 0.5)
 Else If Pv09_PV_MinimumSize == Sum All (Pv12_PV_MinSizeSARA)
   result = (Pv02_ConditionedFloorArea x FactorB) / (1000 * Bat03_ChargeDischargeEfficiency ^ 0.5) * ((Sum All (Pv12_PV_MinSizeSARA)) / (Sum All (Pv04_PV_MinSizeEquation))
@@ -3080,7 +3082,7 @@ Else If Pv01_WholeBuildingOccupancy == HotelMotel
   If A02_ClimateZone == 16
     FactorB = 0.85
 Else If Pv01_WholeBuildingOccupancy == OfficeBuilding Or FinancialInstitutionBuilding Or UnleasedTenantSpace Or TenantSpaceGT2000 Or MedicalClinicBuilding
-  If A02_ClimateZone == 1 Or 3 Or 5 Or 16
+  If A02_ClimateZone == 3 Or 5 Or 16
     FactorB = 4.35
   If A02_ClimateZone == 2 Or 4 Or InRange (6,14)
     FactorB = 5.26
@@ -3153,8 +3155,6 @@ Else If Pv01_WholeBuildingOccupancy == RetailBuilding Or GroceryStoreBuilding
   If A02_ClimateZone == 16
     FactorB = 1.91
 Else If Pv01_WholeBuildingOccupancy == SchoolBuilding
-  If A02_ClimateZone == 1
-    FactorB = 1.27
   If A02_ClimateZone == 2
     FactorB = 3.05
   If A02_ClimateZone == 3
@@ -3170,10 +3170,10 @@ Else If Pv01_WholeBuildingOccupancy == SchoolBuilding
   If A02_ClimateZone == 16
     FactorB = 2.38
 Else If Pv01_WholeBuildingOccupancy == Warehouse
-  If A02_ClimateZone == 1 Or 3 Or 5
+  If A02_ClimateZone == 3 Or 5
     FactorB = 0.41
   If A02_ClimateZone == 2 or 4 Or InRange (6, 14)
-    FactorB = 0.44
+    FactorB = 0.41
   If A02_ClimateZone == 15
     FactorB = 0.54
   If A02_ClimateZone == 16
@@ -3255,6 +3255,9 @@ Else If Pv01_WholeBuildingOccupancy == HighRiseResidential
     FactorB = 1.88
 </xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes="hvac:BatteryCapacityMinPerArea comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
                         <xsd:element name="Bat05_BatteryPowerMinPerArea" type="hvac:BatteryPowerMinPerArea">
                           <xsd:annotation>
