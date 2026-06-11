@@ -3259,13 +3259,19 @@ Else If Pv01_WholeBuildingOccupancy == HighRiseResidential
                             <xsd:union memberTypes="hvac:BatteryCapacityMinPerArea comp:NotApplicableMessage"/>
                           </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="Bat05_BatteryPowerMinPerArea" type="hvac:BatteryPowerMinPerArea">
+                        <xsd:element name="Bat05_BatteryPowerMinPerArea">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Min Rated Power Capacity of BESS Required (kWdc)</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">Calculated field:
-result = Bat04_BatteryCapacityMinPerArea / 4
+If Bat04_BatteryCapacityMinPerArea == BlankGrayedOut
+   result = BlankGrayedOut
+Else 
+   result = Bat04_BatteryCapacityMinPerArea / 4
                                        </xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes="hvac:BatteryPowerMinPerArea comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>

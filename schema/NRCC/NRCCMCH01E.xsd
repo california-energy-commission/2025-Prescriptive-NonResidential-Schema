@@ -12426,8 +12426,8 @@ End If</xsd:documentation>
 Or 
 L23_DuctworkAlteredSystem == true
  
-Calculated field:If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct  == true And 
-L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L22_ExistingToRemain == false 
+Calculated field:If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct And L22_ExistingToRemain == true And 
+L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling == false 
 And
 L20_DuctsLT25FtInstalled != true
 result = true
